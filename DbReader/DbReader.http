@@ -1,0 +1,6 @@
+@DbReader_HostAddress = http://localhost:5232
+
+GET {{DbReader_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
