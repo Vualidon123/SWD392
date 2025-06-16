@@ -6,66 +6,62 @@ using MongoDB.Driver;
 using SWD_Clone.Models;
 
 
-    public class MongoDbContext
+public class MongoDbContext
+{
+    private readonly IMongoDatabase _database;
+
+    public MongoDbContext(string connectionString, string databaseName)
     {
-        private readonly IMongoDatabase _database;
+        var client = new MongoClient(connectionString);
+        _database = client.GetDatabase(databaseName);
+    }
 
-        public MongoDbContext(string connectionString, string databaseName)
+    public IMongoCollection<User> Users => _database.GetCollection<User>("Users");
+    public IMongoCollection<Test> Chats => _database.GetCollection<Test>("Tests");
+    public IMongoCollection<History> Histories => _database.GetCollection<History>("Histories");
+    public IMongoCollection<School> Schools => _database.GetCollection<School>("Schools");
+
+    public IMongoCollection<T> GetCollection<T>()
+    {
+        if (typeof(T) == typeof(User))
+            return (IMongoCollection<T>)Users;
+
+        throw new ArgumentException("Collection not found for the given type");
+    }
+
+    // NO, NOT HERE
+    public void SeedData()
+    {
+        // Seed Emp data
+        if (!Users.Find(_ => true).Any())
         {
-            var client = new MongoClient(connectionString);
-            _database = client.GetDatabase(databaseName);
-        }
-
-        public IMongoCollection<Users> user => _database.GetCollection<Users>("Users");
-
-        public IMongoCollection<T> GetCollection<T>()
-        {
-            if (typeof(T) == typeof(Users))
-                return (IMongoCollection<T>)user;
-
-            throw new ArgumentException("Collection not found for the given type");
-        }
-        public void SeedData()
-        {
-            // Seed Emp data
-            if (!user.Find(_ => true).Any())
-            {
-                var johnId = ObjectId.GenerateNewId();
-                var janeId = ObjectId.GenerateNewId();
-                var bobId = ObjectId.GenerateNewId();
-                user.InsertMany(new[]
+            Users.InsertMany(new[]
                 {
-            new Users
-            {
-                ObjectId= johnId,
-                ID = 1,
-                Name = "John Doe",
-                Email = "john@example.com",
-                PhoneNumber = "123-456-7890",
-                Password = "hashed_password_1" // In production, ensure passwords are properly hashed
-            },
-            new Users
-            {
-                ObjectId= janeId,
-                ID = 2,
-                Name = "Jane Smith",
-                Email = "jane@example.com",
-                PhoneNumber = "123-456-7891",
-                Password = "hashed_password_2"
-            },
-            new Users
-            {
-                ObjectId= bobId,
-                ID = 3,
-                Name = "Bob Wilson",
-                Email = "bob@example.com",
-                PhoneNumber = "123-456-7892",
-                Password = "hashed_password_3"
-            }
-        });
-            }
-
-
-
+                    new User
+                    {
+                        Id= Guid.NewGuid(),
+                        Name = "John Doe",
+                        Email = "john@example.com",
+                        PhoneNumber = "123-456-7890",
+                        Password = "hashed_password_1" // In production, ensure passwords are properly hashed
+                    },
+                    new User
+                    {
+                        Id= Guid.NewGuid(),
+                        Name = "Jane Smith",
+                        Email = "jane@example.com",
+                        PhoneNumber = "123-456-7891",
+                        Password = "hashed_password_2"
+                    },
+                    new User
+                    {
+                        Id= Guid.NewGuid(),
+                        Name = "Bob Wilson",
+                        Email = "bob@example.com",
+                        PhoneNumber = "123-456-7892",
+                        Password = "hashed_password_3"
+                    }
+            });
         }
     }
+}
