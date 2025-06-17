@@ -1,0 +1,6 @@
+@SPTS_Reader_HostAddress = http://localhost:5232
+
+GET {{SPTS_Reader_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
