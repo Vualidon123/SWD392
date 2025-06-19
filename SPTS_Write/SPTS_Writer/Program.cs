@@ -14,9 +14,10 @@ BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
 var builder = WebApplication.CreateBuilder(args);
 // Add Repository to the container.
 builder.Services.AddSingleton<IRepository<Test>, Repository<Test>>();
+builder.Services.AddSingleton<IRepository<School>, Repository<School>>();
 // Add services to the container.
 builder.Services.AddSingleton<TestService>(); // Assuming you have a TestService that uses IRepository<Test>
-
+builder.Services.AddSingleton<SchoolService>();
 
 
 
