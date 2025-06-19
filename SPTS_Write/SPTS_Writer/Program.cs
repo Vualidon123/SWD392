@@ -1,8 +1,25 @@
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
+using SPTS_Writer.Data;
+using SPTS_Writer.Models;
+using SPTS_Writer.Service;
 
+// Removed the line causing the error as GuidRepresentationMode is no longer supported in newer versions of MongoDB.Driver
+// BsonDefaults.GuidRepresentationMode = GuidRepresentationMode.V3;
+
+// Instead, configure the GuidSerializer directly
+BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
 
 var builder = WebApplication.CreateBuilder(args);
-
+// Add Repository to the container.
+builder.Services.AddSingleton<IRepository<Test>, Repository<Test>>();
 // Add services to the container.
+builder.Services.AddSingleton<TestService>(); // Assuming you have a TestService that uses IRepository<Test>
+
+
+
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

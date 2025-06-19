@@ -1,5 +1,4 @@
-﻿
-using System.Data;
+﻿using System.Data;
 using System;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -21,15 +20,25 @@ public class MongoDbContext
     public IMongoCollection<History> Histories => _database.GetCollection<History>("Histories");
     public IMongoCollection<School> Schools => _database.GetCollection<School>("Schools");
 
+
+
+
     public IMongoCollection<T> GetCollection<T>()
     {
         if (typeof(T) == typeof(User))
             return (IMongoCollection<T>)Users;
-
+        if (typeof(T) == typeof(Test))
+            return (IMongoCollection<T>)Chats;
+        
+        if (typeof(T) == typeof(History))
+            return (IMongoCollection<T>)Histories;
+        if (typeof(T) == typeof(School))
+            return (IMongoCollection<T>)Schools;
+       
+     
         throw new ArgumentException("Collection not found for the given type");
     }
 
-    // NO, NOT HERE
     public void SeedData()
     {
         // Seed Emp data
@@ -63,5 +72,8 @@ public class MongoDbContext
                     }
             });
         }
+
+        // Seed Test data
+       
     }
 }

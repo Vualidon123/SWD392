@@ -11,9 +11,9 @@
 
         public Repository(MongoDbContext context) => _collection = context.GetCollection<T>();
 
-        public async Task<T?> GetByIdAsync(int id)
+        public async Task<T?> GetByIdAsync(string id)
         {
-            var filter = Builders<T>.Filter.Eq("ID", id);
+            var filter = Builders<T>.Filter.Eq("_id", id);
             return await _collection.Find(filter).FirstOrDefaultAsync();
         }
 
@@ -32,15 +32,15 @@
             await _collection.InsertOneAsync(entity);
         }
 
-        public async Task UpdateAsync(T entity)
+        public async Task UpdateAsync(string id, T entity)
         {
-            var filter = Builders<T>.Filter.Eq("ID", (int)typeof(T).GetProperty("ID").GetValue(entity, null));
+            var filter = Builders<T>.Filter.Eq("_id", id);
             await _collection.ReplaceOneAsync(filter, entity);
         }
 
-        public async Task DeleteAsync(T entity)
+        public async Task DeleteAsync(string id)
         {
-            var filter = Builders<T>.Filter.Eq("ID", (int)typeof(T).GetProperty("ID").GetValue(entity, null));
+            var filter = Builders<T>.Filter.Eq("_id", id);
             await _collection.DeleteOneAsync(filter);
         }
 
