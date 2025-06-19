@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using SPTS_Writer.Models;
-using SPTS_Writer.Service;
+﻿using Microsoft.AspNetCore.Mvc;
+using SPTS_Writer.Entities;
+using SPTS_Writer.Services;
 
 namespace SPTS_Writer.Controllers
 {

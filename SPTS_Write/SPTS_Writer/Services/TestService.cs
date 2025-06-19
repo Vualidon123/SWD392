@@ -1,7 +1,8 @@
-﻿using SPTS_Writer.Data;
-using SPTS_Writer.Models;
+﻿using SPTS_Writer.Data.Abstraction;
+using SPTS_Writer.Entities;
+using SPTS_Writer.Services.Abstraction;
 
-namespace SPTS_Writer.Service
+namespace SPTS_Writer.Services
 {
     public class TestService : ITestService
     {

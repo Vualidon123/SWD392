@@ -1,4 +1,4 @@
-﻿namespace SPTS_Writer.Models;
+﻿namespace SPTS_Writer.Entities;
 
 public class Base
 {

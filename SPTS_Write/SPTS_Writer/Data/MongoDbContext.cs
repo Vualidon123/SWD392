@@ -1,8 +1,5 @@
-﻿using System.Data;
-using System;
-using MongoDB.Bson;
-using MongoDB.Driver;
-using SPTS_Writer.Models;
+﻿using MongoDB.Driver;
+using SPTS_Writer.Entities;
 
 
 public class MongoDbContext

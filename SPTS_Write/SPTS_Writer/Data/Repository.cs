@@ -1,9 +1,10 @@
-﻿namespace SPTS_Writer.Data 
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using SPTS_Writer.Data.Abstraction;
+using System.Linq.Expressions;
+
+namespace SPTS_Writer.Data
 {
-    
-    using MongoDB.Bson;
-    using MongoDB.Driver;
-    using System.Linq.Expressions;
 
     public class Repository<T> : IRepository<T> where T : class
     {

@@ -1,7 +1,7 @@
-﻿using SPTS_Writer.Data;
-using SPTS_Writer.Models;
+﻿using SPTS_Writer.Data.Abstraction;
+using SPTS_Writer.Entities;
 
-namespace SPTS_Writer.Service
+namespace SPTS_Writer.Services
 {
     public class SchoolService
     {
