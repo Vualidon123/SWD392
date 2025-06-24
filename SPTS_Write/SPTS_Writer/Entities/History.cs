@@ -15,3 +15,10 @@ public enum TestStatus
     Completed = 2,
     Discard = 3 // ? instead of Discarded we delete the whole history?
 }
+
+public class TestSubmission
+{
+    public Test test { get; set; }
+    public User who { get; set; }
+    public List<Answer> answers { get; set; }
+}
