@@ -3,7 +3,7 @@ using SPTS_Writer.Entities;
 namespace SPTS_Writer.Utils;
 public class DataGenerator
 {
-    
+
     public static List<Question> GenerateSampleQuestions()
     {
         return new List<Question>(){
@@ -3218,10 +3218,10 @@ public class DataGenerator
         {
             // Filter questions by method
             var methodQuestions = allQuestions.Where(q => q.Type == method).ToList();
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 3; i++)
             {
                 // Randomly select questions for the test
-                var selectedQuestions = methodQuestions.OrderBy(q => random.Next()).Take(10).ToList(); // Example: 30 questions per test
+                var selectedQuestions = methodQuestions.OrderBy(q => random.Next()).Take(30).ToList(); // Example: 30 questions per test
                 tests.Add(new Test
                 {
                     Id = Guid.NewGuid(), // Assuming Base has Id
@@ -3235,5 +3235,4 @@ public class DataGenerator
         }
         return tests;
     }
-
-
+}
