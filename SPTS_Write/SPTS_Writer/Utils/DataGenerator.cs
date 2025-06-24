@@ -6,8 +6,10 @@ public class DataGenerator
 
     public static List<Question> GenerateSampleQuestions()
     {
+        int temp = 0;
         return new List<Question>(){
             new Question() {
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail ="?",
                 Options = new List<Option> (){
@@ -23,6 +25,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -38,6 +41,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -53,6 +57,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -68,6 +73,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -83,6 +89,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -98,6 +105,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -113,6 +121,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -128,6 +137,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -143,6 +153,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -158,6 +169,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -173,6 +185,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -188,6 +201,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -203,6 +217,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -218,6 +233,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -233,6 +249,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -248,6 +265,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -263,6 +281,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -278,6 +297,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -293,6 +313,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -308,6 +329,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -323,6 +345,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -338,6 +361,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -353,6 +377,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -368,6 +393,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -383,6 +409,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -398,6 +425,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -413,6 +441,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -428,6 +457,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -443,6 +473,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -458,6 +489,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -473,6 +505,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -488,6 +521,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -503,6 +537,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -518,6 +553,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -533,6 +569,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -548,6 +585,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -563,6 +601,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -578,6 +617,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -593,6 +633,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -608,6 +649,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -623,6 +665,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -638,6 +681,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -653,6 +697,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -668,6 +713,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -683,6 +729,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -698,6 +745,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -713,6 +761,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -728,6 +777,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -743,6 +793,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -758,6 +809,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -773,6 +825,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -788,6 +841,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -803,6 +857,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -818,6 +873,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -833,6 +889,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -848,6 +905,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -863,6 +921,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -878,6 +937,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -893,6 +953,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.MBTI,
                 Detail = "?",
                 Options = new List<Option>(){
@@ -908,6 +969,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = "Cách tiếp cận công việc của bạn là gì?",
                 Options = new List<Option>(){
@@ -931,6 +993,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn xử lý hạn chót công việc như thế nào?",
                 Options = new List<Option>(){
@@ -954,6 +1017,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Phong cách lãnh đạo của bạn là gì?",
                 Options = new List<Option>(){
@@ -977,6 +1041,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn phản ứng thế nào khi dự án bị chậm tiến độ?",
                 Options = new List<Option>(){
@@ -1000,6 +1065,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Điều gì thúc đẩy bạn nhất trong môi trường làm việc?",
                 Options = new List<Option>(){
@@ -1023,6 +1089,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn tiếp cận việc giải quyết vấn đề như thế nào?",
                 Options = new List<Option>(){
@@ -1046,6 +1113,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Khi giao tiếp, bạn ưu tiên điều gì?",
                 Options = new List<Option>(){
@@ -1069,6 +1137,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn xử lý những lời phê bình như thế nào?",
                 Options = new List<Option>(){
@@ -1092,6 +1161,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Phong cách ra quyết định của bạn là gì?",
                 Options = new List<Option>(){
@@ -1115,6 +1185,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Khi gặp khó khăn, bạn thường phản ứng thế nào?",
                 Options = new List<Option>(){
@@ -1138,6 +1209,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn thích làm việc nhóm theo cách nào?",
                 Options = new List<Option>(){
@@ -1161,6 +1233,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn đối mặt với căng thẳng trong công việc như thế nào?",
                 Options = new List<Option>(){
@@ -1184,6 +1257,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Cách bạn tiếp cận sự thay đổi là gì?",
                 Options = new List<Option>(){
@@ -1207,6 +1281,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Khi bắt đầu một nhiệm vụ mới, bạn thường làm gì trước?",
                 Options = new List<Option>(){
@@ -1230,6 +1305,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn thường phản ứng thế nào với xung đột?",
                 Options = new List<Option>(){
@@ -1253,6 +1329,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Điều gì thúc đẩy bạn đạt được thành công?",
                 Options = new List<Option>(){
@@ -1276,6 +1353,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn tiếp nhận phản hồi từ người khác như thế nào?",
                 Options = new List<Option>(){
@@ -1299,6 +1377,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Phong cách lập kế hoạch của bạn là gì?",
                 Options = new List<Option>(){
@@ -1322,6 +1401,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn ưu tiên công việc như thế nào?",
                 Options = new List<Option>(){
@@ -1345,6 +1425,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Câu nào mô tả đúng nhất về đạo đức nghề nghiệp của bạn?",
                 Options = new List<Option>(){
@@ -1368,6 +1449,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn thích được công nhận công việc của mình theo cách nào?",
                 Options = new List<Option>(){
@@ -1391,6 +1473,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Cách bạn tiếp cận việc học kỹ năng mới là gì?",
                 Options = new List<Option>(){
@@ -1414,6 +1497,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Phản ứng của bạn với các quy tắc hoặc hướng dẫn nghiêm ngặt là gì?",
                 Options = new List<Option>(){
@@ -1437,6 +1521,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn quản lý thời gian như thế nào?",
                 Options = new List<Option>(){
@@ -1460,6 +1545,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Cách bạn xử lý rủi ro là gì?",
                 Options = new List<Option>(){
@@ -1483,6 +1569,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn thích đối mặt với thử thách mới trong công việc như thế nào?",
                 Options = new List<Option>(){
@@ -1506,6 +1593,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Vai trò bạn thường đảm nhận trong các buổi thảo luận nhóm là gì?",
                 Options = new List<Option>(){
@@ -1529,6 +1617,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Phản ứng của bạn khi dự án đột ngột thay đổi là gì?",
                 Options = new List<Option>(){
@@ -1552,6 +1641,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Phương pháp bạn giao việc là gì?",
                 Options = new List<Option>(){
@@ -1575,6 +1665,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn chuẩn bị cho những cuộc họp quan trọng như thế nào?",
                 Options = new List<Option>(){
@@ -1598,6 +1689,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Khi đối mặt với hạn chót gấp, bạn phản ứng ra sao?",
                 Options = new List<Option>(){
@@ -1621,6 +1713,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn thích tham gia vào quá trình ra quyết định theo cách nào?",
                 Options = new List<Option>(){
@@ -1644,6 +1737,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Phong cách làm việc nhóm của bạn là gì?",
                 Options = new List<Option>(){
@@ -1667,6 +1761,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn xử lý phản hồi về công việc của mình như thế nào?",
                 Options = new List<Option>(){
@@ -1690,6 +1785,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn coi trọng điều gì nhất trong môi trường làm việc?",
                 Options = new List<Option>(){
@@ -1713,6 +1809,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn tiếp cận việc xây dựng mối quan hệ (networking) như thế nào?",
                 Options = new List<Option>(){
@@ -1736,6 +1833,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Khi tiếp nhận một ý tưởng mới, phản ứng đầu tiên của bạn là gì?",
                 Options = new List<Option>(){
@@ -1759,6 +1857,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn tiếp cận việc đa nhiệm như thế nào?",
                 Options = new List<Option>(){
@@ -1782,6 +1881,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Vai trò bạn thường đảm nhận khi giải quyết xung đột là gì?",
                 Options = new List<Option>(){
@@ -1805,6 +1905,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn cảm thấy thế nào về việc chấp nhận rủi ro trong công việc?",
                 Options = new List<Option>(){
@@ -1828,6 +1929,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Phương pháp giao tiếp bạn ưa thích là gì?",
                 Options = new List<Option>(){
@@ -1851,6 +1953,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn quản lý dự án như thế nào?",
                 Options = new List<Option>(){
@@ -1874,6 +1977,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn xử lý những công việc lặp đi lặp lại như thế nào?",
                 Options = new List<Option>(){
@@ -1897,6 +2001,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Khi người khác không đồng tình với ý tưởng của bạn, bạn làm gì?",
                 Options = new List<Option>(){
@@ -1920,6 +2025,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn thích đặt mục tiêu như thế nào?",
                 Options = new List<Option>(){
@@ -1943,6 +2049,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn xử lý những tình huống mình không kiểm soát được như thế nào?",
                 Options = new List<Option>(){
@@ -1966,6 +2073,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Cách tiếp cận của bạn khi bắt đầu một nhiệm vụ mới là gì?",
                 Options = new List<Option>(){
@@ -1989,6 +2097,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Phản ứng của bạn với những phản hồi mang tính thách thức công việc của bạn là gì?",
                 Options = new List<Option>(){
@@ -2012,6 +2121,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Cách tiếp cận của bạn với đổi mới trong công việc là gì?",
                 Options = new List<Option>(){
@@ -2035,6 +2145,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn duy trì năng lượng làm việc như thế nào?",
                 Options = new List<Option>(){
@@ -2058,6 +2169,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn xử lý những cuộc trò chuyện khó khăn như thế nào?",
                 Options = new List<Option>(){
@@ -2081,6 +2193,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Khi bắt đầu vai trò mới, ưu tiên của bạn là gì?",
                 Options = new List<Option>(){
@@ -2104,6 +2217,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Phản ứng của bạn khi ai đó không đồng tình với bạn là gì?",
                 Options = new List<Option>(){
@@ -2127,6 +2241,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn ưu tiên những việc gì trong ngày làm việc?",
                 Options = new List<Option>(){
@@ -2150,6 +2265,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn phản ứng thế nào với những hạn chót gấp rút?",
                 Options = new List<Option>(){
@@ -2173,6 +2289,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Khi gặp vấn đề phức tạp, bạn xử lý như thế nào?",
                 Options = new List<Option>(){
@@ -2196,6 +2313,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn xử lý thế nào khi làm việc trong môi trường áp lực cao?",
                 Options = new List<Option>(){
@@ -2219,6 +2337,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn thích nhận hướng dẫn công việc như thế nào?",
                 Options = new List<Option>(){
@@ -2242,6 +2361,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn đảm bảo công việc của mình phù hợp với mục tiêu tổ chức như thế nào?",
                 Options = new List<Option>(){
@@ -2265,6 +2385,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Khi giải quyết vấn đề cùng người khác, bạn tiếp cận như thế nào?",
                 Options = new List<Option>(){
@@ -2288,6 +2409,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Phản ứng của bạn khi có người làm gián đoạn công việc là gì?",
                 Options = new List<Option>(){
@@ -2311,6 +2433,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn xử lý sự không chắc chắn trong dự án như thế nào?",
                 Options = new List<Option>(){
@@ -2334,6 +2457,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Khi ra quyết định, bạn cân nhắc điều gì?",
                 Options = new List<Option>(){
@@ -2357,6 +2481,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn xử lý thế nào khi phải thay đổi kế hoạch?",
                 Options = new List<Option>(){
@@ -2380,6 +2505,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Khi công việc của bạn bị chỉ trích, bạn phản ứng ra sao?",
                 Options = new List<Option>(){
@@ -2403,6 +2529,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn quản lý cân bằng giữa công việc và cuộc sống thế nào?",
                 Options = new List<Option>(){
@@ -2426,6 +2553,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Cách bạn học hỏi từ sai lầm là gì?",
                 Options = new List<Option>(){
@@ -2449,6 +2577,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Cách tiếp cận của bạn với việc đặt mục tiêu là gì?",
                 Options = new List<Option>(){
@@ -2472,6 +2601,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Phản ứng của bạn với sự quản lý vi mô (bị kiểm soát sát sao) là gì?",
                 Options = new List<Option>(){
@@ -2495,6 +2625,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn quản lý khối lượng công việc như thế nào?",
                 Options = new List<Option>(){
@@ -2518,6 +2649,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Cách tiếp cận của bạn với dịch vụ khách hàng là gì?",
                 Options = new List<Option>(){
@@ -2541,6 +2673,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn đối mặt với thất bại như thế nào?",
                 Options = new List<Option>(){
@@ -2564,6 +2697,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn thích xử lý mâu thuẫn tại nơi làm việc như thế nào?",
                 Options = new List<Option>(){
@@ -2587,6 +2721,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Điều gì thúc đẩy bạn thành công?",
                 Options = new List<Option>(){
@@ -2610,6 +2745,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn thích tổ chức không gian làm việc của mình như thế nào?",
                 Options = new List<Option>(){
@@ -2633,6 +2769,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Cách bạn xử lý dự án mới là gì?",
                 Options = new List<Option>(){
@@ -2656,6 +2793,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn cảm thấy thế nào về lập kế hoạch dài hạn?",
                 Options = new List<Option>(){
@@ -2679,6 +2817,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Cách bạn truyền đạt hướng dẫn cho người khác là gì?",
                 Options = new List<Option>(){
@@ -2702,6 +2841,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Điều gì thúc đẩy bạn trong môi trường làm việc nhóm?",
                 Options = new List<Option>(){
@@ -2725,6 +2865,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Khi được giao nhiệm vụ bạn không đồng tình, bạn phản ứng thế nào?",
                 Options = new List<Option>(){
@@ -2748,6 +2889,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Cách bạn đối mặt với căng thẳng là gì?",
                 Options = new List<Option>(){
@@ -2771,6 +2913,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn thích giao tiếp với đồng nghiệp theo cách nào?",
                 Options = new List<Option>(){
@@ -2794,6 +2937,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Phản ứng của bạn khi có yêu cầu bất ngờ về thời gian là gì?",
                 Options = new List<Option>(){
@@ -2817,6 +2961,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Cách bạn tiếp cận việc học kỹ năng mới là gì?",
                 Options = new List<Option>(){
@@ -2840,6 +2985,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn xử lý công việc lặp đi lặp lại như thế nào?",
                 Options = new List<Option>(){
@@ -2863,6 +3009,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn cân nhắc điều gì trước khi đưa ra quyết định lớn?",
                 Options = new List<Option>(){
@@ -2886,6 +3033,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn xử lý việc trì hoãn như thế nào?",
                 Options = new List<Option>(){
@@ -2909,6 +3057,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Cách bạn tiếp cận khi gia nhập nhóm mới là gì?",
                 Options = new List<Option>(){
@@ -2932,6 +3081,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Phản ứng của bạn khi người khác làm việc thiếu trách nhiệm là gì?",
                 Options = new List<Option>(){
@@ -2955,6 +3105,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn làm gì khi cảm thấy quá tải vì công việc?",
                 Options = new List<Option>(){
@@ -2978,6 +3129,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Khi được giao thêm trách nhiệm, bạn phản ứng thế nào?",
                 Options = new List<Option>(){
@@ -3001,6 +3153,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Phản ứng của bạn với chính sách hoặc quy trình mới là gì?",
                 Options = new List<Option>(){
@@ -3024,6 +3177,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn thích cách nào để đưa ra phản hồi cho người khác?",
                 Options = new List<Option>(){
@@ -3047,6 +3201,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Vai trò của bạn trong việc tạo động lực cho người khác là gì?",
                 Options = new List<Option>(){
@@ -3070,6 +3225,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Phản ứng của bạn khi mọi việc không như kế hoạch?",
                 Options = new List<Option>(){
@@ -3093,6 +3249,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn xử lý thế nào khi phải làm việc với người có phong cách rất khác bạn?",
                 Options = new List<Option>(){
@@ -3116,6 +3273,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn xử lý thế nào khi nhận được phản hồi từ nhiều nguồn khác nhau?",
                 Options = new List<Option>(){
@@ -3139,6 +3297,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Phản ứng của bạn với những thử thách bất ngờ là gì?",
                 Options = new List<Option>(){
@@ -3162,6 +3321,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Bạn thích ăn mừng thành tựu theo cách nào?",
                 Options = new List<Option>(){
@@ -3185,6 +3345,7 @@ public class DataGenerator
             },
 
             new Question(){
+                Id = temp++,
                 Type = TestMethod.DISC,
                 Detail = @"Khi môi trường làm việc cần thay đổi, bạn phản ứng ra sao?",
                 Options = new List<Option>(){
