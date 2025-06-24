@@ -10,15 +10,15 @@ public class MongoDbContext
     {
         var client = new MongoClient(connectionString);
         _database = client.GetDatabase(databaseName);
+        // NukeData();
+        SeedData();
     }
 
     public IMongoCollection<User> Users => _database.GetCollection<User>("Users");
     public IMongoCollection<Test> Chats => _database.GetCollection<Test>("Tests");
-    public IMongoCollection<History> Histories => _database.GetCollection<History>("Histories");
     public IMongoCollection<School> Schools => _database.GetCollection<School>("Schools");
-
-
-
+    public IMongoCollection<History> Histories => _database.GetCollection<History>("Histories");
+    public IMongoCollection<Question> Questions => _database.GetCollection<Question>("Histories");
 
     public IMongoCollection<T> GetCollection<T>()
     {
@@ -26,17 +26,24 @@ public class MongoDbContext
             return (IMongoCollection<T>)Users;
         if (typeof(T) == typeof(Test))
             return (IMongoCollection<T>)Chats;
-        
-        if (typeof(T) == typeof(History))
-            return (IMongoCollection<T>)Histories;
         if (typeof(T) == typeof(School))
             return (IMongoCollection<T>)Schools;
-       
-     
+        if (typeof(T) == typeof(History))
+            return (IMongoCollection<T>)Histories;
+        if (typeof(T) == typeof(Question))
+            return (IMongoCollection<T>)Questions;
         throw new ArgumentException("Collection not found for the given type");
     }
 
-    public void SeedData()
+    private void NukeData()
+    {
+        Users.DeleteMany(_ => true);
+        Schools.DeleteMany(_ => true);
+        Histories.DeleteMany(_ => true);
+        Questions.DeleteMany(_ => true);
+    }
+
+    private void SeedData()
     {
         // Seed Emp data
         if (!Users.Find(_ => true).Any())
@@ -69,8 +76,11 @@ public class MongoDbContext
                     }
             });
         }
-
+        List<Question> questions = SPTS_Writer.Utils.DataGenerator.GenerateSampleQuestions();
+        if (!Questions.Find(_ => true).Any())
+        {
+            Questions.InsertMany(questions);
+        }
         // Seed Test data
-       
     }
 }
