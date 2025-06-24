@@ -15,7 +15,7 @@ public class MongoDbContext
     }
 
     public IMongoCollection<User> Users => _database.GetCollection<User>("Users");
-    public IMongoCollection<Test> Chats => _database.GetCollection<Test>("Tests");
+    public IMongoCollection<Test> Tests => _database.GetCollection<Test>("Tests");
     public IMongoCollection<School> Schools => _database.GetCollection<School>("Schools");
     public IMongoCollection<History> Histories => _database.GetCollection<History>("Histories");
     public IMongoCollection<Question> Questions => _database.GetCollection<Question>("Histories");
@@ -25,7 +25,7 @@ public class MongoDbContext
         if (typeof(T) == typeof(User))
             return (IMongoCollection<T>)Users;
         if (typeof(T) == typeof(Test))
-            return (IMongoCollection<T>)Chats;
+            return (IMongoCollection<T>)Tests;
         if (typeof(T) == typeof(School))
             return (IMongoCollection<T>)Schools;
         if (typeof(T) == typeof(History))
@@ -80,6 +80,10 @@ public class MongoDbContext
         if (!Questions.Find(_ => true).Any())
         {
             Questions.InsertMany(questions);
+        }
+        if (!Tests.Find(_ => true).Any())
+        {
+            Tests.InsertMany(SPTS_Writer.Utils.DataGenerator.GenerateSampleTests(questions));
         }
         // Seed Test data
     }

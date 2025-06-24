@@ -4,6 +4,33 @@ namespace SPTS_Writer.Utils;
 public class DataGenerator
 {
 
+    public static List<Test> GenerateSampleTests(List<Question> allQuestions)
+    {
+        var tests = new List<Test>();
+        var random = new Random();
+        var testMethods = Enum.GetValues(typeof(TestMethod)).Cast<TestMethod>().ToList();
+        foreach (var method in testMethods)
+        {
+            // Filter questions by method
+            var methodQuestions = allQuestions.Where(q => q.Type == method).ToList();
+            for (int i = 0; i < 3; i++)
+            {
+                // Randomly select questions for the test
+                var selectedQuestions = methodQuestions.OrderBy(q => random.Next()).Take(30).ToList(); // Example: 30 questions per test
+                tests.Add(new Test
+                {
+                    Id = Guid.NewGuid(), // Assuming Base has Id
+                    Method = method,
+                    Author = $"Author_{method}_{i + 1}",
+                    TestDate = DateTime.UtcNow.AddDays(-random.Next(100)),
+                    NumberOfQuestions = selectedQuestions.Count,
+                    Questions = selectedQuestions
+                });
+            }
+        }
+        return tests;
+    }
+
     public static List<Question> GenerateSampleQuestions()
     {
         int temp = 0;
@@ -3370,30 +3397,4 @@ public class DataGenerator
         };
     }
 
-    public static List<Test> GenerateSampleTests(List<Question> allQuestions)
-    {
-        var tests = new List<Test>();
-        var random = new Random();
-        var testMethods = Enum.GetValues(typeof(TestMethod)).Cast<TestMethod>().ToList();
-        foreach (var method in testMethods)
-        {
-            // Filter questions by method
-            var methodQuestions = allQuestions.Where(q => q.Type == method).ToList();
-            for (int i = 0; i < 3; i++)
-            {
-                // Randomly select questions for the test
-                var selectedQuestions = methodQuestions.OrderBy(q => random.Next()).Take(30).ToList(); // Example: 30 questions per test
-                tests.Add(new Test
-                {
-                    Id = Guid.NewGuid(), // Assuming Base has Id
-                    Method = method,
-                    Author = $"Author_{method}_{i + 1}",
-                    TestDate = DateTime.UtcNow.AddDays(-random.Next(100)),
-                    NumberOfQuestions = selectedQuestions.Count,
-                    Questions = selectedQuestions
-                });
-            }
-        }
-        return tests;
-    }
 }
