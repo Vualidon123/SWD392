@@ -8,7 +8,7 @@ namespace SPTS_Writer.Data
 
     public class Repository<T> : IRepository<T> where T : class
     {
-        private readonly IMongoCollection<T> _collection;
+        protected readonly IMongoCollection<T> _collection;
 
         public Repository(MongoDbContext context) => _collection = context.GetCollection<T>();
 
