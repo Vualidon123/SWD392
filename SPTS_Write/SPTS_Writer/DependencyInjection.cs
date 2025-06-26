@@ -43,5 +43,6 @@ public static class DependencyInjection
         services.AddScoped<SchoolService>();
         services.AddScoped<HistoryService>();
         services.AddScoped<QuestionService>();
+        services.AddScoped<UserService>();
     }
 }
