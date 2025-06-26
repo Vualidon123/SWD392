@@ -24,7 +24,9 @@ public class DataGenerator
                     Author = $"Author_{method}_{i + 1}",
                     TestDate = DateTime.UtcNow.AddDays(-random.Next(100)),
                     NumberOfQuestions = selectedQuestions.Count,
-                    Questions = selectedQuestions
+                    Questions = selectedQuestions,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
                 });
             }
         }
