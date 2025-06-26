@@ -18,7 +18,7 @@ public enum TestStatus
 
 public class TestSubmission
 {
-    public Test test { get; set; }
-    public User who { get; set; }
+    public string TestID { get; set; }
+    public string WhomID { get; set; }
     public List<Answer> answers { get; set; }
 }
