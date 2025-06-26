@@ -9,10 +9,14 @@ namespace SPTS_Writer.Controllers
     public class HistoryController : ControllerBase
     {
         private readonly HistoryService _historyService;
+        private readonly TestService _testService;
+        private readonly UserService _userService;
 
-        public HistoryController(HistoryService historyService)
+        public HistoryController(HistoryService historyService, TestService testService, UserService userService)
         {
             _historyService = historyService;
+            _testService = testService;
+            _userService = userService;
         }
 
         [HttpGet]
@@ -45,11 +49,17 @@ namespace SPTS_Writer.Controllers
         }
 
         [HttpPost("submit")]
-        public async Task<IActionResult> SubmitTest(TestSubmission submission)
+        public async Task<IActionResult> SubmitTest([FromBody] TestSubmission submission, TestStatus status)
         {
             if (submission.answers.Count == 0)
                 return BadRequest("answers cannot be empty");
-            History history = await _historyService.RecordTakenTestAsync(submission.test, submission.who, submission.answers);
+            Test? test = await _testService.GetTestByIdAsync(submission.TestID);
+            if (test == null)
+                return BadRequest("Cannot find test with this ID");
+            User? temp = await _userService.GetUserByIdAsync(submission.WhomID);
+            if (temp == null)
+                return BadRequest("Cannot get User information");
+            History history = await _historyService.RecordTakenTestAsync(test, temp, submission.answers, status);
             return CreatedAtAction(nameof(GetHistoryById), new { id = history.Id }, history);
         }
 
