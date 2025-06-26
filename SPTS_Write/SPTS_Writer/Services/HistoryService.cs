@@ -156,18 +156,26 @@ namespace SPTS_Writer.Services
 
         public async Task<History> RecordTakenTestAsync(Test test, User who, List<Answer> answers, TestStatus status = TestStatus.InProgress)
         {
+            History? target = await GetTakenTestAsync(test.Id, who.Id);
             History history = new History()
             {
-                Id = Guid.NewGuid(),
+                Id = target == null ? Guid.NewGuid() : target.Id,
                 Answer = answers,
-                Result = GetTestFinalResult(test.Method, answers),
+                Result = status == TestStatus.Completed ? GetTestFinalResult(test.Method, answers) : "",
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
                 status = TestStatus.Completed,
                 TestId = test.Id,
                 UserId = who.Id,
             };
-            return await _historyRepository.CreateHistoryAsync(history);
+            if (target == null)
+                return await _historyRepository.CreateHistoryAsync(history);
+            else return await _historyRepository.UpdateHistoryAsync(target.Id, history);
+        }
+
+        public async Task<History?> GetTakenTestAsync(Guid testId, Guid userID)
+        {
+            return await _historyRepository.GetByTestIdAndUserIdAsync(testId, userID);
         }
     }
 }
