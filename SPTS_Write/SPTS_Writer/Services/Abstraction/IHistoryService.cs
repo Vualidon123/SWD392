@@ -7,5 +7,5 @@ public interface IHistoryService
     public Task<IEnumerable<History>> GetAllHistorysAsync();
     public Task AddHistoryAsync(History test);
     public Task UpdateHistoryAsync(History test);
-    public Task<History> RecordTakenTestAsync(Test test, User who, List<Answer> answers);
+    public Task<History> RecordTakenTestAsync(Test test, User who, List<Answer> answers, TestStatus status);
 }

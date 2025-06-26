@@ -51,16 +51,16 @@ namespace SPTS_Writer.Services
         private string GetMBTIResult(int[] answer)
         {
             string result = "";
-            if (result[(int)MBTIAnswer.E] > result[(int)MBTIAnswer.I])
+            if (answer[(int)MBTIAnswer.E] > answer[(int)MBTIAnswer.I])
                 result += MBTIAnswer.E.ToString();
             else result += MBTIAnswer.I.ToString();
-            if (result[(int)MBTIAnswer.S] > result[(int)MBTIAnswer.N])
+            if (answer[(int)MBTIAnswer.S] > answer[(int)MBTIAnswer.N])
                 result += MBTIAnswer.S.ToString();
             else result += MBTIAnswer.N.ToString();
-            if (result[(int)MBTIAnswer.T] > result[(int)MBTIAnswer.F])
+            if (answer[(int)MBTIAnswer.T] > answer[(int)MBTIAnswer.F])
                 result += MBTIAnswer.T.ToString();
             else result += MBTIAnswer.F.ToString();
-            if (result[(int)MBTIAnswer.J] > result[(int)MBTIAnswer.P])
+            if (answer[(int)MBTIAnswer.J] > answer[(int)MBTIAnswer.P])
                 result += MBTIAnswer.J.ToString();
             else result += MBTIAnswer.P.ToString();
             // if (result[0] > result[1])
@@ -110,21 +110,32 @@ namespace SPTS_Writer.Services
             {
                 bool match = false;
                 int answerIndex = 0;
-                foreach (string testAnswer in Enum.GetNames(typeof(TEnum)))
+                foreach (int testAnswer in Enum.GetValues(typeof(TEnum)))
                 {
-                    if (answer.Value == testAnswer)
+                    if (answer.Value == testAnswer.ToString())
                     {
                         match = true;
                         ++answerSheet[(answerIndex)];
                         break;
                     }
+                    ++answerIndex;
                 }
                 if (match == false)
                 {
-                    throw new Exception(answer.Value + " is not a valid answer for " + nameof(TEnum) + " test method");
+                    throw new Exception(answer.Value + " is not a valid answer for " + typeof(TEnum).Name + " test method");
                 }
             }
             return answerSheet;
+        }
+
+        private void DebugAnswerSheet(int[] answersheet)
+        {
+            int no = 0;
+            foreach (int i in answersheet)
+            {
+                Console.WriteLine("Answer " + no + ": " + i);
+                ++no;
+            }
         }
 
         private string GetTestFinalResult(TestMethod testType, List<Answer> answers)
@@ -143,7 +154,7 @@ namespace SPTS_Writer.Services
             }
         }
 
-        public async Task<History> RecordTakenTestAsync(Test test, User who, List<Answer> answers)
+        public async Task<History> RecordTakenTestAsync(Test test, User who, List<Answer> answers, TestStatus status = TestStatus.InProgress)
         {
             History history = new History()
             {
