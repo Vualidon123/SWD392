@@ -12,4 +12,7 @@ public interface IRepository<T> where T : class
     Task UpdateAsync(string id, T entity);
     Task DeleteAsync(string id);
     Task SaveChangesAsync();
+
+    Task<long> CountAsync();
+
 }

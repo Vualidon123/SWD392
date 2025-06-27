@@ -50,6 +50,12 @@ namespace SPTS_Writer.Data
             // MongoDB does not require explicit save changes
             return Task.CompletedTask;
         }
+
+        public virtual async Task<long> CountAsync()
+        {
+            return await _collection.CountDocumentsAsync(_ => true);
+        }
+
     }
 
 }

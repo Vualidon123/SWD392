@@ -42,5 +42,16 @@ namespace SPTS_Writer.Services
             await _userRepository.SaveChangesAsync();
         }
 
+        public async Task<bool> UpdateRoleAsync(Guid id, string newRole)
+        {
+            return await _userRepository.UpdateRoleAsync(id, newRole);
+        }
+
+        public async Task<long> CountAsync()
+        {
+            return await _userRepository.CountAsync();
+        }
+
+
     }
 }

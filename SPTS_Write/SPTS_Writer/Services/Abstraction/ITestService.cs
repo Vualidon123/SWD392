@@ -10,5 +10,8 @@ namespace SPTS_Writer.Services.Abstraction
         public Task UpdateTestAsync(Test test);
         public Task DeleteTestAsync(string id);
 
+        Task<long> CountAsync();
+
+
     }
 }

@@ -36,5 +36,10 @@ namespace SPTS_Writer.Services
             await _testRepository.DeleteAsync(id);
             await _testRepository.SaveChangesAsync();
         }
+
+        public Task<long> CountAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -41,4 +41,8 @@ public class QuestionService : IQuestionService
         await _questionRepository.SaveChangesAsync();
     }
 
+    public async Task<long> CountAsync()
+    {
+        return await _questionRepository.CountAsync();
+    }
 }
