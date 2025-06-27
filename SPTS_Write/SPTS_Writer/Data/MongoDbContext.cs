@@ -18,7 +18,7 @@ public class MongoDbContext
     public IMongoCollection<Test> Tests => _database.GetCollection<Test>("Tests");
     public IMongoCollection<School> Schools => _database.GetCollection<School>("Schools");
     public IMongoCollection<History> Histories => _database.GetCollection<History>("Histories");
-    public IMongoCollection<Question> Questions => _database.GetCollection<Question>("Histories");
+    public IMongoCollection<Question> Questions => _database.GetCollection<Question>("Questions");
 
     public IMongoCollection<T> GetCollection<T>()
     {
