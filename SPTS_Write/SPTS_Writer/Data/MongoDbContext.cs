@@ -20,6 +20,12 @@ public class MongoDbContext
     public IMongoCollection<History> Histories => _database.GetCollection<History>("Histories");
     public IMongoCollection<Question> Questions => _database.GetCollection<Question>("Questions");
 
+    public IMongoCollection<SystemLog> Logs => _database.GetCollection<SystemLog>("Logs");
+
+    public IMongoCollection<Notification> Notifications => _database.GetCollection<Notification>("Notifications");
+
+
+
     public IMongoCollection<T> GetCollection<T>()
     {
         if (typeof(T) == typeof(User))
