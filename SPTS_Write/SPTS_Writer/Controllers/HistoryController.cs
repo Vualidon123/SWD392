@@ -56,6 +56,10 @@ namespace SPTS_Writer.Controllers
             Test? test = await _testService.GetTestByIdAsync(submission.TestID);
             if (test == null)
                 return BadRequest("Cannot find test with this ID");
+            if (status == TestStatus.Completed && submission.answers.Count != test.NumberOfQuestions)
+                return BadRequest("Cannot complete a partial test, there're only "
+                        + submission.answers.Count + " question answered while the test has "
+                        + test.NumberOfQuestions + " questions");
             User? temp = await _userService.GetUserByIdAsync(submission.WhomID);
             if (temp == null)
                 return BadRequest("Cannot get User information");
