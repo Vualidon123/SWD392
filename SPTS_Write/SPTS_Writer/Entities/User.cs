@@ -8,7 +8,7 @@ public class User : Base
     public string Password { get; set; }
     public string Email { get; set; }
 }
-public class loginRequest
+public class LoginRequest
 {
     public string Email { get; set; }
     public string Password { get; set; }
