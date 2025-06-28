@@ -28,7 +28,7 @@ namespace SPTS_Writer.Controllers
             var question = await _questionService.GetQuestionByIdAsync(id);
             if (question == null)
             {
-                return NotFound();
+                return NotFound(new { error = "There is no question with id: " + id });
             }
             return Ok(question);
         }
@@ -38,7 +38,7 @@ namespace SPTS_Writer.Controllers
         {
             if (question == null)
             {
-                return BadRequest("Question cannot be null");
+                return BadRequest(new { error = "Question cannot be null" });
             }
             await _questionService.AddQuestionAsync(question);
             return CreatedAtAction(nameof(GetQuestionById), new { id = question.Id }, question);
@@ -49,7 +49,7 @@ namespace SPTS_Writer.Controllers
         {
             if (string.IsNullOrEmpty(id))
             {
-                return BadRequest("Id cannot be null or empty");
+                return BadRequest(new { error = "Id cannot be null or empty" });
             }
             await _questionService.DeleteQuestionAsync(id);
             return NoContent();
