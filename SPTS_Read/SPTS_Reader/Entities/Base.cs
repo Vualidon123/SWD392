@@ -1,4 +1,4 @@
-﻿namespace SPTS_Reader.Models;
+﻿namespace SPTS_Reader.Entities;
 
 public class Base
 {

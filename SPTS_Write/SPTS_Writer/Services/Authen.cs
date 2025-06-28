@@ -14,7 +14,7 @@ namespace SPTS_Writer.Services
             _userRepository = userRepository;
         }
 
-        public async Task<User> Login(loginRequest loginRequest)
+        public async Task<User> Login(LoginRequest loginRequest)
         {
             var user = await _userRepository.GetByEmailAsync(loginRequest.Email);
             if (user == null || !BCrypt.Net.BCrypt.Verify(loginRequest.Password, user.Password))
@@ -41,6 +41,7 @@ namespace SPTS_Writer.Services
             {
                 Name = registerRequest.Name,
                 Email = registerRequest.Email,
+                Role = "Student",
                 PhoneNumber = registerRequest.PhoneNumber,
                 Password = hashedPassword
             };

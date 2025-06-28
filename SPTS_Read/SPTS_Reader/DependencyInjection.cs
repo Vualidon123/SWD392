@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using SPTS_Writer.Data;
-using SPTS_Writer.Data.Abstraction;
-using SPTS_Writer.Entities;
-using SPTS_Writer.Models.Config;
-using SPTS_Writer.Services;
+using SPTS_Reader.Data;
+//using SPTS_Reader.Data.Abstraction;
+using SPTS_Reader.Entities;
+using SPTS_Reader.Models.Config;
+//using SPTS_Reader.Services
 using System.Text;
 
 public static class DependencyInjection
@@ -35,23 +35,18 @@ public static class DependencyInjection
 
     private static void RegisterRepositories(this IServiceCollection services)
     {
-        services.AddScoped<IRepository<User>, Repository<User>>();
-        services.AddScoped<UserRepository>();
-        services.AddScoped<IRepository<Answer>, Repository<Answer>>();
-        services.AddScoped<IRepository<Test>, Repository<Test>>();
-        services.AddScoped<IRepository<School>, Repository<School>>();
-        services.AddScoped<IRepository<History>, Repository<History>>();
-        services.AddScoped<IRepository<Question>, Repository<Question>>();
+        //services.AddScoped<IRepository<User>, Repository<User>>();
+        //services.AddScoped<UserRepository>();
+        //services.AddScoped<IRepository<Answer>, Repository<Answer>>();
+        //services.AddScoped<IRepository<Test>, Repository<Test>>();
+        //services.AddScoped<IRepository<School>, Repository<School>>();
     }
 
     private static void RegisterAuthentication(this IServiceCollection services)
     {
-        services.AddScoped<Authen>();
-        services.AddScoped<TestService>();
-        services.AddScoped<SchoolService>();
-        services.AddScoped<HistoryService>();
-        services.AddScoped<QuestionService>();
-        services.AddScoped<UserService>();
+        //services.AddScoped<Authen>();
+        //services.AddScoped<TestService>();
+        //services.AddScoped<SchoolService>();
     }
 
     private static void AddSwagger(this IServiceCollection services)
@@ -60,7 +55,7 @@ public static class DependencyInjection
         {
             o.SwaggerDoc(
                 "v1",
-                new OpenApiInfo { Title = "SPTS_Writer", Version = "v1" }
+                new OpenApiInfo { Title = "SPTS_Reader", Version = "v1" }
             );
             // add xml comments for api
             //var xmlFile = $"{AssemblyReference.Assembly.GetName().Name}.xml";
