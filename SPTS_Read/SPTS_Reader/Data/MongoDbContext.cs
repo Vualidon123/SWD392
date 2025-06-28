@@ -25,7 +25,8 @@ public class MongoDbContext
     {
         if (typeof(T) == typeof(User))
             return (IMongoCollection<T>)Users;
-
+        if (typeof(T) == typeof(Test))
+            return (IMongoCollection<T>)Chats;
         throw new ArgumentException("Collection not found for the given type");
     }
 

@@ -1,21 +1,20 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SPTS_Writer.Entities;
-using SPTS_Writer.Eventbus;
-using SPTS_Writer.Services;
+using SPTS_Reader.Models;
+using SPTS_Reader.Service;
 
-namespace SPTS_Writer.Controllers
+namespace SPTS_Reader.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class TestController : ControllerBase
     {
         private readonly TestService _testService;
-        private readonly Publisher _publisher;
-        public TestController(TestService testService, Publisher publisher)
+        
+        public TestController(TestService testService)
         {
             _testService = testService;
-            _publisher = publisher; 
+           
         }
         [HttpGet]
         public IActionResult GetTest()
@@ -42,7 +41,6 @@ namespace SPTS_Writer.Controllers
                 return BadRequest("Test cannot be null");
             }
             await _testService.AddTestAsync(test);
-            await _publisher.SendMessageAsync(test); // Publish the test to RabbitMQ
             return CreatedAtAction(nameof(GetTestById), new { id = test.Id }, test);
         }
         [HttpDelete("{id}")]
@@ -56,4 +54,5 @@ namespace SPTS_Writer.Controllers
             return NoContent();
         }
     }
+
 }

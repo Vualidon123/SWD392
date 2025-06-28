@@ -1,15 +1,21 @@
-﻿namespace SPTS_Reader.Data 
-{
-    
-    using MongoDB.Bson;
-    using MongoDB.Driver;
-    using System.Linq.Expressions;
+// ...existing code...
+using MongoDB.Driver;
+using SPTS_Writer.Data.Abstraction;
+using SPTS_Writer.Entities;
+using SPTS_Writer.Eventbus;
+using SPTS_Writer.Models;
+using System.Linq.Expressions; // or SPTS_Writer.Entities if Test is there
 
-    public class Repository<T> : IRepository<T> where T : class
+public class Repository<T> : IRepository<T> where T : class
     {
         private readonly IMongoCollection<T> _collection;
+        
 
-        public Repository(MongoDbContext context) => _collection = context.GetCollection<T>();
+        public Repository(MongoDbContext context)
+        {
+            _collection = context.GetCollection<T>();
+           
+        }
 
         public async Task<T?> GetByIdAsync(string id)
         {
@@ -30,18 +36,22 @@
         public async Task AddAsync(T entity)
         {
             await _collection.InsertOneAsync(entity);
+           
         }
 
         public async Task UpdateAsync(string id, T entity)
         {
             var filter = Builders<T>.Filter.Eq("_id", id);
             await _collection.ReplaceOneAsync(filter, entity);
+            
         }
 
         public async Task DeleteAsync(string id)
         {
+            T? entity = await GetByIdAsync(id);
             var filter = Builders<T>.Filter.Eq("_id", id);
             await _collection.DeleteOneAsync(filter);
+           
         }
 
         public Task SaveChangesAsync()
@@ -50,7 +60,4 @@
             return Task.CompletedTask;
         }
     }
-
-}
-
-
+// ...existing code...
