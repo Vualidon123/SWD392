@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SPTS_Writer.Entities;
 using SPTS_Writer.Services;
@@ -49,6 +50,7 @@ namespace SPTS_Writer.Controllers
         }
 
         [HttpPost("submit")]
+        [Authorize(Policy = AuthorizationPolicies.Student)]
         public async Task<IActionResult> SubmitTest([FromBody] TestSubmission submission, TestStatus status)
         {
             if (submission.answers.Count == 0)

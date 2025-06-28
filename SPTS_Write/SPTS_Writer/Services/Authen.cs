@@ -41,6 +41,7 @@ namespace SPTS_Writer.Services
             {
                 Name = registerRequest.Name,
                 Email = registerRequest.Email,
+                Role = "Student",
                 PhoneNumber = registerRequest.PhoneNumber,
                 Password = hashedPassword
             };

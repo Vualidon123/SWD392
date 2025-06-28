@@ -20,7 +20,6 @@
             {
                 // TODO: change this into 1|2|3 if enum role
                 policy.RequireRole("Admin");
-                policy.RequireClaim("Admin");
                 policy.AddAuthenticationSchemes(Access);
                 policy.RequireClaim("TokenType", Access);
             })
@@ -37,14 +36,12 @@
             .AddPolicy(Staff, policy =>
             {
                 policy.RequireRole("Staff");
-                policy.RequireClaim("Staff");
                 policy.AddAuthenticationSchemes(Access);
                 policy.RequireClaim("TokenType", Access);
             })
             .AddPolicy(Student, policy =>
             {
                 policy.RequireRole("Student");
-                policy.RequireClaim("Student");
                 policy.AddAuthenticationSchemes(Access);
                 policy.RequireClaim("TokenType", Access);
             });
