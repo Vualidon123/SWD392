@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Connections;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using SPTS_Reader.Entities;
 using SPTS_Reader.Models;
 using SPTS_Reader.Service;
 using System.Text;

@@ -1,4 +1,5 @@
 ﻿using SPTS_Reader.Data;
+using SPTS_Reader.Entities;
 using SPTS_Reader.Models;
 
 namespace SPTS_Reader.Service

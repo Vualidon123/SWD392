@@ -4,6 +4,7 @@ using Microsoft.OpenApi.Models;
 using SPTS_Writer.Data;
 using SPTS_Writer.Data.Abstraction;
 using SPTS_Writer.Entities;
+using SPTS_Writer.Eventbus;
 using SPTS_Writer.Models.Config;
 using SPTS_Writer.Services;
 using System.Text;
@@ -21,6 +22,7 @@ public static class DependencyInjection
         services.RegisterRepositories();
         services.RegisterAuthentication();
         services.AddJwtAuthentication(configuration);
+        services.AddScoped<Publisher>();
     }
 
     private static void RegisterMongoDbContext(this IServiceCollection services, IConfiguration configuration)

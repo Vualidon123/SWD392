@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SPTS_Reader.Entities;
 using SPTS_Reader.Models;
 using SPTS_Reader.Service;
 

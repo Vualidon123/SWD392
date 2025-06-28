@@ -59,5 +59,10 @@ public class Repository<T> : IRepository<T> where T : class
             // MongoDB does not require explicit save changes
             return Task.CompletedTask;
         }
+
+    public Task<long> CountAsync()
+    {
+        throw new NotImplementedException();
     }
+}
 // ...existing code...
