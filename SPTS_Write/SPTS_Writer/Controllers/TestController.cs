@@ -12,10 +12,12 @@ namespace SPTS_Writer.Controllers
     {
         private readonly TestService _testService;
         private readonly Publisher _publisher;
-        public TestController(TestService testService, Publisher publisher)
+        private readonly TestView _testView;
+        public TestController(TestService testService, Publisher publisher, TestView testView   )
         {
             _testService = testService;
-            _publisher = publisher; 
+            _publisher = publisher;
+            _testView = testView;
         }
         [HttpGet]
         public IActionResult GetTest()
@@ -31,6 +33,7 @@ namespace SPTS_Writer.Controllers
             {
                 return NotFound();
             }
+
             return Ok(test);
         }
 
@@ -43,6 +46,9 @@ namespace SPTS_Writer.Controllers
             }
             await _testService.AddTestAsync(test);
             await _publisher.SendMessageAsync(test); // Publish the test to RabbitMQ
+            /*await _testView.CreateAllTestsViewAsync(); // Create the view for MBTI tests*/
+            await _testView.CheckAndUpdateViewAsync(); // Check and update the view if necessary
+
             return CreatedAtAction(nameof(GetTestById), new { id = test.Id }, test);
         }
         [HttpDelete("{id}")]

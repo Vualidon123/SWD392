@@ -23,6 +23,7 @@ public static class DependencyInjection
         services.RegisterAuthentication();
         services.AddJwtAuthentication(configuration);
         services.AddScoped<Publisher>();
+        services.AddScoped<TestView>();
     }
 
     private static void RegisterMongoDbContext(this IServiceCollection services, IConfiguration configuration)
