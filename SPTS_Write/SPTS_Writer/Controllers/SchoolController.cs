@@ -26,7 +26,7 @@ namespace SPTS_Writer.Controllers
             var test = await _schoolService.GetTestByIdAsync(id);
             if (test == null)
             {
-                return NotFound();
+                return NotFound(new { error = "There is no test with id: " + id });
             }
             return Ok(test);
         }
@@ -36,7 +36,7 @@ namespace SPTS_Writer.Controllers
         {
             if (test == null)
             {
-                return BadRequest("Test cannot be null");
+                return BadRequest(new { error = "Test cannot be null" });
             }
             await _schoolService.AddTestAsync(test);
             return CreatedAtAction(nameof(GetTestById), new { id = test.Id }, test);
@@ -46,7 +46,7 @@ namespace SPTS_Writer.Controllers
         {
             if (string.IsNullOrEmpty(id))
             {
-                return BadRequest("Id cannot be null or empty");
+                return BadRequest(new { error = "Id cannot be null or empty" });
             }
             await _schoolService.DeleteTestAsync(id);
             return NoContent();

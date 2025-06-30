@@ -33,7 +33,7 @@ namespace SPTS_Writer.Controllers
             var history = await _historyService.GetHistoryByIdAsync(id);
             if (history == null)
             {
-                return NotFound();
+                return NotFound(new { error = "There is no history with id: " + id });
             }
             return Ok(history);
         }
@@ -43,7 +43,7 @@ namespace SPTS_Writer.Controllers
         {
             if (history == null)
             {
-                return BadRequest("History cannot be null");
+                return BadRequest(new { error = "History cannot be null" });
             }
             await _historyService.AddHistoryAsync(history);
             return CreatedAtAction(nameof(GetHistoryById), new { id = history.Id }, history);
@@ -54,17 +54,15 @@ namespace SPTS_Writer.Controllers
         public async Task<IActionResult> SubmitTest([FromBody] TestSubmission submission, TestStatus status)
         {
             if (submission.answers.Count == 0)
-                return BadRequest("answers cannot be empty");
+                return BadRequest(new { error = "answers cannot be empty" });
             Test? test = await _testService.GetTestByIdAsync(submission.TestID);
             if (test == null)
-                return BadRequest("Cannot find test with this ID");
+                return BadRequest(new { error = "Cannot find test with this ID" });
             if (status == TestStatus.Completed && submission.answers.Count != test.NumberOfQuestions)
-                return BadRequest("Cannot complete a partial test, there're only "
-                        + submission.answers.Count + " question answered while the test has "
-                        + test.NumberOfQuestions + " questions");
+                return BadRequest(new { error = "Cannot complete a partial test, there're only " + submission.answers.Count + " question answered while the test has " + test.NumberOfQuestions + " questions" });
             User? temp = await _userService.GetUserByIdAsync(submission.WhomID);
             if (temp == null)
-                return BadRequest("Cannot get User information");
+                return BadRequest(new { error = "Cannot get User information" });
             History history = await _historyService.RecordTakenTestAsync(test, temp, submission.answers, status);
             return CreatedAtAction(nameof(GetHistoryById), new { id = history.Id }, history);
         }
@@ -74,7 +72,7 @@ namespace SPTS_Writer.Controllers
         {
             if (string.IsNullOrEmpty(id))
             {
-                return BadRequest("Id cannot be null or empty");
+                return BadRequest(new { error = "Id cannot be null or empty" });
             }
             await _historyService.DeleteHistoryAsync(id);
             return NoContent();
