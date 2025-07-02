@@ -6,7 +6,7 @@ public class Test : Base
     public string Author { get; set; }
     public DateTime TestDate { get; set; }
     public int NumberOfQuestions { get; set; }
-    List<Question> Questions { get; set; }
+    public List<Question> Questions { get; set; }
 }
 
 public enum TestMethod
