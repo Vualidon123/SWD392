@@ -2,9 +2,13 @@
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SPTS_Reader.Data;
+using SPTS_Reader.Data.Abstraction;
+
 //using SPTS_Reader.Data.Abstraction;
 using SPTS_Reader.Entities;
 using SPTS_Reader.Models.Config;
+using SPTS_Reader.Services;
+
 //using SPTS_Reader.Services
 using System.Text;
 
@@ -38,14 +42,14 @@ public static class DependencyInjection
         //services.AddScoped<IRepository<User>, Repository<User>>();
         //services.AddScoped<UserRepository>();
         //services.AddScoped<IRepository<Answer>, Repository<Answer>>();
-        //services.AddScoped<IRepository<Test>, Repository<Test>>();
+        services.AddScoped<IRepository<Test>, Repository<Test>>();
         //services.AddScoped<IRepository<School>, Repository<School>>();
     }
 
     private static void RegisterAuthentication(this IServiceCollection services)
     {
         //services.AddScoped<Authen>();
-        //services.AddScoped<TestService>();
+        services.AddScoped<TestService>();
         //services.AddScoped<SchoolService>();
     }
 
