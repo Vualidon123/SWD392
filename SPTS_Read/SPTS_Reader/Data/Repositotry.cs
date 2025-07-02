@@ -1,0 +1,28 @@
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using System.Linq.Expressions;
+using SPTS_Reader.Data.Abstraction;
+
+namespace SPTS_Reader.Data;
+public class Repository<T> : IRepository<T> where T : class
+{
+    protected readonly IMongoCollection<T> _collection;
+
+    public Repository(MongoDbContext context) => _collection = context.GetCollection<T>();
+    public async Task<T?> GetByIdAsync(string id)
+    {
+        var filter = Builders<T>.Filter.Eq("_id", id);
+        return await _collection.Find(filter).FirstOrDefaultAsync();
+    }
+
+    public async Task<IEnumerable<T>> GetAllAsync()
+    {
+        return await _collection.Find(Builders<T>.Filter.Empty).ToListAsync();
+    }
+
+    public async Task<T?> FindAsync(Expression<Func<T, bool>> predicate)
+    {
+        return await _collection.Find(predicate).FirstOrDefaultAsync();
+    }
+
+}
