@@ -20,8 +20,14 @@ public class MongoDbContext
     public IMongoCollection<History> Histories => _database.GetCollection<History>("Histories");
     public IMongoCollection<School> Schools => _database.GetCollection<School>("Schools");
 
+    public IMongoCollection<Question> Questions => _database.GetCollection<Question>("Questions");
+
     public IMongoCollection<T> GetCollection<T>()
     {
+        if (typeof(T) == typeof(Question))
+            return (IMongoCollection<T>)Questions;
+        if (typeof(T) == typeof(User))
+            return (IMongoCollection<T>)Users;
         if (typeof(T) == typeof(Test))
             return (IMongoCollection<T>)Tests;
         throw new ArgumentException("Collection not found for the given type");

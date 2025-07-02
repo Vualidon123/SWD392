@@ -32,4 +32,9 @@ public class TestService : ITestService
     {
         return await _testRepo.GetByIdAsync(id);
     }
+
+    public Task<long> CountAsync()
+    {
+        throw new NotImplementedException();
+    }
 }
