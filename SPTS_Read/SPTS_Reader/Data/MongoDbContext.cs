@@ -1,10 +1,8 @@
-﻿
-using System.Data;
+﻿using System.Data;
 using System;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using SPTS_Reader.Entities;
-
 
 public class MongoDbContext
 {
