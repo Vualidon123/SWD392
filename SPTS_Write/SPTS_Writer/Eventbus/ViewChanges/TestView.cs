@@ -5,9 +5,9 @@ using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
-using SPTS_Writer.Entities; // Import to use Test and TestMethod
+using SPTS_Writer.Entities;
 
-namespace SPTS_Writer.Eventbus
+namespace SPTS_Writer.Eventbus.ViewChanges
 {
     public class TestView
     {
@@ -27,7 +27,7 @@ namespace SPTS_Writer.Eventbus
             {
                 var pipeline = new BsonDocument[0]; // Empty pipeline to include all documents and fields
 
-                
+
                 await _database.CreateViewAsync<BsonDocument, BsonDocument>("allTestsView", "tests", pipeline);
                 Console.WriteLine("View 'allTestsView' created successfully.");
             }
@@ -83,7 +83,7 @@ namespace SPTS_Writer.Eventbus
             try
             {
                 var testsCollection = _database.GetCollection<Test>("Tests");
-                
+
                 // Update the test in the underlying collection
                 updatedTest.UpdatedAt = DateTime.UtcNow;
                 var filter = Builders<Test>.Filter.Eq(t => t.Id, testId);
@@ -96,7 +96,7 @@ namespace SPTS_Writer.Eventbus
                     .Set(t => t.UpdatedAt, updatedTest.UpdatedAt);
 
                 var result = await testsCollection.UpdateOneAsync(filter, update);
-                
+
                 if (result.ModifiedCount > 0)
                 {
                     Console.WriteLine($"Test with ID {testId} updated successfully in underlying collection.");
@@ -122,7 +122,7 @@ namespace SPTS_Writer.Eventbus
                 // Drop the existing view
                 await _database.DropCollectionAsync("allTestsView");
                 Console.WriteLine("Existing allTestsView dropped.");
-                
+
                 // Recreate the view
                 await CreateAllTestsViewAsync();
                 Console.WriteLine("allTestsView refreshed successfully.");
@@ -145,10 +145,10 @@ namespace SPTS_Writer.Eventbus
                 // Create a temporary collection for the imported data
                 var tempCollectionName = "tempTestsForView";
                 var tempCollection = _database.GetCollection<Test>(tempCollectionName);
-                
+
                 // Clear any existing temp collection
                 await _database.DropCollectionAsync(tempCollectionName);
-                
+
                 // Insert the tests into temp collection
                 if (testsToImport.Any())
                 {
@@ -242,7 +242,7 @@ namespace SPTS_Writer.Eventbus
                 if (hasDifferences)
                 {
                     Console.WriteLine("Differences found. Updating allTestsView data...");
-                    
+
                     if (testsToUpdate.Any())
                     {
                         Console.WriteLine($"Updating {testsToUpdate.Count} tests in the view...");

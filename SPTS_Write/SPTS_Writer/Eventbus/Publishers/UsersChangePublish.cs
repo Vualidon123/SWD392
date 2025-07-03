@@ -1,21 +1,19 @@
-﻿using Microsoft.AspNetCore.Connections;
-using RabbitMQ.Client;
+﻿using RabbitMQ.Client;
 using SPTS_Writer.Entities;
-using System.Text;
 using System.Text.Json;
+using System.Text;
 
-namespace SPTS_Writer.Eventbus
+namespace SPTS_Writer.Eventbus.Publishers
 {
-    public class Publisher
-    {   
-        public Publisher()
+    public class UsersChangePublish
+    {
+        public UsersChangePublish()
         {
         }
-
-        public async Task SendMessageAsync(Test test)
+        public async Task SendMessageAsync(User user, string method)
         {
             string _hostName = "localhost"; // or the RabbitMQ server address
-            string _queueName = "Test";
+            string _queueName = "User";
             try
             {
                 var factory = new ConnectionFactory() { HostName = _hostName };
@@ -34,13 +32,13 @@ namespace SPTS_Writer.Eventbus
                                                         arguments: null);
 
                         // Serialize the request object to JSON
-                        var message = JsonSerializer.Serialize(test);
+                        var message = JsonSerializer.Serialize(user);
                         var body = Encoding.UTF8.GetBytes(message);
 
                         // Create basic properties and add retryCount header
                         var properties = new BasicProperties
                         {
-                            Headers = new Dictionary<string, object> { { "retryCount", 0 } }
+                            Headers = new Dictionary<string, object> { { "method", method } }
                         };
 
                         // Publish the message
@@ -49,7 +47,6 @@ namespace SPTS_Writer.Eventbus
                                                         mandatory: false,
                                                         basicProperties: properties,
                                                         body: body);
-
 
                     }
                     else
@@ -64,5 +61,8 @@ namespace SPTS_Writer.Eventbus
                 throw; // Re-throw the exception for handling by the caller
             }
         }
+
+
+
     }
 }

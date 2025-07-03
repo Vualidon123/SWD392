@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SPTS_Writer.Entities;
+using SPTS_Writer.Eventbus.ViewChanges;
 using SPTS_Writer.Services.Abstraction;
 
 namespace SPTS_Writer.Controllers
@@ -11,15 +12,18 @@ namespace SPTS_Writer.Controllers
         private readonly IUserService _userService;
         private readonly IQuestionService _questionService;
         private readonly ITestService _testService;
+        private readonly UserView _userView;
 
         public AdminController(
             IUserService userService,
             IQuestionService questionService,
-            ITestService testService)
+            ITestService testService,
+            UserView userView)
         {
             _userService = userService;
             _questionService = questionService;
             _testService = testService;
+            _userView = userView;
         }
 
         // Xóa tài khoản học sinh
@@ -29,6 +33,8 @@ namespace SPTS_Writer.Controllers
             try
             {
                 await _userService.DeleteUserAsync(id);
+                // Cập nhật lại view sau khi xóa người dùng
+                await _userView.SyncUserViewWithUsersByRecreateAsync();
                 return Ok(new { message = "User deleted successfully" });
             }
             catch (Exception ex)

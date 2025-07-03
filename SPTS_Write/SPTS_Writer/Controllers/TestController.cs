@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SPTS_Writer.Entities;
-using SPTS_Writer.Eventbus;
+using SPTS_Writer.Eventbus.Publishers;
+using SPTS_Writer.Eventbus.ViewChanges;
 using SPTS_Writer.Services;
 
 namespace SPTS_Writer.Controllers
@@ -11,9 +12,9 @@ namespace SPTS_Writer.Controllers
     public class TestController : ControllerBase
     {
         private readonly TestService _testService;
-        private readonly Publisher _publisher;
+        private readonly TestChangePublish _publisher;
         private readonly TestView _testView;
-        public TestController(TestService testService, Publisher publisher, TestView testView   )
+        public TestController(TestService testService, TestChangePublish publisher, TestView testView   )
         {
             _testService = testService;
             _publisher = publisher;
@@ -45,7 +46,7 @@ namespace SPTS_Writer.Controllers
                 return BadRequest(new { error = "Test cannot be null" });
             }
             await _testService.AddTestAsync(test);
-            await _publisher.SendMessageAsync(test); // Publish the test to RabbitMQ
+            
             /*await _testView.CreateAllTestsViewAsync(); // Create the view for MBTI tests*/
             await _testView.CheckAndUpdateViewAsync(); // Check and update the view if necessary
 
