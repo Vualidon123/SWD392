@@ -8,16 +8,32 @@ namespace SPTS_Reader.Services
     public class SpecializationsRecommendationService : ISpecializationsRecommendationService
     {
         private readonly ISpecializationsRecommendationRepository _specialsRecommendRepositoryRepo;
-        private readonly IRepository<School> _schoolRepo;
+        private readonly ISchoolRepository _schoolRepo;
 
-
-        public SpecializationsRecommendationService(ISpecializationsRecommendationRepository specialsRecommendRepositoryRepo, IRepository<School> schoolRepo)
+        public SpecializationsRecommendationService(ISpecializationsRecommendationRepository specialsRecommendRepositoryRepo, ISchoolRepository schoolRepo)
         {
             _specialsRecommendRepositoryRepo = specialsRecommendRepositoryRepo;
             _schoolRepo = schoolRepo;
         }
 
-        
+        public async Task<List<RecommendModel>> GetRecommendationFromPersonality(string personality)
+        {
+
+            var recommendationList = await _specialsRecommendRepositoryRepo.GetRecommendationsByPersonalityAsync(personality);
+
+            List<RecommendModel> recommendModelList = new List<RecommendModel>();
+            foreach (var recommendation in recommendationList)
+            {
+                var schools = await _schoolRepo.FindBySpecializationNameAsync(recommendation.SpecializationName);
+                recommendModelList.Add(new RecommendModel
+                {
+                    Specialization = recommendation.SpecializationName,
+                    Schools = schools
+                });
+            }
+
+            return recommendModelList;
+        }
     }
 
 }

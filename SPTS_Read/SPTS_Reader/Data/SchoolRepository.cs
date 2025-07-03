@@ -8,13 +8,13 @@ namespace SPTS_Reader.Data
     {
         public SchoolRepository(MongoDbContext context) : base(context) { }
 
-        public async Task<IEnumerable<School>> FindBySpecializationNamesAsync(IEnumerable<string> specializationNames)
+        public async Task<List<School>> FindBySpecializationNameAsync(string specializationName)
         {
             var filter = Builders<School>.Filter.ElemMatch(
                 s => s.Specializations,
-                Builders<Specializations>.Filter.In(spec => spec.Name, specializationNames)
+                Builders<Specializations>.Filter.Eq(spec => spec.Name, specializationName)
             );
-            return await FindAllAsync(filter);
+            return await _collection.Find(filter).ToListAsync();
         }
     }
 }
