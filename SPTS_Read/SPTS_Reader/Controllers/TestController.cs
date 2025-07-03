@@ -1,59 +1,51 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SPTS_Reader.Entities;
-using SPTS_Reader.Models;
-using SPTS_Reader.Service;
+using SPTS_Reader.Services;
 
-namespace SPTS_Reader.Controllers
+namespace SPTS_Reader.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
+public class TestController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class TestController : ControllerBase
-    {
-        private readonly TestService _testService;
-        
-        public TestController(TestService testService)
-        {
-            _testService = testService;
-           
-        }
-        [HttpGet]
-        public IActionResult GetTest()
-        {
-            var test = _testService.GetAllTestsAsync().Result;
-            return Ok(test);
-        }
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetTestById(string id)
-        {
-            var test = await _testService.GetTestByIdAsync(id);
-            if (test == null)
-            {
-                return NotFound();
-            }
-            return Ok(test);
-        }
+    private readonly TestService _testService;
 
-        [HttpPost]
-        public async Task<IActionResult> AddTest(Test test)
+    public TestController(TestService testService)
+    {
+        _testService = testService;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetTests(int limit, int skip)
+    {
+        var test = await _testService.GetBatchAsync(limit, skip);
+        return Ok(test);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetTestById(Guid id)
+    {
+        var test = await _testService.GetByIdAsync(id);
+        if (test == null)
         {
-            if (test == null)
-            {
-                return BadRequest("Test cannot be null");
-            }
-            await _testService.AddTestAsync(test);
-            return CreatedAtAction(nameof(GetTestById), new { id = test.Id }, test);
+            return NotFound(new { error = "There is no test with id: " + id });
         }
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTest(string id)
-        {
-            if (string.IsNullOrEmpty(id))
-            {
-                return BadRequest("Id cannot be null or empty");
-            }
-            await _testService.DeleteTestAsync(id);
-            return NoContent();
-        }
+        return Ok(test);
+    }
+
+    [HttpGet("by/{id}")]
+    public async Task<IActionResult> GetTestsByAuthor(string id)
+    {
+        var test = await _testService.GetByAuthorIdAsync(id);
+        return Ok(test);
+    }
+
+    [HttpGet("method/{method}")]
+    public async Task<IActionResult> GetTestsByMethod(TestMethod method, int limit, int skip)
+    {
+        var test = await _testService.GetByTestMethodAsync(method, limit, skip);
+        return Ok(test);
     }
 
 }

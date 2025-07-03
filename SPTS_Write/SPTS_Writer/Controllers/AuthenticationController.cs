@@ -27,7 +27,13 @@ namespace SPTS_Writer.Controllers
             {
                 var user = await _authenService.Login(loginRequest);
                 var accessToken = JwtTokenHelper.GenerateAccessToken(user, _configuration);
-                return Ok(new { access_token = accessToken });
+                return Ok(new
+                {
+                    access_token = accessToken,
+                    username = user.Name,
+                    role = user.Role ?? "Student",
+                    email = user.Email
+                });
             }
             catch (Exception ex)
             {
@@ -42,7 +48,13 @@ namespace SPTS_Writer.Controllers
             {
                 var user = await _authenService.Register(registerRequest);
                 var accessToken = JwtTokenHelper.GenerateAccessToken(user, _configuration);
-                return Ok(new { access_token = accessToken });
+                return Ok(new
+                {
+                    access_token = accessToken,
+                    username = user.Name,
+                    role = user.Role ?? "Student",
+                    email = user.Email
+                });
             }
             catch (Exception ex)
             {

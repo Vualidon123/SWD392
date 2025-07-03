@@ -37,9 +37,10 @@ namespace SPTS_Writer.Services
             await _testRepository.SaveChangesAsync();
         }
 
-        public Task<long> CountAsync()
+        public async Task<long> CountAsync()
         {
-            throw new NotImplementedException();
+            return await _testRepository.CountAsync();
         }
+
     }
 }

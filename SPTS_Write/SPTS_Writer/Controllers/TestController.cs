@@ -31,7 +31,7 @@ namespace SPTS_Writer.Controllers
             var test = await _testService.GetTestByIdAsync(id);
             if (test == null)
             {
-                return NotFound();
+                return NotFound(new { error = "There's no test with id " + id });
             }
 
             return Ok(test);
@@ -42,7 +42,7 @@ namespace SPTS_Writer.Controllers
         {
             if (test == null)
             {
-                return BadRequest("Test cannot be null");
+                return BadRequest(new { error = "Test cannot be null" });
             }
             await _testService.AddTestAsync(test);
             await _publisher.SendMessageAsync(test); // Publish the test to RabbitMQ
@@ -56,7 +56,7 @@ namespace SPTS_Writer.Controllers
         {
             if (string.IsNullOrEmpty(id))
             {
-                return BadRequest("Id cannot be null or empty");
+                return BadRequest(new { error = "Id cannot be null or empty" });
             }
             await _testService.DeleteTestAsync(id);
             return NoContent();

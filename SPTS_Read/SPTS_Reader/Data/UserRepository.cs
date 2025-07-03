@@ -1,15 +1,15 @@
 using MongoDB.Driver;
-using SPTS_Writer.Data.Abstraction;
-using SPTS_Writer.Entities;
+using SPTS_Reader.Data.Abstraction;
+using SPTS_Reader.Data;
+using SPTS_Reader.Entities;
 
-namespace SPTS_Writer.Data;
+namespace SPTS_Reader.Data;
 
 public class UserRepository : Repository<User>, IUserRepository
 {
     private readonly IMongoCollection<User> Users;
     public UserRepository(MongoDbContext context) : base(context) {
         Users = context.Users;
-
     }
 
     public async Task<User?> GetByEmailAsync(string email)
