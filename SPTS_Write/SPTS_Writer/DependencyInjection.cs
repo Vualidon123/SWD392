@@ -6,6 +6,7 @@ using SPTS_Writer.Data.Abstraction;
 using SPTS_Writer.Entities;
 using SPTS_Writer.Models.Config;
 using SPTS_Writer.Services;
+using SPTS_Writer.Services.Abstraction;
 using System.Text;
 
 public static class DependencyInjection
@@ -52,6 +53,11 @@ public static class DependencyInjection
         services.AddScoped<HistoryService>();
         services.AddScoped<QuestionService>();
         services.AddScoped<UserService>();
+        
+        services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IQuestionService, QuestionService>();
+        services.AddScoped<ITestService, TestService>();
+
     }
 
     private static void AddSwagger(this IServiceCollection services)
