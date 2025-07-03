@@ -14,7 +14,11 @@ namespace SPTS_Reader.Data
                 s => s.Specializations,
                 Builders<Specializations>.Filter.Eq(spec => spec.Name, specializationName)
             );
-            return await _collection.Find(filter).ToListAsync();
+
+            var sort = Builders<School>.Sort.Ascending(s => s.Ranking == 0 ? int.MaxValue : s.Ranking);
+
+            var schools = await FindAllAsync(filter);
+            return schools.ToList();
         }
     }
 }
