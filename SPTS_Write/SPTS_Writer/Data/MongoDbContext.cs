@@ -19,6 +19,7 @@ public class MongoDbContext
     public IMongoCollection<School> Schools => _database.GetCollection<School>("Schools");
     public IMongoCollection<History> Histories => _database.GetCollection<History>("Histories");
     public IMongoCollection<Question> Questions => _database.GetCollection<Question>("Questions");
+    public IMongoCollection<SpecializationsRecommendation> SpecializationsRecommendations => _database.GetCollection<SpecializationsRecommendation>("SpecializationsRecommendations");
 
     public IMongoCollection<SystemLog> Logs => _database.GetCollection<SystemLog>("Logs");
 
@@ -38,6 +39,8 @@ public class MongoDbContext
             return (IMongoCollection<T>)Histories;
         if (typeof(T) == typeof(Question))
             return (IMongoCollection<T>)Questions;
+        if (typeof(T) == typeof(SpecializationsRecommendation))
+            return (IMongoCollection<T>)SpecializationsRecommendations;
         throw new ArgumentException("Collection not found for the given type");
     }
 
@@ -90,6 +93,14 @@ public class MongoDbContext
         if (!Tests.Find(_ => true).Any())
         {
             Tests.InsertMany(SPTS_Writer.Utils.DataGenerator.GenerateSampleTests(questions));
+        }
+        if (!Schools.Find(_ => true).Any())
+        {
+            Schools.InsertMany(SPTS_Writer.Utils.DataGenerator.GenerateSchoolSpecialization());
+        }
+        if (!SpecializationsRecommendations.Find(_ => true).Any())
+        {
+            SpecializationsRecommendations.InsertMany(SPTS_Writer.Utils.DataGenerator.GenerateMBTIRecommendation());
         }
         // Seed Test data
     }

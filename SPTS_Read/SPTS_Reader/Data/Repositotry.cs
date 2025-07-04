@@ -26,6 +26,11 @@ public class Repository<T> : IRepository<T> where T : class
         return await _collection.Find(predicate).FirstOrDefaultAsync();
     }
 
+    public async Task<IEnumerable<T>> FindAllAsync(FilterDefinition<T> filter)
+    {
+        return await _collection.Find(filter).ToListAsync();
+    }
+
     public async Task AddAsync(T entity)
     {
         await _collection.InsertOneAsync(entity);
