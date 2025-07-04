@@ -28,4 +28,9 @@ public class TestRepository : Repository<Test>, ITestRepository
     {
         return await _collection.Find(test => test.Id == id).FirstOrDefaultAsync();
     }
+
+    public async Task<long> CountAsync()
+    {
+        return await _collection.CountDocumentsAsync(_ => true);
+    }
 }

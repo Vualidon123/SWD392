@@ -8,7 +8,9 @@ namespace SPTS_Reader.Data;
 public class UserRepository : Repository<User>, IUserRepository
 {
     private readonly IMongoCollection<User> Users;
-    public UserRepository(MongoDbContext context) : base(context) { }
+    public UserRepository(MongoDbContext context) : base(context) {
+        Users = context.Users;
+    }
 
     public async Task<User?> GetByEmailAsync(string email)
     {

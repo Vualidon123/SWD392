@@ -30,10 +30,13 @@ public class MongoDbContext
             return (IMongoCollection<T>)Users;
         if (typeof(T) == typeof(Test))
             return (IMongoCollection<T>)Tests;
+        if (typeof(T) == typeof(History))
+            return (IMongoCollection<T>)Histories;
         if (typeof(T) == typeof(School))
             return (IMongoCollection<T>)Schools;
         if (typeof(T) == typeof(SpecializationsRecommendation))
             return (IMongoCollection<T>)SpecializationsRecommendations;
+      
         throw new ArgumentException("Collection not found for the given type");
     }
 }
