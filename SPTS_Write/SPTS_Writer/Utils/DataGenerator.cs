@@ -33,6 +33,401 @@ public class DataGenerator
         return tests;
     }
 
+    public static List<SpecializationsRecommendation> GenerateMBTIRecommendation()
+    {
+        return new List<SpecializationsRecommendation>
+        {
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Giáo dục",
+                RecommendPersonality = new List<string> { "ENFJ", "INFP", "ISFJ", "ESFJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Truyền thông",
+                RecommendPersonality = new List<string> { "ENFJ", "INFJ", "ENFP", "ENTP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Quản lý nhân sự",
+                RecommendPersonality = new List<string> { "ENFJ", "INFJ", "ESFJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Công tác xã hội",
+                RecommendPersonality = new List<string> { "ENFJ", "INFJ", "ISFJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Văn học",
+                RecommendPersonality = new List<string> { "INFP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Tâm lý học",
+                RecommendPersonality = new List<string> { "INFP", "INFJ", "ISFJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Thiết kế đồ họa",
+                RecommendPersonality = new List<string> { "INFP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Xã hội học",
+                RecommendPersonality = new List<string> { "INFP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Quan hệ công chúng",
+                RecommendPersonality = new List<string> { "ENFP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Marketing",
+                RecommendPersonality = new List<string> { "ENFP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Du lịch",
+                RecommendPersonality = new List<string> { "ENFP", "ESFP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Luật",
+                RecommendPersonality = new List<string> { "ENTP", "ISTJ", "ESTJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Khởi nghiệp",
+                RecommendPersonality = new List<string> { "ENTP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Quản trị kinh doanh",
+                RecommendPersonality = new List<string> { "ENTP", "ESTP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Truyền thông số",
+                RecommendPersonality = new List<string> { "ENTP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Kế toán",
+                RecommendPersonality = new List<string> { "ISTJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Tài chính",
+                RecommendPersonality = new List<string> { "ISTJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Quản trị vận hành",
+                RecommendPersonality = new List<string> { "ISTJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Công an",
+                RecommendPersonality = new List<string> { "ISTJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Kinh tế",
+                RecommendPersonality = new List<string> { "ESTJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Quản lý",
+                RecommendPersonality = new List<string> { "ESTJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Kỹ thuật công nghiệp",
+                RecommendPersonality = new List<string> { "ESTJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Điều dưỡng",
+                RecommendPersonality = new List<string> { "ISFJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Nhân sự",
+                RecommendPersonality = new List<string> { "ESFJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Giáo dục mầm non",
+                RecommendPersonality = new List<string> { "ESFJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "IT",
+                RecommendPersonality = new List<string> { "INTP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Toán",
+                RecommendPersonality = new List<string> { "INTP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Kỹ thuật",
+                RecommendPersonality = new List<string> { "INTP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Khoa học máy tính",
+                RecommendPersonality = new List<string> { "INTP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Khoa học dữ liệu",
+                RecommendPersonality = new List<string> { "INTJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Quản trị dự án",
+                RecommendPersonality = new List<string> { "INTJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Phân tích kinh doanh",
+                RecommendPersonality = new List<string> { "INTJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Quản trị doanh nghiệp",
+                RecommendPersonality = new List<string> { "ENTJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Quản lý chuỗi cung ứng",
+                RecommendPersonality = new List<string> { "ENTJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "MBA",
+                RecommendPersonality = new List<string> { "ENTJ" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Cơ khí",
+                RecommendPersonality = new List<string> { "ISTP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Xây dựng",
+                RecommendPersonality = new List<string> { "ISTP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Kỹ thuật ô tô",
+                RecommendPersonality = new List<string> { "ISTP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Logistics",
+                RecommendPersonality = new List<string> { "ISTP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Thương mại",
+                RecommendPersonality = new List<string> { "ESTP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Tổ chức sự kiện",
+                RecommendPersonality = new List<string> { "ESTP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Thiết kế thời trang",
+                RecommendPersonality = new List<string> { "ISFP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Mỹ thuật",
+                RecommendPersonality = new List<string> { "ISFP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Âm nhạc",
+                RecommendPersonality = new List<string> { "ISFP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Sự kiện",
+                RecommendPersonality = new List<string> { "ESFP" }
+            },
+            new SpecializationsRecommendation
+            {
+                SpecializationName = "Nghệ thuật biểu diễn",
+                RecommendPersonality = new List<string> { "ESFP" }
+            }
+        };
+    }
+
+    public static List<School> GenerateSchoolSpecialization()
+    {
+        return new List<School>
+        {
+            new School
+            {
+                Name = "ĐH RMIT",
+                Ranking = 1,
+                Specializations = new[]
+                {
+                    new Specializations { Name = "Giáo dục" },
+                    new Specializations { Name = "Truyền thông" },
+                    new Specializations { Name = "Quản lý nhân sự" },
+                    new Specializations { Name = "Công tác xã hội" },
+                    new Specializations { Name = "Truyền thông số" },
+                    new Specializations { Name = "Khởi nghiệp" },
+                    new Specializations { Name = "Quản trị kinh doanh" },
+                    new Specializations { Name = "Khoa học dữ liệu" },
+                    new Specializations { Name = "Quản trị dự án" },
+                    new Specializations { Name = "Phân tích kinh doanh" },
+                    new Specializations { Name = "Quản trị doanh nghiệp" },
+                    new Specializations { Name = "Quản lý chuỗi cung ứng" },
+                    new Specializations { Name = "MBA" }
+                }
+            },
+            new School
+            {
+                Name = "ĐH Khoa học Xã hội & Nhân văn",
+                Ranking = 2,
+                Specializations = new[]
+                {
+                    new Specializations { Name = "Giáo dục" },
+                    new Specializations { Name = "Truyền thông" },
+                    new Specializations { Name = "Quản lý nhân sự" },
+                    new Specializations { Name = "Công tác xã hội" },
+                    new Specializations { Name = "Văn học" },
+                    new Specializations { Name = "Tâm lý học" },
+                    new Specializations { Name = "Thiết kế đồ họa" },
+                    new Specializations { Name = "Xã hội học" },
+                    new Specializations { Name = "Tâm lý" },
+                    new Specializations { Name = "Công tác xã hội" }
+                }
+            },
+            new School
+            {
+                Name = "ĐH Sư phạm",
+                Ranking = 3,
+                Specializations = new[]
+                {
+                    new Specializations { Name = "Giáo dục" },
+                    new Specializations { Name = "Truyền thông" },
+                    new Specializations { Name = "Quản lý nhân sự" },
+                    new Specializations { Name = "Công tác xã hội" },
+                    new Specializations { Name = "Văn học" },
+                    new Specializations { Name = "Tâm lý học" },
+                    new Specializations { Name = "Thiết kế đồ họa" },
+                    new Specializations { Name = "Xã hội học" },
+                    new Specializations { Name = "Tâm lý" },
+                    new Specializations { Name = "Công tác xã hội" }
+                }
+            },
+            new School
+            {
+                Name = "FPT Arena",
+                Ranking = 4,
+                Specializations = new[]
+                {
+                    new Specializations { Name = "Thiết kế đồ họa" }
+                }
+            },
+            new School
+            {
+                Name = "ĐH FPT",
+                Ranking = 5,
+                Specializations = new[]
+                {
+                    new Specializations { Name = "Tâm lý học" },
+                    new Specializations { Name = "Công tác xã hội" },
+                    new Specializations { Name = "Quản lý nhân sự" },
+                    new Specializations { Name = "Truyền thông" },
+                    new Specializations { Name = "Khoa học dữ liệu" },
+                    new Specializations { Name = "Quản trị dự án" },
+                    new Specializations { Name = "Phân tích kinh doanh" }
+                }
+            },
+            new School
+            {
+                Name = "ĐH Đại học Kinh tế TP. Hồ Chí Minh",
+                Ranking = 6,
+                Specializations = new[]
+                {
+                    new Specializations { Name = "Truyền thông" },
+                    new Specializations { Name = "Quan hệ công chúng" },
+                    new Specializations { Name = "Marketing" },
+                    new Specializations { Name = "Du lịch" },
+                    new Specializations { Name = "Quản trị doanh nghiệp" },
+                    new Specializations { Name = "Quản lý chuỗi cung ứng" },
+                    new Specializations { Name = "MBA" }
+                }
+            },
+            new School
+            {
+                Name = "ĐH Hoa Sen",
+                Ranking = 7,
+                Specializations = new[]
+                {
+                    new Specializations { Name = "Truyền thông" },
+                    new Specializations { Name = "Quan hệ công chúng" },
+                    new Specializations { Name = "Marketing" },
+                    new Specializations { Name = "Du lịch" },
+                    new Specializations { Name = "Quản trị kinh doanh" },
+                    new Specializations { Name = "Thương mại" },
+                    new Specializations { Name = "Tổ chức sự kiện" },
+                    new Specializations { Name = "Quản trị khách sạn" },
+                    new Specializations { Name = "Giáo dục mầm non" },
+                    new Specializations { Name = "Nhân sự" }
+                }
+            },
+            new School
+            {
+                Name = "ĐH Luật TP.HCM",
+                Ranking = 8,
+                Specializations = new[]
+                {
+                    new Specializations { Name = "Luật" },
+                    new Specializations { Name = "Khởi nghiệp" },
+                    new Specializations { Name = "Quản trị kinh doanh" },
+                    new Specializations { Name = "Truyền thông số" }
+                }
+            },
+            new School
+            {
+                Name = "ĐH Kinh tế TP.HCM",
+                Ranking = 9,
+                Specializations = new[]
+                {
+                    new Specializations { Name = "Luật" },
+                    new Specializations { Name = "Khởi nghiệp" },
+                    new Specializations { Name = "Quản trị kinh doanh" },
+                    new Specializations { Name = "Truyền thông số" }
+                }
+            },
+            new School
+            {
+                Name = "HV Tài chính",
+                Ranking = 10,
+                Specializations = new[]
+                {
+                    new Specializations { Name = "Kế toán" },
+                    new Specializations { Name = "Tài chính" },
+                    new Specializations { Name = "Quản trị vận hành" },
+                    new Specializations { Name = "Công an" },
+                    new Specializations { Name = "Luật" }
+                }
+            }
+        };
+    }
+
     public static List<Question> GenerateSampleQuestions()
     {
         int temp = 0;
@@ -43,11 +438,11 @@ public class DataGenerator
                 Detail ="?",
                 Options = new List<Option> (){
                     new Option(){
-                        Detail = @"Bạn cảm thấy tràn đầy năng lượng khi ở cạnh nhiều người?" ,
+                        Detail = @"Bạn cảm thấy tràn đầy năng lượng khi ở cạnh nhiều người" ,
                         Value = (AllAnswer) MBTIAnswer.E
                     },
                     new Option(){
-                        Detail = @"Khi ở một mình?",
+                        Detail = @"Khi ở một mình",
                         Value = (AllAnswer) MBTIAnswer.I
                     }
                 },
@@ -59,11 +454,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Trong một nhóm, bạn thường là người nói nhiều?",
+                        Detail = @"Trong một nhóm, bạn thường là người nói nhiều",
                         Value = (AllAnswer) MBTIAnswer.E
                     },
                     new Option(){
-                        Detail = @"Lắng nghe nhiều hơn ?",
+                        Detail = @"Lắng nghe nhiều hơn ",
                         Value = (AllAnswer) MBTIAnswer.I
                     }
                 }
@@ -75,11 +470,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thích các hoạt động náo nhiệt, tiệc tùng?",
+                        Detail = @"Bạn thích các hoạt động náo nhiệt, tiệc tùng",
                         Value = (AllAnswer) MBTIAnswer.E
                     },
                     new Option(){
-                        Detail = @"Những buổi gặp mặt nhỏ, yên tĩnh ?",
+                        Detail = @"Những buổi gặp mặt nhỏ, yên tĩnh ",
                         Value = (AllAnswer) MBTIAnswer.I
                     }
                 }
@@ -91,11 +486,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thường nói ra suy nghĩ của mình ngay lập tức ?",
+                        Detail = @"Bạn thường nói ra suy nghĩ của mình ngay lập tức ",
                         Value = (AllAnswer) MBTIAnswer.E
                     },
                     new Option(){
-                        Detail = @"Nghĩ kỹ rồi mới nói ?",
+                        Detail = @"Nghĩ kỹ rồi mới nói ",
                         Value = (AllAnswer) MBTIAnswer.I
                     }
                 }
@@ -107,11 +502,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thích giao lưu, kết bạn mới?",
+                        Detail = @"Bạn thích giao lưu, kết bạn mới",
                         Value = (AllAnswer) MBTIAnswer.E
                     },
                     new Option(){
-                        Detail = @"Gắn bó với vài người thân thiết?",
+                        Detail = @"Gắn bó với vài người thân thiết",
                         Value = (AllAnswer) MBTIAnswer.I
                     }
                 }
@@ -123,11 +518,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thấy thoải mái khi thuyết trình?",
+                        Detail = @"Bạn thấy thoải mái khi thuyết trình",
                         Value = (AllAnswer) MBTIAnswer.E
                     },
                     new Option(){
-                        Detail = @"Cảm thấy lo lắng khi phải nói trước đám đông ?",
+                        Detail = @"Cảm thấy lo lắng khi phải nói trước đám đông ",
                         Value = (AllAnswer) MBTIAnswer.I
                     }
                 }
@@ -139,11 +534,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thích các hoạt động nhóm?",
+                        Detail = @"Bạn thích các hoạt động nhóm",
                         Value = (AllAnswer) MBTIAnswer.E
                     },
                     new Option(){
-                        Detail = @"Thích làm việc độc lập?",
+                        Detail = @"Thích làm việc độc lập",
                         Value = (AllAnswer) MBTIAnswer.I
                     }
                 }
@@ -155,11 +550,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn dễ dàng làm quen với người lạ ?",
+                        Detail = @"Bạn dễ dàng làm quen với người lạ ",
                         Value = (AllAnswer) MBTIAnswer.E
                     },
                     new Option(){
-                        Detail = @"Khó mở lòng khi gặp người mới ?",
+                        Detail = @"Khó mở lòng khi gặp người mới ",
                         Value = (AllAnswer) MBTIAnswer.I
                     }
                 }
@@ -171,11 +566,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thường hành động rồi mới suy nghĩ?",
+                        Detail = @"Bạn thường hành động rồi mới suy nghĩ",
                         Value = (AllAnswer) MBTIAnswer.E
                     },
                     new Option(){
-                        Detail = @"Suy nghĩ kỹ rồi mới hành động?",
+                        Detail = @"Suy nghĩ kỹ rồi mới hành động",
                         Value = (AllAnswer) MBTIAnswer.I
                     }
                 }
@@ -187,11 +582,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn cảm thấy được nạp lại năng lượng khi trò chuyện với người khác ?",
+                        Detail = @"Bạn cảm thấy được nạp lại năng lượng khi trò chuyện với người khác ",
                         Value = (AllAnswer) MBTIAnswer.E
                     },
                     new Option(){
-                        Detail = @"Khi ở trong không gian yên tĩnh ?",
+                        Detail = @"Khi ở trong không gian yên tĩnh ",
                         Value = (AllAnswer) MBTIAnswer.I
                     }
                 }
@@ -203,11 +598,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Khi gặp khó khăn, bạn thường chia sẻ ngay?",
+                        Detail = @"Khi gặp khó khăn, bạn thường chia sẻ ngay",
                         Value = (AllAnswer) MBTIAnswer.E
                     },
                     new Option(){
-                        Detail = @"Giữ trong lòng và tự suy ngẫm?",
+                        Detail = @"Giữ trong lòng và tự suy ngẫm",
                         Value = (AllAnswer) MBTIAnswer.I
                     }
                 }
@@ -219,11 +614,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn cảm thấy hào hứng trong môi trường sôi động ?",
+                        Detail = @"Bạn cảm thấy hào hứng trong môi trường sôi động ",
                         Value = (AllAnswer) MBTIAnswer.E
                     },
                     new Option(){
-                        Detail = @"Nhanh mệt khi ở môi trường đó ?",
+                        Detail = @"Nhanh mệt khi ở môi trường đó ",
                         Value = (AllAnswer) MBTIAnswer.I
                     }
                 }
@@ -235,11 +630,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thích thể hiện cảm xúc ra ngoài?",
+                        Detail = @"Bạn thích thể hiện cảm xúc ra ngoài",
                         Value = (AllAnswer) MBTIAnswer.E
                     },
                     new Option(){
-                        Detail = @"Giữ cảm xúc cho riêng mình ?",
+                        Detail = @"Giữ cảm xúc cho riêng mình ",
                         Value = (AllAnswer) MBTIAnswer.I
                     }
                 }
@@ -251,11 +646,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn học tốt hơn khi trao đổi trực tiếp ?",
+                        Detail = @"Bạn học tốt hơn khi trao đổi trực tiếp ",
                         Value = (AllAnswer) MBTIAnswer.E
                     },
                     new Option(){
-                        Detail = @"Khi tự học một mình ?",
+                        Detail = @"Khi tự học một mình ",
                         Value = (AllAnswer) MBTIAnswer.I
                     }
                 }
@@ -267,11 +662,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn dễ hòa nhập trong các tình huống xã hội ?",
+                        Detail = @"Bạn dễ hòa nhập trong các tình huống xã hội ",
                         Value = (AllAnswer) MBTIAnswer.E
                     },
                     new Option(){
-                        Detail = @"Cần thời gian để thích nghi?",
+                        Detail = @"Cần thời gian để thích nghi",
                         Value = (AllAnswer) MBTIAnswer.I
                     }
                 }
@@ -283,11 +678,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn tin vào kinh nghiệm thực tế?",
+                        Detail = @"Bạn tin vào kinh nghiệm thực tế",
                         Value = (AllAnswer) MBTIAnswer.S
                     },
                     new Option(){
-                        Detail = @"Tin vào cảm nhận và linh cảm?",
+                        Detail = @"Tin vào cảm nhận và linh cảm",
                         Value = (AllAnswer) MBTIAnswer.N
                     }
                 }
@@ -299,11 +694,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Khi học một khái niệm mới, bạn cần ví dụ cụ thể?",
+                        Detail = @"Khi học một khái niệm mới, bạn cần ví dụ cụ thể",
                         Value = (AllAnswer) MBTIAnswer.S
                     },
                     new Option(){
-                        Detail = @"Bạn hiểu nhanh thông qua lý thuyết?",
+                        Detail = @"Bạn hiểu nhanh thông qua lý thuyết",
                         Value = (AllAnswer) MBTIAnswer.N
                     }
                 }
@@ -315,11 +710,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn quan tâm đến chi tiết ?",
+                        Detail = @"Bạn quan tâm đến chi tiết ",
                         Value = (AllAnswer) MBTIAnswer.S
                     },
                     new Option(){
-                        Detail = @"Quan tâm đến bức tranh tổng thể ?",
+                        Detail = @"Quan tâm đến bức tranh tổng thể ",
                         Value = (AllAnswer) MBTIAnswer.N
                     }
                 }
@@ -331,11 +726,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn chú trọng hiện tại và thực tế?",
+                        Detail = @"Bạn chú trọng hiện tại và thực tế",
                         Value = (AllAnswer) MBTIAnswer.S
                     },
                     new Option(){
-                        Detail = @"Suy nghĩ về tương lai và khả năng ?",
+                        Detail = @"Suy nghĩ về tương lai và khả năng ",
                         Value = (AllAnswer) MBTIAnswer.N
                     }
                 }
@@ -347,11 +742,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn tin vào ""thấy mới tin"" ?",
+                        Detail = @"Bạn tin vào ""thấy mới tin"" ",
                         Value = (AllAnswer) MBTIAnswer.S
                     },
                     new Option(){
-                        Detail = @"Tin vào những gì có thể xảy ra?",
+                        Detail = @"Tin vào những gì có thể xảy ra",
                         Value = (AllAnswer) MBTIAnswer.N
                     }
                 }
@@ -363,11 +758,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn nhớ thông tin theo thứ tự, mốc thời gian?",
+                        Detail = @"Bạn nhớ thông tin theo thứ tự, mốc thời gian",
                         Value = (AllAnswer) MBTIAnswer.S
                     },
                     new Option(){
-                        Detail = @"Theo ý tưởng và liên kết ?",
+                        Detail = @"Theo ý tưởng và liên kết ",
                         Value = (AllAnswer) MBTIAnswer.N
                     }
                 }
@@ -379,11 +774,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Khi giải quyết vấn đề, bạn tập trung vào hiện trạng?",
+                        Detail = @"Khi giải quyết vấn đề, bạn tập trung vào hiện trạng",
                         Value = (AllAnswer) MBTIAnswer.S
                     },
                     new Option(){
-                        Detail = @"Tìm hướng đi mới, sáng tạo?",
+                        Detail = @"Tìm hướng đi mới, sáng tạo",
                         Value = (AllAnswer) MBTIAnswer.N
                     }
                 }
@@ -395,11 +790,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thích làm việc có quy trình rõ ràng?",
+                        Detail = @"Bạn thích làm việc có quy trình rõ ràng",
                         Value = (AllAnswer) MBTIAnswer.S
                     },
                     new Option(){
-                        Detail = @"Thích sáng tạo, linh hoạt ?",
+                        Detail = @"Thích sáng tạo, linh hoạt ",
                         Value = (AllAnswer) MBTIAnswer.N
                     }
                 }
@@ -411,11 +806,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn dễ nhớ dữ kiện cụ thể ?",
+                        Detail = @"Bạn dễ nhớ dữ kiện cụ thể ",
                         Value = (AllAnswer) MBTIAnswer.S
                     },
                     new Option(){
-                        Detail = @"Dễ nhớ ý tưởng, ẩn dụ ?",
+                        Detail = @"Dễ nhớ ý tưởng, ẩn dụ ",
                         Value = (AllAnswer) MBTIAnswer.N
                     }
                 }
@@ -427,11 +822,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thích hướng dẫn từng bước cụ thể?",
+                        Detail = @"Bạn thích hướng dẫn từng bước cụ thể",
                         Value = (AllAnswer) MBTIAnswer.S
                     },
                     new Option(){
-                        Detail = @"Muốn hiểu tổng thể để tự làm?",
+                        Detail = @"Muốn hiểu tổng thể để tự làm",
                         Value = (AllAnswer) MBTIAnswer.N
                     }
                 }
@@ -443,11 +838,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn đánh giá cao sự ổn định?",
+                        Detail = @"Bạn đánh giá cao sự ổn định",
                         Value = (AllAnswer) MBTIAnswer.S
                     },
                     new Option(){
-                        Detail = @"Đam mê thay đổi và phát triển?",
+                        Detail = @"Đam mê thay đổi và phát triển",
                         Value = (AllAnswer) MBTIAnswer.N
                     }
                 }
@@ -459,11 +854,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thấy dễ hiểu hơn khi có ví dụ thực tế?",
+                        Detail = @"Bạn thấy dễ hiểu hơn khi có ví dụ thực tế",
                         Value = (AllAnswer) MBTIAnswer.S
                     },
                     new Option(){
-                        Detail = @"Khi có mô hình và khái niệm trừu tượng?",
+                        Detail = @"Khi có mô hình và khái niệm trừu tượng",
                         Value = (AllAnswer) MBTIAnswer.N
                     }
                 }
@@ -475,11 +870,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn chú ý vào chi tiết nhỏ trong mọi việc ?",
+                        Detail = @"Bạn chú ý vào chi tiết nhỏ trong mọi việc ",
                         Value = (AllAnswer) MBTIAnswer.S
                     },
                     new Option(){
-                        Detail = @"Nhìn nhận vấn đề ở tầm vĩ mô?",
+                        Detail = @"Nhìn nhận vấn đề ở tầm vĩ mô",
                         Value = (AllAnswer) MBTIAnswer.N
                     }
                 }
@@ -491,11 +886,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn cảm thấy an tâm khi tuân theo chuẩn mực đã có ?",
+                        Detail = @"Bạn cảm thấy an tâm khi tuân theo chuẩn mực đã có ",
                         Value = (AllAnswer) MBTIAnswer.S
                     },
                     new Option(){
-                        Detail = @"Thích thách thức chuẩn mực ?",
+                        Detail = @"Thích thách thức chuẩn mực ",
                         Value = (AllAnswer) MBTIAnswer.N
                     }
                 }
@@ -507,11 +902,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thường hỏi “nó là gì ?",
+                        Detail = @"Bạn thường hỏi “nó là gì ",
                         Value = (AllAnswer) MBTIAnswer.S
                     },
                     new Option(){
-                        Detail = @"nó có thể trở thành gì?",
+                        Detail = @"nó có thể trở thành gì",
                         Value = (AllAnswer) MBTIAnswer.N
                     }
                 }
@@ -523,11 +918,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Khi ra quyết định, bạn ưu tiên lý trí ?",
+                        Detail = @"Khi ra quyết định, bạn ưu tiên lý trí ",
                         Value = (AllAnswer) MBTIAnswer.T
                     },
                     new Option(){
-                        Detail = @"Ưu tiên cảm xúc, mối quan hệ?",
+                        Detail = @"Ưu tiên cảm xúc, mối quan hệ",
                         Value = (AllAnswer) MBTIAnswer.F
                     }
                 }
@@ -539,11 +934,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn tin rằng sự thật là quan trọng hơn cảm xúc?",
+                        Detail = @"Bạn tin rằng sự thật là quan trọng hơn cảm xúc",
                         Value = (AllAnswer) MBTIAnswer.T
                     },
                     new Option(){
-                        Detail = @"Cảm xúc quan trọng ngang với sự thật ?",
+                        Detail = @"Cảm xúc quan trọng ngang với sự thật ",
                         Value = (AllAnswer) MBTIAnswer.F
                     }
                 }
@@ -555,11 +950,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn phê bình người khác một cách thẳng thắn ?",
+                        Detail = @"Bạn phê bình người khác một cách thẳng thắn ",
                         Value = (AllAnswer) MBTIAnswer.T
                     },
                     new Option(){
-                        Detail = @"Dịu dàng và tế nhị hơn?",
+                        Detail = @"Dịu dàng và tế nhị hơn",
                         Value = (AllAnswer) MBTIAnswer.F
                     }
                 }
@@ -571,11 +966,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn ưu tiên công việc hiệu quả hơn cảm giác người khác ?",
+                        Detail = @"Bạn ưu tiên công việc hiệu quả hơn cảm giác người khác ",
                         Value = (AllAnswer) MBTIAnswer.T
                     },
                     new Option(){
-                        Detail = @"Cân bằng giữa cả hai ?",
+                        Detail = @"Cân bằng giữa cả hai ",
                         Value = (AllAnswer) MBTIAnswer.F
                     }
                 }
@@ -587,11 +982,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn dễ tranh luận để bảo vệ quan điểm ?",
+                        Detail = @"Bạn dễ tranh luận để bảo vệ quan điểm ",
                         Value = (AllAnswer) MBTIAnswer.T
                     },
                     new Option(){
-                        Detail = @"Tránh tranh cãi vì không muốn làm mất lòng ?",
+                        Detail = @"Tránh tranh cãi vì không muốn làm mất lòng ",
                         Value = (AllAnswer) MBTIAnswer.F
                     }
                 }
@@ -603,11 +998,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn có khuynh hướng phân tích lý lẽ?",
+                        Detail = @"Bạn có khuynh hướng phân tích lý lẽ",
                         Value = (AllAnswer) MBTIAnswer.T
                     },
                     new Option(){
-                        Detail = @"Đặt mình vào cảm xúc của người khác ?",
+                        Detail = @"Đặt mình vào cảm xúc của người khác ",
                         Value = (AllAnswer) MBTIAnswer.F
                     }
                 }
@@ -619,11 +1014,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn đánh giá cao sự công bằng ?",
+                        Detail = @"Bạn đánh giá cao sự công bằng ",
                         Value = (AllAnswer) MBTIAnswer.T
                     },
                     new Option(){
-                        Detail = @"Đánh giá cao sự quan tâm, đồng cảm ?",
+                        Detail = @"Đánh giá cao sự quan tâm, đồng cảm ",
                         Value = (AllAnswer) MBTIAnswer.F
                     }
                 }
@@ -635,11 +1030,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Trong nhóm, bạn là người ra quyết định?",
+                        Detail = @"Trong nhóm, bạn là người ra quyết định",
                         Value = (AllAnswer) MBTIAnswer.T
                     },
                     new Option(){
-                        Detail = @"Người hòa giải?",
+                        Detail = @"Người hòa giải",
                         Value = (AllAnswer) MBTIAnswer.F
                     }
                 }
@@ -651,11 +1046,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thích sự thẳng thắn?",
+                        Detail = @"Bạn thích sự thẳng thắn",
                         Value = (AllAnswer) MBTIAnswer.T
                     },
                     new Option(){
-                        Detail = @"Thích nhẹ nhàng, tế nhị ?",
+                        Detail = @"Thích nhẹ nhàng, tế nhị ",
                         Value = (AllAnswer) MBTIAnswer.F
                     }
                 }
@@ -667,11 +1062,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Khi làm việc, bạn tập trung vào mục tiêu?",
+                        Detail = @"Khi làm việc, bạn tập trung vào mục tiêu",
                         Value = (AllAnswer) MBTIAnswer.T
                     },
                     new Option(){
-                        Detail = @"Tập trung vào con người?",
+                        Detail = @"Tập trung vào con người",
                         Value = (AllAnswer) MBTIAnswer.F
                     }
                 }
@@ -683,11 +1078,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn dễ chấp nhận các quyết định dựa trên logic ?",
+                        Detail = @"Bạn dễ chấp nhận các quyết định dựa trên logic ",
                         Value = (AllAnswer) MBTIAnswer.T
                     },
                     new Option(){
-                        Detail = @"Dựa trên cảm nhận và lòng tốt ?",
+                        Detail = @"Dựa trên cảm nhận và lòng tốt ",
                         Value = (AllAnswer) MBTIAnswer.F
                     }
                 }
@@ -699,11 +1094,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Khi gặp mâu thuẫn, bạn tìm lý do khách quan?",
+                        Detail = @"Khi gặp mâu thuẫn, bạn tìm lý do khách quan",
                         Value = (AllAnswer) MBTIAnswer.T
                     },
                     new Option(){
-                        Detail = @"Cố gắng hiểu cảm xúc đôi bên?",
+                        Detail = @"Cố gắng hiểu cảm xúc đôi bên",
                         Value = (AllAnswer) MBTIAnswer.F
                     }
                 }
@@ -715,11 +1110,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thích phân tích ?",
+                        Detail = @"Bạn thích phân tích ",
                         Value = (AllAnswer) MBTIAnswer.T
                     },
                     new Option(){
-                        Detail = @"Thích cảm nhận và sẻ chia?",
+                        Detail = @"Thích cảm nhận và sẻ chia",
                         Value = (AllAnswer) MBTIAnswer.F
                     }
                 }
@@ -731,11 +1126,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn cảm thấy ổn khi người khác không đồng tình ?",
+                        Detail = @"Bạn cảm thấy ổn khi người khác không đồng tình ",
                         Value = (AllAnswer) MBTIAnswer.T
                     },
                     new Option(){
-                        Detail = @"Cảm thấy khó chịu nếu ai đó buồn vì bạn?",
+                        Detail = @"Cảm thấy khó chịu nếu ai đó buồn vì bạn",
                         Value = (AllAnswer) MBTIAnswer.F
                     }
                 }
@@ -747,11 +1142,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn làm theo đúng quy định, nguyên tắc?",
+                        Detail = @"Bạn làm theo đúng quy định, nguyên tắc",
                         Value = (AllAnswer) MBTIAnswer.T
                     },
                     new Option(){
-                        Detail = @"Linh hoạt theo từng người, từng hoàn cảnh?",
+                        Detail = @"Linh hoạt theo từng người, từng hoàn cảnh",
                         Value = (AllAnswer) MBTIAnswer.F
                     }
                 }
@@ -763,11 +1158,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thích lập kế hoạch trước ?",
+                        Detail = @"Bạn thích lập kế hoạch trước ",
                         Value = (AllAnswer) MBTIAnswer.J
                     },
                     new Option(){
-                        Detail = @"Thích làm mọi thứ theo cảm hứng ?",
+                        Detail = @"Thích làm mọi thứ theo cảm hứng ",
                         Value = (AllAnswer) MBTIAnswer.P
                     }
                 }
@@ -779,11 +1174,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn cảm thấy thoải mái khi công việc theo lịch trình ?",
+                        Detail = @"Bạn cảm thấy thoải mái khi công việc theo lịch trình ",
                         Value = (AllAnswer) MBTIAnswer.J
                     },
                     new Option(){
-                        Detail = @"Khi mọi thứ có thể thay đổi ?",
+                        Detail = @"Khi mọi thứ có thể thay đổi ",
                         Value = (AllAnswer) MBTIAnswer.P
                     }
                 }
@@ -795,11 +1190,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn hay hoàn thành mọi việc sớm ?",
+                        Detail = @"Bạn hay hoàn thành mọi việc sớm ",
                         Value = (AllAnswer) MBTIAnswer.J
                     },
                     new Option(){
-                        Detail = @"Hay để gần deadline mới làm?",
+                        Detail = @"Hay để gần deadline mới làm",
                         Value = (AllAnswer) MBTIAnswer.P
                     }
                 }
@@ -811,11 +1206,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn không thích thay đổi kế hoạch đột ngột?",
+                        Detail = @"Bạn không thích thay đổi kế hoạch đột ngột",
                         Value = (AllAnswer) MBTIAnswer.J
                     },
                     new Option(){
-                        Detail = @"Dễ thích nghi với thay đổi ?",
+                        Detail = @"Dễ thích nghi với thay đổi ",
                         Value = (AllAnswer) MBTIAnswer.P
                     }
                 }
@@ -827,11 +1222,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thích có danh sách “to -do”?",
+                        Detail = @"Bạn thích có danh sách “to -do”",
                         Value = (AllAnswer) MBTIAnswer.J
                     },
                     new Option(){
-                        Detail = @"Làm việc tùy theo ưu tiên mỗi lúc ?",
+                        Detail = @"Làm việc tùy theo ưu tiên mỗi lúc ",
                         Value = (AllAnswer) MBTIAnswer.P
                     }
                 }
@@ -843,11 +1238,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn cảm thấy hài lòng khi hoàn thành nhiệm vụ?",
+                        Detail = @"Bạn cảm thấy hài lòng khi hoàn thành nhiệm vụ",
                         Value = (AllAnswer) MBTIAnswer.J
                     },
                     new Option(){
-                        Detail = @"Khi được khám phá điều mới ?",
+                        Detail = @"Khi được khám phá điều mới ",
                         Value = (AllAnswer) MBTIAnswer.P
                     }
                 }
@@ -859,11 +1254,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thường lên kế hoạch kỹ cho việc học ?",
+                        Detail = @"Bạn thường lên kế hoạch kỹ cho việc học ",
                         Value = (AllAnswer) MBTIAnswer.J
                     },
                     new Option(){
-                        Detail = @"Học theo cảm hứng?",
+                        Detail = @"Học theo cảm hứng",
                         Value = (AllAnswer) MBTIAnswer.P
                     }
                 }
@@ -875,11 +1270,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn có xu hướng đánh giá nhanh tình huống?",
+                        Detail = @"Bạn có xu hướng đánh giá nhanh tình huống",
                         Value = (AllAnswer) MBTIAnswer.J
                     },
                     new Option(){
-                        Detail = @"Muốn xem xét từ nhiều góc độ trước khi kết luận?",
+                        Detail = @"Muốn xem xét từ nhiều góc độ trước khi kết luận",
                         Value = (AllAnswer) MBTIAnswer.P
                     }
                 }
@@ -891,11 +1286,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thấy mệt khi phải thay đổi liên tục?",
+                        Detail = @"Bạn thấy mệt khi phải thay đổi liên tục",
                         Value = (AllAnswer) MBTIAnswer.J
                     },
                     new Option(){
-                        Detail = @"Thích cảm giác linh hoạt và tự do?",
+                        Detail = @"Thích cảm giác linh hoạt và tự do",
                         Value = (AllAnswer) MBTIAnswer.P
                     }
                 }
@@ -907,11 +1302,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thích làm việc từng bước cụ thể ?",
+                        Detail = @"Bạn thích làm việc từng bước cụ thể ",
                         Value = (AllAnswer) MBTIAnswer.J
                     },
                     new Option(){
-                        Detail = @"Làm nhiều việc cùng lúc ?",
+                        Detail = @"Làm nhiều việc cùng lúc ",
                         Value = (AllAnswer) MBTIAnswer.P
                     }
                 }
@@ -923,11 +1318,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thấy vui khi mọi thứ rõ ràng?",
+                        Detail = @"Bạn thấy vui khi mọi thứ rõ ràng",
                         Value = (AllAnswer) MBTIAnswer.J
                     },
                     new Option(){
-                        Detail = @"Khi mọi thứ mở và còn có thể thay đổi ?",
+                        Detail = @"Khi mọi thứ mở và còn có thể thay đổi ",
                         Value = (AllAnswer) MBTIAnswer.P
                     }
                 }
@@ -939,11 +1334,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn lên kế hoạch trước cho cả kỳ nghỉ ?",
+                        Detail = @"Bạn lên kế hoạch trước cho cả kỳ nghỉ ",
                         Value = (AllAnswer) MBTIAnswer.J
                     },
                     new Option(){
-                        Detail = @"Đi đâu thấy thú vị thì đi ?",
+                        Detail = @"Đi đâu thấy thú vị thì đi ",
                         Value = (AllAnswer) MBTIAnswer.P
                     }
                 }
@@ -955,11 +1350,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn thường kết thúc công việc trước thời hạn ?",
+                        Detail = @"Bạn thường kết thúc công việc trước thời hạn ",
                         Value = (AllAnswer) MBTIAnswer.J
                     },
                     new Option(){
-                        Detail = @"Hay nước đến chân mới nhảy?",
+                        Detail = @"Hay nước đến chân mới nhảy",
                         Value = (AllAnswer) MBTIAnswer.P
                     }
                 }
@@ -971,11 +1366,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn chọn cách ổn định lâu dài?",
+                        Detail = @"Bạn chọn cách ổn định lâu dài",
                         Value = (AllAnswer) MBTIAnswer.J
                     },
                     new Option(){
-                        Detail = @"Luôn tìm cơ hội mới?",
+                        Detail = @"Luôn tìm cơ hội mới",
                         Value = (AllAnswer) MBTIAnswer.P
                     }
                 }
@@ -987,11 +1382,11 @@ public class DataGenerator
                 Detail = "?",
                 Options = new List<Option>(){
                     new Option(){
-                        Detail = @"Bạn muốn kiểm soát mọi việc ?",
+                        Detail = @"Bạn muốn kiểm soát mọi việc ",
                         Value = (AllAnswer) MBTIAnswer.J
                     },
                     new Option(){
-                        Detail = @"Không ngại sự bất định, mạo hiểm?",
+                        Detail = @"Không ngại sự bất định, mạo hiểm",
                         Value = (AllAnswer) MBTIAnswer.P
                     }
                 }

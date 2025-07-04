@@ -94,6 +94,14 @@ public class MongoDbContext
         {
             Tests.InsertMany(SPTS_Writer.Utils.DataGenerator.GenerateSampleTests(questions));
         }
+        if (!Schools.Find(_ => true).Any())
+        {
+            Schools.InsertMany(SPTS_Writer.Utils.DataGenerator.GenerateSchoolSpecialization());
+        }
+        if (!SpecializationsRecommendations.Find(_ => true).Any())
+        {
+            SpecializationsRecommendations.InsertMany(SPTS_Writer.Utils.DataGenerator.GenerateMBTIRecommendation());
+        }
         // Seed Test data
     }
 }
