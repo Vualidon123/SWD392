@@ -51,7 +51,7 @@ namespace SPTS_Writer.Controllers
             {
                 var user = await _authenService.Register(registerRequest);
                 var accessToken = JwtTokenHelper.GenerateAccessToken(user, _configuration);
-                await _userView.SyncUserSnapshotWithUsersAsync();
+               /* await _userView.SyncUserSnapshotWithUsersAsync();*/
                 return Ok(new
                 {
                     access_token = accessToken,

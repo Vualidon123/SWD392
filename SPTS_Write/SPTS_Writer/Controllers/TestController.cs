@@ -48,7 +48,7 @@ namespace SPTS_Writer.Controllers
             await _testService.AddTestAsync(test);
             
             /*await _testView.CreateAllTestsViewAsync(); // Create the view for MBTI tests*/
-            await _testView.CheckAndUpdateViewAsync(); // Check and update the view if necessary
+/*            await _testView.SyncTestSnapshotWithTestsAsync();*/ // Check and update the view if necessary
 
             return CreatedAtAction(nameof(GetTestById), new { id = test.Id }, test);
         }

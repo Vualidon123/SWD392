@@ -34,7 +34,7 @@ namespace SPTS_Writer.Controllers
             {
                 await _userService.DeleteUserAsync(id);
                 // Cập nhật lại view sau khi xóa người dùng
-                await _userView.SyncUserSnapshotWithUsersAsync();
+                /*await _userView.SyncUserSnapshotWithUsersAsync();*/
                 return Ok(new { message = "User deleted successfully" });
             }
             catch (Exception ex)

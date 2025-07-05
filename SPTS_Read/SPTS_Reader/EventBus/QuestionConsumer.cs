@@ -4,26 +4,25 @@ using RabbitMQ.Client.Events;
 using SPTS_Reader.Entities;
 using SPTS_Reader.Models;
 using SPTS_Reader.Services;
-using SPTS_Reader.Services.Abstraction;
 using System.Text;
 using System.Text.Json;
 using System.Threading;
 
 namespace SPTS_Reader.EventBus
 {
-    public class UserConsumer
+    public class QuestionConsumer
     {
-        private readonly UserService _userService;
+        private readonly QuestionService _questionService;
 
-        public UserConsumer(UserService userService)
+        public QuestionConsumer(QuestionService questionService)
         {
-            _userService = userService;
+            _questionService = questionService;
         }
 
         public async Task ConsumeMessageAsync(CancellationToken cancellationToken)
         {
             string _hostName = "localhost";
-            string _queueName = "User";
+            string _queueName = "Question";
 
             var factory = new ConnectionFactory() { HostName = _hostName };
 
@@ -38,34 +37,38 @@ namespace SPTS_Reader.EventBus
                     var body = ea.Body.ToArray();
                     var message = Encoding.UTF8.GetString(body);
                     string method = ea.BasicProperties.Headers != null && ea.BasicProperties.Headers.ContainsKey("method")
-                       ? Encoding.UTF8.GetString((byte[])ea.BasicProperties.Headers["method"])
-                       : string.Empty;
-                    User? userRequest = JsonSerializer.Deserialize<User>(message);
+                        ? Encoding.UTF8.GetString((byte[])ea.BasicProperties.Headers["method"])
+                        : string.Empty;
+                    Question? question = JsonSerializer.Deserialize<Question>(message);
 
-                    if (userRequest != null)
+                    if (question != null)
                     {
                         try
                         {
                             switch (method)
                             {
                                 case "create":
-                                    await _userService.AddUserAsync(userRequest);
+                                    // You may want to implement a method in TestService for User if needed
+                                    // await _testService.AddUserAsync(userRequest);
+                                    await _questionService.AddQuestionAsync(question);
                                     await channel.BasicAckAsync(ea.DeliveryTag, false);
-                                    Console.WriteLine($"✅ User added successfully: {message}");
+                                    Console.WriteLine($"✅ Test added successfully: {message}");
                                     break;
 
                                 case "update":
-                                    await _userService.UpdateUserAsync(userRequest);
+                                    // await _testService.UpdateUserAsync(userRequest);
+                                    await _questionService.UpdateQuestionAsync(question);
                                     await channel.BasicAckAsync(ea.DeliveryTag, false);
-                                    Console.WriteLine($"✅ User updated successfully: {message}");
+                                    Console.WriteLine($"✅ Test updated successfully: {message}");
                                     break;
 
                                 case "delete":
-                                    if (userRequest.Id != null)
+                                    if (question.Id != null)
                                     {
-                                        await _userService.DeleteUserAsync(userRequest.Id.ToString());
+                                        // await _testService.DeleteUserAsync(userRequest.Id.ToString());
+                                        await _questionService.DeleteQuestionAsync(question.Id.ToString());
                                         await channel.BasicAckAsync(ea.DeliveryTag, false);
-                                        Console.WriteLine($"✅ User deleted successfully: {message}");
+                                        Console.WriteLine($"✅ Test deleted successfully: {message}");
                                     }
                                     else
                                     {

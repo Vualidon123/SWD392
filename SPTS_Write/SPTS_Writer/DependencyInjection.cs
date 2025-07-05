@@ -5,6 +5,7 @@ using MongoDB.Driver;
 using SPTS_Writer.Data;
 using SPTS_Writer.Data.Abstraction;
 using SPTS_Writer.Entities;
+using SPTS_Writer.Eventbus;
 using SPTS_Writer.Eventbus.Publishers;
 using SPTS_Writer.Eventbus.ViewChanges;
 using SPTS_Writer.Models.Config;
@@ -31,6 +32,7 @@ public static class DependencyInjection
 
         services.AddScoped<TestView>();
         services.AddScoped<UserView>();
+        services.AddHostedService<ViewHostServices>();
     }
 
     private static void RegisterMongoDbContext(this IServiceCollection services, IConfiguration configuration)

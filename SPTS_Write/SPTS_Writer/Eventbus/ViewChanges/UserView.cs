@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using System.Threading;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using SPTS_Writer.Entities;
 using SPTS_Writer.Eventbus.Publishers;
@@ -32,7 +33,7 @@ namespace SPTS_Writer.Eventbus.ViewChanges
             }
         }
 
-        public async Task SyncUserSnapshotWithUsersAsync()
+        public async Task SyncUserSnapshotWithUsersAsync(CancellationToken cancellationToken)
         {
             var snapshotCollection = _database.GetCollection<User>("UserView");
             if(snapshotCollection == null)
@@ -94,7 +95,11 @@ namespace SPTS_Writer.Eventbus.ViewChanges
                 await snapshotCollection.InsertManyAsync(usersDocs);
             }
 
-            Console.WriteLine("UserSnapshot has been updated to match Users collection.");
+            var tcs = new TaskCompletionSource();
+            using (cancellationToken.Register(() => tcs.SetResult()))
+            {
+                await tcs.Task;
+            }
         }
 
     }
