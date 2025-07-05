@@ -16,9 +16,9 @@ public class MongoDbContext
 
     public IMongoCollection<User> Users => _database.GetCollection<User>("Users");
     public IMongoCollection<Test> Tests => _database.GetCollection<Test>("Tests");
-    public IMongoCollection<Test> Chats => _database.GetCollection<Test>("Tests");
     public IMongoCollection<History> Histories => _database.GetCollection<History>("Histories");
     public IMongoCollection<School> Schools => _database.GetCollection<School>("Schools");
+    public IMongoCollection<SpecializationsRecommendation> SpecializationsRecommendations => _database.GetCollection<SpecializationsRecommendation>("SpecializationsRecommendations");
 
     public IMongoCollection<Question> Questions => _database.GetCollection<Question>("Questions");
 
@@ -29,7 +29,14 @@ public class MongoDbContext
         if (typeof(T) == typeof(User))
             return (IMongoCollection<T>)Users;
         if (typeof(T) == typeof(Test))
-            return (IMongoCollection<T>)Chats;
+            return (IMongoCollection<T>)Tests;
+        if (typeof(T) == typeof(History))
+            return (IMongoCollection<T>)Histories;
+        if (typeof(T) == typeof(School))
+            return (IMongoCollection<T>)Schools;
+        if (typeof(T) == typeof(SpecializationsRecommendation))
+            return (IMongoCollection<T>)SpecializationsRecommendations;
+      
         throw new ArgumentException("Collection not found for the given type");
     }
 }

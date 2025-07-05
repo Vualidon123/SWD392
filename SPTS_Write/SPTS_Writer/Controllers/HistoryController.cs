@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SPTS_Writer.Entities;
@@ -38,17 +39,6 @@ namespace SPTS_Writer.Controllers
             return Ok(history);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddHistory(History history)
-        {
-            if (history == null)
-            {
-                return BadRequest(new { error = "History cannot be null" });
-            }
-            await _historyService.AddHistoryAsync(history);
-            return CreatedAtAction(nameof(GetHistoryById), new { id = history.Id }, history);
-        }
-
         [HttpPost("submit")]
         [Authorize(Policy = AuthorizationPolicies.Student)]
         public async Task<IActionResult> SubmitTest([FromBody] TestSubmission submission, TestStatus status)
@@ -60,7 +50,8 @@ namespace SPTS_Writer.Controllers
                 return BadRequest(new { error = "Cannot find test with this ID" });
             if (status == TestStatus.Completed && submission.answers.Count != test.NumberOfQuestions)
                 return BadRequest(new { error = "Cannot complete a partial test, there're only " + submission.answers.Count + " question answered while the test has " + test.NumberOfQuestions + " questions" });
-            User? temp = await _userService.GetUserByIdAsync(submission.WhomID);
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)!.Value;
+            User? temp = await _userService.GetUserByIdAsync(userId);
             if (temp == null)
                 return BadRequest(new { error = "Cannot get User information" });
             History history = await _historyService.RecordTakenTestAsync(test, temp, submission.answers, status);

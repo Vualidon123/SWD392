@@ -10,8 +10,6 @@ using SPTS_Reader.Models.Config;
 using SPTS_Reader.Services;
 using SPTS_Reader.Services.Abstraction;
 
-
-//using SPTS_Reader.Services
 using System.Text;
 
 public static class DependencyInjection
@@ -45,14 +43,19 @@ public static class DependencyInjection
         //services.AddScoped<UserRepository>();
         //services.AddScoped<IRepository<Answer>, Repository<Answer>>();
         services.AddScoped<IRepository<Test>, Repository<Test>>();
+        services.AddScoped<IRepository<History>, Repository<History>>();
         //services.AddScoped<IRepository<School>, Repository<School>>();
+        services.AddScoped<ISpecializationsRecommendationRepository, SpecializationsRecommendationRepository>();
+        services.AddScoped<ISchoolRepository, SchoolRepository>();
     }
 
     private static void RegisterAuthentication(this IServiceCollection services)
     {
         //services.AddScoped<Authen>();
         services.AddScoped<TestService>();
+        services.AddScoped<HistoryService>();
         //services.AddScoped<SchoolService>();
+        services.AddScoped<ISpecializationsRecommendationService, SpecializationsRecommendationService>();
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IQuestionService, QuestionService>();
         services.AddScoped<ITestService, TestService>();
