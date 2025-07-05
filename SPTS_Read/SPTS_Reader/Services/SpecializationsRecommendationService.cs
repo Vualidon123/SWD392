@@ -25,6 +25,14 @@ namespace SPTS_Reader.Services
             foreach (var recommendation in recommendationList)
             {
                 var schools = await _schoolRepo.FindBySpecializationNameAsync(recommendation.SpecializationName);
+
+                foreach (var school in schools)
+                {
+                    school.Specializations = school.Specializations
+                        .Where(s => s.Name == recommendation.SpecializationName)
+                        .ToArray();
+                }
+
                 recommendModelList.Add(new RecommendModel
                 {
                     Specialization = recommendation.SpecializationName,
