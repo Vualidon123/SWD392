@@ -29,11 +29,14 @@ public class HistoryController : ControllerBase
     [Authorize(Policy = AuthorizationPolicies.Student)]
     public async Task<IActionResult> GetHistoryById(string id)
     {
+        var userId = User.FindFirst(ClaimTypes.NameIdentifier)!.Value;
         var history = await _historyService.GetByIdAsync(Guid.Parse(id));
         if (history == null)
         {
             return NotFound(new { error = "There is no history with id: " + id });
         }
+        if (history.UserId != Guid.Parse(userId))
+            return StatusCode(StatusCodes.Status403Forbidden, (new { error = "There is no history with id: " + id }));
         return Ok(history);
     }
 
