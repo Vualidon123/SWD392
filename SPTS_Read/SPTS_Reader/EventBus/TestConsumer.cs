@@ -3,17 +3,18 @@ using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using SPTS_Reader.Entities;
 using SPTS_Reader.Models;
-using SPTS_Reader.Service;
+
+using SPTS_Reader.Services;
 using System.Text;
 using System.Text.Json;
 
 namespace SPTS_Reader.EventBus
 {
-    public class Consumer 
+    public class TestConsumer 
     {
         private  readonly TestService _testService;
        
-        public Consumer(TestService testService)
+        public TestConsumer(TestService testService)
         {
             _testService = testService;
         }

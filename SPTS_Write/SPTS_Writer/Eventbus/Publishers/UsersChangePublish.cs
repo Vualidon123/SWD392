@@ -47,7 +47,7 @@ namespace SPTS_Writer.Eventbus.Publishers
                                                         mandatory: false,
                                                         basicProperties: properties,
                                                         body: body);
-
+                        Console.WriteLine($"Message sent to queue '{_queueName}': {message}");
                     }
                     else
                     {

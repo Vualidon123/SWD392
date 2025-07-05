@@ -1,29 +1,29 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using SPTS_Writer.Entities;
+using SPTS_Writer.Eventbus.Publishers;
 
 namespace SPTS_Writer.Eventbus.ViewChanges
 {
     public class UserView
     {
         private readonly IMongoDatabase _database;
+        private readonly UsersChangePublish _usersChangePublish;
 
-        public UserView(IMongoDatabase database)
+        public UserView(IMongoDatabase database, UsersChangePublish usersChangePublish)
         {
             _database = database;
+            _usersChangePublish = usersChangePublish;
         }
 
         // Example method to get the Users collection
-        public IMongoCollection<User> GetUsersCollection()
-        {
-            return _database.GetCollection<User>("Users");
-        }
+
         public async Task CreateAllTestsViewAsync()
         {
             try
             {
                 var pipeline = new BsonDocument[0]; // Empty pipeline to include all documents and fields
-                await _database.CreateViewAsync<BsonDocument, BsonDocument>("UserView", "tests", pipeline);
+                await _database.CreateViewAsync<BsonDocument, BsonDocument>("UserView", "user", pipeline);
                 Console.WriteLine("View 'allTestsView' created successfully.");
             }
             catch (Exception ex)
@@ -32,84 +32,70 @@ namespace SPTS_Writer.Eventbus.ViewChanges
             }
         }
 
-        public async Task SyncUserViewWithUsersByRecreateAsync()
+        public async Task SyncUserSnapshotWithUsersAsync()
         {
-            await CreateAllTestsViewAsync();
-            var userViewCollection = _database.GetCollection<BsonDocument>("UserView");
+            var snapshotCollection = _database.GetCollection<User>("UserView");
+            if(snapshotCollection == null)
+            {
+                await CreateAllTestsViewAsync();
+            }
             var usersCollection = _database.GetCollection<User>("Users");
 
-            var userViewDocs = await userViewCollection.Find(FilterDefinition<BsonDocument>.Empty).ToListAsync();
+            var snapshotDocs = await snapshotCollection.Find(FilterDefinition<User>.Empty).ToListAsync();
             var usersDocs = await usersCollection.Find(FilterDefinition<User>.Empty).ToListAsync();
 
-            var userViewByEmail = userViewDocs
-                .Where(d => d.Contains("Email") && d["Email"].IsString)
-                .ToDictionary(d => d["Email"].AsString.ToLowerInvariant(), d => d);
+            var snapshotByEmail = snapshotDocs
+                .Where(u => !string.IsNullOrEmpty(u.Email))
+                .ToDictionary(u => u.Email.ToLowerInvariant(), u => u);
 
             var usersByEmail = usersDocs
                 .Where(u => !string.IsNullOrEmpty(u.Email))
                 .ToDictionary(u => u.Email.ToLowerInvariant(), u => u);
 
             // Detect creates
-            var toCreate = usersByEmail.Keys.Except(userViewByEmail.Keys).ToList();
-            foreach (var email in toCreate)
+            foreach (var email in usersByEmail.Keys.Except(snapshotByEmail.Keys))
             {
                 var user = usersByEmail[email];
-                Console.WriteLine($"[CREATE] User with Email '{user.Email}' exists in Users but not in UserView.");
+                Console.WriteLine($"[CREATE] User with Email '{user.Email}' exists in Users but not in UserSnapshot.");
+                await _usersChangePublish.SendMessageAsync(user, "create");
             }
 
             // Detect deletes
-            var toDelete = userViewByEmail.Keys.Except(usersByEmail.Keys).ToList();
-            foreach (var email in toDelete)
+            foreach (var email in snapshotByEmail.Keys.Except(usersByEmail.Keys))
             {
-                Console.WriteLine($"[DELETE] User with Email '{email}' exists in UserView but not in Users.");
+                var user = snapshotByEmail[email];
+                Console.WriteLine($"[DELETE] User with Email '{user.Email}' exists in UserSnapshot but not in Users.");
+                await _usersChangePublish.SendMessageAsync(user, "delete");
             }
 
             // Detect updates
-            var toUpdate = userViewByEmail.Keys.Intersect(usersByEmail.Keys).ToList();
-            foreach (var email in toUpdate)
+            foreach (var email in snapshotByEmail.Keys.Intersect(usersByEmail.Keys))
             {
                 var user = usersByEmail[email];
-                var viewDoc = userViewByEmail[email];
+                var snapshot = snapshotByEmail[email];
 
                 bool needsUpdate =
-                    viewDoc.GetValue("Name", "") != user.Name ||
-                    viewDoc.GetValue("PhoneNumber", "") != user.PhoneNumber ||
-                    viewDoc.GetValue("Role", "") != user.Role ||
-                    viewDoc.GetValue("Password", "") != user.Password;
+                    snapshot.Name != user.Name ||
+                    snapshot.PhoneNumber != user.PhoneNumber ||
+                    snapshot.Role != user.Role ||
+                    snapshot.Password != user.Password;
 
                 if (needsUpdate)
                 {
-                    Console.WriteLine($"[UPDATE] User with Email '{email}' has different data in Users and UserView.");
+                    Console.WriteLine($"[UPDATE] User with Email '{email}' has different data in Users and UserSnapshot.");
+                    await _usersChangePublish.SendMessageAsync(user, "update");
                 }
             }
 
-            // Drop and recreate the view
-            await _database.DropCollectionAsync("UserView");
-
-            // Create a pipeline to project all fields from Users
-            var pipeline = new[]
+            // Replace the snapshot with the current state
+            await _database.DropCollectionAsync("UserSnapshot");
+            if (usersDocs.Count > 0)
             {
-        new BsonDocument("$project", new BsonDocument
-        {
-            { "Email", 1 },
-            { "Name", 1 },
-            { "PhoneNumber", 1 },
-            { "Role", 1 },
-            { "Password", 1 }
-        })
-    };
+                await snapshotCollection.InsertManyAsync(usersDocs);
+            }
 
-            await _database.CreateViewAsync<BsonDocument, BsonDocument>(
-                "UserView",
-                "Users",
-                pipeline
-            );
-
-            Console.WriteLine("UserView has been dropped and recreated to sync with Users collection.");
+            Console.WriteLine("UserSnapshot has been updated to match Users collection.");
         }
 
-
-
     }
-
 }

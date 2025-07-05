@@ -27,6 +27,8 @@ public static class DependencyInjection
         services.AddJwtAuthentication(configuration);
        //Data Sync Service
         services.AddScoped<TestChangePublish>();
+        services.AddScoped<UsersChangePublish>();
+
         services.AddScoped<TestView>();
         services.AddScoped<UserView>();
     }

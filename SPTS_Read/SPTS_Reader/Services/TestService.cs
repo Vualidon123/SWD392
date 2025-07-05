@@ -37,5 +37,29 @@ public class TestService : ITestService
     {
         return await _testRepo.CountAsync();
     }
+    public async Task<Test?> GetTestByIdAsync(string id)
+    {
+        return await _testRepo.GetByIdAsync(id);
+    }
+    public async Task<IEnumerable<Test>> GetAllTestsAsync()
+    {
+        return await _testRepo.GetAllAsync();
+    }
 
+    public async Task AddTestAsync(Test test)
+    {
+        await _testRepo.AddAsync(test);
+        await _testRepo.SaveChangesAsync();
+    }
+
+    public async Task UpdateTestAsync(Test test)
+    {
+        await _testRepo.UpdateAsync(test.Id.ToString(), test);
+        await _testRepo.SaveChangesAsync();
+    }
+    public async Task DeleteTestAsync(string id)
+    {
+        await _testRepo.DeleteAsync(id);
+        await _testRepo.SaveChangesAsync();
+    }
 }

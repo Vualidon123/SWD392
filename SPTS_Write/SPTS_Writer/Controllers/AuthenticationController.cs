@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SPTS_Writer.Entities;
+using SPTS_Writer.Eventbus.ViewChanges;
 using SPTS_Writer.Services;
+using SPTS_Writer.Services.Abstraction;
 using SPTS_Writer.Utils;
 using System;
 using System.Threading.Tasks;
@@ -13,11 +15,12 @@ namespace SPTS_Writer.Controllers
     {
         private readonly Authen _authenService;
         private readonly IConfiguration _configuration;
-
-        public AuthenticationController(Authen authenService, IConfiguration configuration)
+        private readonly UserView _userView;  
+        public AuthenticationController(Authen authenService, IConfiguration configuration,UserView userView)
         {
             _authenService = authenService;
             _configuration = configuration;
+            _userView = userView;
         }
 
         [HttpPost("login")]
@@ -48,6 +51,7 @@ namespace SPTS_Writer.Controllers
             {
                 var user = await _authenService.Register(registerRequest);
                 var accessToken = JwtTokenHelper.GenerateAccessToken(user, _configuration);
+                await _userView.SyncUserSnapshotWithUsersAsync();
                 return Ok(new
                 {
                     access_token = accessToken,
