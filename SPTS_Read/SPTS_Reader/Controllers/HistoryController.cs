@@ -36,7 +36,7 @@ public class HistoryController : ControllerBase
             return NotFound(new { error = "There is no history with id: " + id });
         }
         if (history.UserId != Guid.Parse(userId))
-            return StatusCode(StatusCodes.Status403Forbidden, (new { error = "There is no history with id: " + id }));
+            return StatusCode(StatusCodes.Status403Forbidden, (new { error = "You cannot access this history: " }));
         return Ok(history);
     }
 
