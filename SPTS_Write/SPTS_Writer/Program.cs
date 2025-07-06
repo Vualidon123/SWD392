@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
+using SPTS_Writer.Eventbus;
 
 // Removed the line causing the error as GuidRepresentationMode is no longer supported in newer versions of MongoDB.Driver
 // BsonDefaults.GuidRepresentationMode = GuidRepresentationMode.V3;
@@ -17,12 +18,24 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDependencyInjection(builder.Configuration);
-builder.Services.AddAuthorizationPolicies();
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+/*builder.Services.AddSingleton<EntityChangeTracker>();*/
+
+
+
 
 var app = builder.Build();
 
-app.UseSwagger();
-app.UseSwaggerUI();
+
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 app.UseCors("AllowAll");
 app.UseAuthentication();

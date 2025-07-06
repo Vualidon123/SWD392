@@ -1,9 +1,13 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using MongoDB.Driver;
 using SPTS_Writer.Data;
 using SPTS_Writer.Data.Abstraction;
 using SPTS_Writer.Entities;
+using SPTS_Writer.Eventbus;
+using SPTS_Writer.Eventbus.Publishers;
+using SPTS_Writer.Eventbus.ViewChanges;
 using SPTS_Writer.Models.Config;
 using SPTS_Writer.Services;
 using SPTS_Writer.Services.Abstraction;
@@ -22,6 +26,13 @@ public static class DependencyInjection
         services.RegisterRepositories();
         services.RegisterAuthentication();
         services.AddJwtAuthentication(configuration);
+       //Data Sync Service
+        services.AddScoped<TestChangePublish>();
+        services.AddScoped<UsersChangePublish>();
+
+        services.AddScoped<TestView>();
+        services.AddScoped<UserView>();
+        services.AddHostedService<ViewHostServices>();
     }
 
     private static void RegisterMongoDbContext(this IServiceCollection services, IConfiguration configuration)
@@ -31,6 +42,12 @@ public static class DependencyInjection
         {
             var config = sp.GetRequiredService<IOptions<MongoDbConfig>>().Value;
             return new MongoDbContext(config.ConnectionString, config.DatabaseName);
+        });
+        services.AddScoped<IMongoDatabase>(sp =>
+        {
+            var config = sp.GetRequiredService<IOptions<MongoDbConfig>>().Value;
+            var client = new MongoDB.Driver.MongoClient(config.ConnectionString);
+            return client.GetDatabase(config.DatabaseName);
         });
     }
 
@@ -48,7 +65,7 @@ public static class DependencyInjection
     private static void RegisterAuthentication(this IServiceCollection services)
     {
         services.AddScoped<Authen>();
-        services.AddScoped<TestService>();
+        services.AddScoped<ITestService,TestService>();
         services.AddScoped<SchoolService>();
         services.AddScoped<HistoryService>();
         services.AddScoped<QuestionService>();
@@ -58,6 +75,9 @@ public static class DependencyInjection
         services.AddScoped<IQuestionService, QuestionService>();
         services.AddScoped<ITestService, TestService>();
 
+        services.AddScoped<IQuestionService,QuestionService>();
+        services.AddScoped<IUserService,UserService>();
+        
     }
 
     private static void AddSwagger(this IServiceCollection services)

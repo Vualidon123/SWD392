@@ -1,12 +1,15 @@
-﻿using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using MongoDB.Driver;
 using SPTS_Reader.Data;
 using SPTS_Reader.Data.Abstraction;
 
 //using SPTS_Reader.Data.Abstraction;
 using SPTS_Reader.Entities;
+using SPTS_Reader.EventBus;
 using SPTS_Reader.Models.Config;
+
 using SPTS_Reader.Services;
 using SPTS_Reader.Services.Abstraction;
 
@@ -25,6 +28,12 @@ public static class DependencyInjection
         services.RegisterRepositories();
         services.RegisterAuthentication();
         services.AddJwtAuthentication(configuration);
+        services.AddScoped<UserConsumer>();
+        services.AddScoped<TestConsumer>();
+        
+        services.AddHostedService<ConsumerHostService>();
+
+
     }
 
     private static void RegisterMongoDbContext(this IServiceCollection services, IConfiguration configuration)
@@ -34,19 +43,29 @@ public static class DependencyInjection
         {
             var config = sp.GetRequiredService<IOptions<MongoDbConfig>>().Value;
             return new MongoDbContext(config.ConnectionString, config.DatabaseName);
+        }); services.AddScoped<IMongoDatabase>(sp =>
+        {
+            var config = sp.GetRequiredService<IOptions<MongoDbConfig>>().Value;
+            var client = new MongoDB.Driver.MongoClient(config.ConnectionString);
+            return client.GetDatabase(config.DatabaseName);
         });
     }
 
     private static void RegisterRepositories(this IServiceCollection services)
     {
-        //services.AddScoped<IRepository<User>, Repository<User>>();
-        //services.AddScoped<UserRepository>();
+        
+        services.AddScoped<IUserRepository,UserRepository>();
         //services.AddScoped<IRepository<Answer>, Repository<Answer>>();
-        services.AddScoped<IRepository<Test>, Repository<Test>>();
-        services.AddScoped<IRepository<History>, Repository<History>>();
+        services.AddScoped<SPTS_Reader.Data.IRepository<Test>, Repository<Test>>();
+        services.AddScoped<SPTS_Reader.Data.IRepository<History>, Repository<History>>();
         //services.AddScoped<IRepository<School>, Repository<School>>();
         services.AddScoped<ISpecializationsRecommendationRepository, SpecializationsRecommendationRepository>();
         services.AddScoped<ISchoolRepository, SchoolRepository>();
+        services.AddScoped<SPTS_Reader.Data.IRepository<Test>, Repository<Test>>();
+        //services.AddScoped<IRepository<School>, Repository<School>>();
+        
+
+
     }
 
     private static void RegisterAuthentication(this IServiceCollection services)
@@ -54,6 +73,7 @@ public static class DependencyInjection
         //services.AddScoped<Authen>();
         services.AddScoped<TestService>();
         services.AddScoped<HistoryService>();
+        
         //services.AddScoped<SchoolService>();
         services.AddScoped<ISpecializationsRecommendationService, SpecializationsRecommendationService>();
         services.AddScoped<UserService>();
@@ -61,6 +81,8 @@ public static class DependencyInjection
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IQuestionService, QuestionService>();
         services.AddScoped<ITestService, TestService>();
+        
+        services.AddScoped<UserService>();
     }
 
     private static void AddSwagger(this IServiceCollection services)

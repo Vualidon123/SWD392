@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SPTS_Writer.Entities;
+using SPTS_Writer.Eventbus.Publishers;
+using SPTS_Writer.Eventbus.ViewChanges;
 using SPTS_Writer.Services;
 
 namespace SPTS_Writer.Controllers
@@ -10,10 +12,13 @@ namespace SPTS_Writer.Controllers
     public class TestController : ControllerBase
     {
         private readonly TestService _testService;
-
-        public TestController(TestService testService)
+        private readonly TestChangePublish _publisher;
+        private readonly TestView _testView;
+        public TestController(TestService testService, TestChangePublish publisher, TestView testView   )
         {
             _testService = testService;
+            _publisher = publisher;
+            _testView = testView;
         }
         [HttpGet]
         public IActionResult GetTest()
@@ -29,6 +34,7 @@ namespace SPTS_Writer.Controllers
             {
                 return NotFound(new { error = "There's no test with id " + id });
             }
+
             return Ok(test);
         }
 
@@ -40,6 +46,10 @@ namespace SPTS_Writer.Controllers
                 return BadRequest(new { error = "Test cannot be null" });
             }
             await _testService.AddTestAsync(test);
+            
+            /*await _testView.CreateAllTestsViewAsync(); // Create the view for MBTI tests*/
+/*            await _testView.SyncTestSnapshotWithTestsAsync();*/ // Check and update the view if necessary
+
             return CreatedAtAction(nameof(GetTestById), new { id = test.Id }, test);
         }
         [HttpDelete("{id}")]
