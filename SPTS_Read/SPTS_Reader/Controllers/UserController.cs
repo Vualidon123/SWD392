@@ -35,7 +35,6 @@ public class UserController : ControllerBase
     [HttpGet("me")]
     public async Task<IActionResult> GetCurrentUser()
     {
-        // ⚠️ Vì không có token nên không có cách xác định user
         return BadRequest(new { message = "Token is required to get current user." });
     }
 }

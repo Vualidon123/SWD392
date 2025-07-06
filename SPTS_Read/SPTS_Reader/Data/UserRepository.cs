@@ -26,5 +26,12 @@ public class UserRepository : Repository<User>, IUserRepository
 
     public async Task<long> CountAsync() => await Users.CountDocumentsAsync(_ => true);
 
+    public async Task<IEnumerable<User>> GetUsersByRoleAsync(string role)
+    {
+        return await Users
+            .Find(u => u.Role == role)
+            .ToListAsync();
+    }
+
 
 }

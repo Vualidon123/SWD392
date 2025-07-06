@@ -1,4 +1,4 @@
-using SPTS_Reader.Data;
+﻿using SPTS_Reader.Data;
 using SPTS_Reader.Data.Abstraction;
 using SPTS_Reader.Entities;
 using SPTS_Reader.Services.Abstraction;
@@ -50,6 +50,12 @@ namespace SPTS_Reader.Services
         public async Task<long> CountAsync()
         {
             return await _userRepository.CountAsync();
+        }
+
+        public async Task<IEnumerable<User>> GetUsersByRoleAsync(string role)
+        {
+            // 🟢 Lấy danh sách User theo Role từ repository
+            return await _userRepository.GetUsersByRoleAsync(role);
         }
 
 

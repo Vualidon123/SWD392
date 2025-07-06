@@ -9,6 +9,7 @@ namespace SPTS_Reader.Data.Abstraction
 
         Task<bool> UpdateRoleAsync(Guid id, string newRole);
 
+        Task<IEnumerable<User>> GetUsersByRoleAsync(string role);
         Task<long> CountAsync();
     }
 }
