@@ -67,14 +67,30 @@ namespace SPTS_Writer.Controllers
         }
 
 
-        // 🔴 Delete User - Chỉ Admin có quyền xóa
+        // 🔴 Delete User - Admin xoá được mọi user, Student chỉ xoá chính mình
         [HttpDelete("delete/{id}")]
-        [Authorize(Policy = AuthorizationPolicies.Admin)]
+        [Authorize(Policy = AuthorizationPolicies.Student)]
         public async Task<IActionResult> DeleteUser(Guid id)
         {
+            var currentUserId = GetCurrentUserId();
+            if (currentUserId == null)
+                return Unauthorized();
+
+            // ✅ Nếu là Admin -> xoá được bất kỳ User
+            if (User.IsInRole("Admin"))
+            {
+                await _userService.DeleteUserAsync(id.ToString());
+                return Ok(new { message = "User deleted successfully by Admin." });
+            }
+
+            // ✅ Nếu là Student -> chỉ cho xoá chính mình
+            if (currentUserId != id.ToString())
+                return Forbid();
+
             await _userService.DeleteUserAsync(id.ToString());
-            return Ok(new { message = "User deleted successfully." });
+            return Ok(new { message = "Your account has been deleted successfully." });
         }
+
 
         // Helper: Get current user Id from JWT claims
         private string? GetCurrentUserId()

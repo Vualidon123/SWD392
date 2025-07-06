@@ -15,7 +15,6 @@ public class UserController : ControllerBase
         _userService = userService;
     }
 
-    // 🟢 Lấy tất cả User - Không yêu cầu token
     [HttpGet]
     public async Task<IActionResult> GetAllUsers()
     {
@@ -23,7 +22,6 @@ public class UserController : ControllerBase
         return Ok(users);
     }
 
-    // 🟢 Lấy thông tin 1 User theo Id - Không yêu cầu token
     [HttpGet("{id}")]
     public async Task<IActionResult> GetUserById(Guid id)
     {
@@ -34,7 +32,6 @@ public class UserController : ControllerBase
         return Ok(user);
     }
 
-    // 🟢 Lấy thông tin chính User - Không yêu cầu token
     [HttpGet("me")]
     public async Task<IActionResult> GetCurrentUser()
     {
