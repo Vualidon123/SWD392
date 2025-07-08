@@ -22,12 +22,14 @@ public class ConsumerHostService : IHostedService
                 var testConsumer = scope.ServiceProvider.GetRequiredService<TestConsumer>();
                 var QuestionConsumer = scope.ServiceProvider.GetRequiredService<QuestionConsumer>();
                 var SchoolConsumer = scope.ServiceProvider.GetRequiredService<SchoolConsumer>();
+                var HistoryConsumer = scope.ServiceProvider.GetRequiredService<HistoryConsumer>();
                 // Run both consumers in parallel and wait for both to finish
                 var userTask = userConsumer.ConsumeMessageAsync(cancellationToken);
                 var testTask = testConsumer.ConsumeMessageAsync(cancellationToken);
                 var questionTask = QuestionConsumer.ConsumeMessageAsync(cancellationToken);
                 var schoolTask = SchoolConsumer.ConsumeMessageAsync(cancellationToken);
-                await Task.WhenAll(userTask, testTask,questionTask,schoolTask);
+                var historyTask = HistoryConsumer.ConsumeMessageAsync(cancellationToken);
+                await Task.WhenAll(userTask, testTask,questionTask,historyTask);
 
                 // Optionally, add a delay or handle exceptions/logging here
             }
