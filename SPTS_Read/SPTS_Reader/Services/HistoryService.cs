@@ -8,14 +8,27 @@ public class HistoryService : IHistoryService
 {
     private IHistoryRepository _historyRepo;
 
+
     public HistoryService(MongoDbContext context)
     {
         _historyRepo = new HistoryRepository(context);
     }
 
+    public Task AddHistoryAsync(History history)
+    {
+       return _historyRepo.AddAsync(history);
+    }
+
+
     public async Task<long> CountAsync()
     {
         return await _historyRepo.CountAsync();
+    }
+
+    public async Task DeleteHistoryAsync(Guid id)
+    {
+        var h = await _historyRepo.GetByIdAsync(id);
+        await _historyRepo.DeleteAsync(h);
     }
 
     public async Task<List<History>> GetBatchAsync(int limit, int skip)
@@ -31,6 +44,11 @@ public class HistoryService : IHistoryService
     public async Task<List<History>> GetByUserIdAsync(Guid userId, int limit, int skip)
     {
         return await _historyRepo.GetByUserIdAsync(userId, limit, skip);
+    }
+
+    public async Task UpdateHistoryAsync(History history)
+    {
+        await _historyRepo.UpdateAsync(history.Id.ToString(),history) ;
     }
 }
 
