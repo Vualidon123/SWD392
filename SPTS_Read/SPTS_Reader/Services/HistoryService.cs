@@ -27,8 +27,8 @@ public class HistoryService : IHistoryService
 
     public async Task DeleteHistoryAsync(Guid id)
     {
-        var h = await _historyRepo.GetByIdAsync(id);
-        await _historyRepo.DeleteAsync(h);
+        
+        await _historyRepo.DeleteAsync(id.ToString());
     }
 
     public async Task<List<History>> GetBatchAsync(int limit, int skip)

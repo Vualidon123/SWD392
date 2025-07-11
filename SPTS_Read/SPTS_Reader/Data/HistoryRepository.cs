@@ -9,6 +9,8 @@ public class HistoryRepository : Repository<History>, IHistoryRepository
 {
     public HistoryRepository(MongoDbContext context) : base(context) { }
 
+   
+
     public async Task<List<History>> GetBatchAsync(int limit, int skip)
     {
         return await _collection.Find(history => true).Skip(skip).Limit(limit).ToListAsync();
