@@ -73,7 +73,7 @@ public static class DependencyInjection
         
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IQuestionService, QuestionService>();
-        services.AddScoped<ITestService, TestService>();
+       
 
         services.AddScoped<IQuestionService,QuestionService>();
         services.AddScoped<IUserService,UserService>();

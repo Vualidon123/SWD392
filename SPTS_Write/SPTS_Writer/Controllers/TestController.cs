@@ -4,6 +4,7 @@ using SPTS_Writer.Entities;
 using SPTS_Writer.Eventbus.Publishers;
 using SPTS_Writer.Eventbus.ViewChanges;
 using SPTS_Writer.Services;
+using SPTS_Writer.Services.Abstraction;
 
 namespace SPTS_Writer.Controllers
 {
@@ -11,14 +12,12 @@ namespace SPTS_Writer.Controllers
     [ApiController]
     public class TestController : ControllerBase
     {
-        private readonly TestService _testService;
-        private readonly TestChangePublish _publisher;
-        private readonly TestView _testView;
-        public TestController(TestService testService, TestChangePublish publisher, TestView testView   )
+        private readonly ITestService _testService;
+       
+        public TestController(ITestService testService )
         {
             _testService = testService;
-            _publisher = publisher;
-            _testView = testView;
+           
         }
         [HttpGet]
         public IActionResult GetTest()
@@ -60,6 +59,16 @@ namespace SPTS_Writer.Controllers
                 return BadRequest(new { error = "Id cannot be null or empty" });
             }
             await _testService.DeleteTestAsync(id);
+            return NoContent();
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateTest(Test test)
+        {
+            if (string.IsNullOrEmpty(test.Id.ToString()))
+            {
+                return BadRequest(new { error = "Id cannot be null or empty" });
+            }
+            await _testService.UpdateTestAsync(test);
             return NoContent();
         }
     }
