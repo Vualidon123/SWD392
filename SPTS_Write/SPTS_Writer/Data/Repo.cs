@@ -60,9 +60,9 @@ public class Repository<T> : IRepository<T> where T : class
             return Task.CompletedTask;
         }
 
-    public Task<long> CountAsync()
-    {
-        throw new NotImplementedException();
-    }
+	public async Task<long> CountAsync()
+	{
+		return await _collection.CountDocumentsAsync(Builders<T>.Filter.Empty);
+	}
 }
 // ...existing code...
