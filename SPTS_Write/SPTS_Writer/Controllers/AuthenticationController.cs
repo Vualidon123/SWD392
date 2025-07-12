@@ -35,7 +35,8 @@ namespace SPTS_Writer.Controllers
                     access_token = accessToken,
                     username = user.Name,
                     role = user.Role ?? "Student",
-                    email = user.Email
+                    email = user.Email,
+                    userId = user.Id
                 });
             }
             catch (Exception ex)
@@ -57,7 +58,8 @@ namespace SPTS_Writer.Controllers
                     access_token = accessToken,
                     username = user.Name,
                     role = user.Role ?? "Student",
-                    email = user.Email
+                    email = user.Email,
+                    userId = user.Id
                 });
             }
             catch (Exception ex)
