@@ -164,7 +164,7 @@ namespace SPTS_Writer.Services
                 Result = status == TestStatus.Completed ? GetTestFinalResult(test.Method, answers) : "",
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
-                status = TestStatus.Completed,
+                status = status,
                 TestId = test.Id,
                 UserId = who.Id,
             };
