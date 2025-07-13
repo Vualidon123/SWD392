@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SPTS_Writer.Entities;
 using SPTS_Writer.Services;
+using SPTS_Writer.Services.Abstraction;
 
 namespace SPTS_Writer.Controllers
 {
@@ -11,10 +12,10 @@ namespace SPTS_Writer.Controllers
     public class HistoryController : ControllerBase
     {
         private readonly HistoryService _historyService;
-        private readonly TestService _testService;
+        private readonly ITestService _testService;
         private readonly UserService _userService;
 
-        public HistoryController(HistoryService historyService, TestService testService, UserService userService)
+        public HistoryController(HistoryService historyService, ITestService testService, UserService userService)
         {
             _historyService = historyService;
             _testService = testService;
@@ -40,7 +41,7 @@ namespace SPTS_Writer.Controllers
         }
 
         [HttpPost("submit")]
-        [Authorize(Policy = AuthorizationPolicies.Student)]
+        /*[Authorize(Policy = AuthorizationPolicies.Student)]*/
         public async Task<IActionResult> SubmitTest([FromBody] TestSubmission submission, TestStatus status)
         {
             if (submission.answers.Count == 0)
