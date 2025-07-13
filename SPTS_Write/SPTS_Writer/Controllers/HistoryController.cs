@@ -41,7 +41,7 @@ namespace SPTS_Writer.Controllers
         }
 
         [HttpPost("submit")]
-        /*[Authorize(Policy = AuthorizationPolicies.Student)]*/
+        [Authorize(Policy = AuthorizationPolicies.Student)]
         public async Task<IActionResult> SubmitTest([FromBody] TestSubmission submission, TestStatus status)
         {
             if (submission.answers.Count == 0)
