@@ -77,10 +77,14 @@ public static class DependencyInjection
 
         services.AddScoped<IQuestionService,QuestionService>();
         services.AddScoped<IUserService,UserService>();
-        
-    }
 
-    private static void AddSwagger(this IServiceCollection services)
+		services.AddScoped<INotificationRepository, NotificationRepository>();
+		services.AddScoped<INotificationService, NotificationService>();
+
+
+	}
+
+	private static void AddSwagger(this IServiceCollection services)
     {
         services.AddSwaggerGen(o =>
         {

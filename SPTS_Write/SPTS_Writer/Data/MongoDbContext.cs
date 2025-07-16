@@ -41,7 +41,9 @@ public class MongoDbContext
             return (IMongoCollection<T>)Questions;
         if (typeof(T) == typeof(SpecializationsRecommendation))
             return (IMongoCollection<T>)SpecializationsRecommendations;
-        throw new ArgumentException("Collection not found for the given type");
+		if (typeof(T) == typeof(Notification)) 
+			return (IMongoCollection<T>)Notifications;
+		throw new ArgumentException("Collection not found for the given type");
     }
 
     private void NukeData()
@@ -52,12 +54,17 @@ public class MongoDbContext
         Questions.DeleteMany(_ => true);
     }
 
+
+
+
     private void SeedData()
     {
         // Seed Emp data
         if (!Users.Find(_ => true).Any())
         {
-            Users.InsertMany(new[]
+			Console.WriteLine("🔔 Seeding Notifications...");
+
+			Users.InsertMany(new[]
                 {
                     new User
                     {
@@ -85,7 +92,28 @@ public class MongoDbContext
                     }
             });
         }
-        List<Question> questions = SPTS_Writer.Utils.DataGenerator.GenerateSampleQuestions();
+
+		if (!Notifications.Find(_ => true).Any())
+		{
+			Notifications.InsertMany(new[]
+			{
+		new Notification
+		{
+			Id = Guid.NewGuid(),
+			Message = "Welcome to the system!",
+			CreatedAt = DateTime.UtcNow
+		},
+		new Notification
+		{
+			Id = Guid.NewGuid(),
+			Message = "Your profile has been approved.",
+			CreatedAt = DateTime.UtcNow
+		} 
+	});
+		}
+
+
+		List<Question> questions = SPTS_Writer.Utils.DataGenerator.GenerateSampleQuestions();
         if (!Questions.Find(_ => true).Any())
         {
             Questions.InsertMany(questions);

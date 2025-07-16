@@ -15,13 +15,16 @@ namespace SPTS_Writer.Controllers
     {
         private readonly Authen _authenService;
         private readonly IConfiguration _configuration;
-        private readonly UserView _userView;  
-        public AuthenticationController(Authen authenService, IConfiguration configuration,UserView userView)
+        private readonly UserView _userView;
+		private readonly INotificationService _notificationService;
+		public AuthenticationController(Authen authenService, IConfiguration configuration,UserView userView, INotificationService notificationService)
         {
             _authenService = authenService;
             _configuration = configuration;
             _userView = userView;
-        }
+			_notificationService = notificationService;
+
+		}
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
@@ -30,14 +33,21 @@ namespace SPTS_Writer.Controllers
             {
                 var user = await _authenService.Login(loginRequest);
                 var accessToken = JwtTokenHelper.GenerateAccessToken(user, _configuration);
-                return Ok(new
+
+				var template = await _notificationService.GetWelcomeTemplateAsync();
+				var personalizedMessage = template != null
+					? $"{template.Message}, {user.Name}!"
+					: $"Welcome to the system, {user.Name}!";
+				return Ok(new
                 {
                     access_token = accessToken,
                     username = user.Name,
                     role = user.Role ?? "Student",
                     email = user.Email,
-                    userId = user.Id
-                });
+                    userId = user.Id,
+					notification = personalizedMessage
+
+				});
             }
             catch (Exception ex)
             {
@@ -52,15 +62,21 @@ namespace SPTS_Writer.Controllers
             {
                 var user = await _authenService.Register(registerRequest);
                 var accessToken = JwtTokenHelper.GenerateAccessToken(user, _configuration);
-               /* await _userView.SyncUserSnapshotWithUsersAsync();*/
-                return Ok(new
+
+				var template = await _notificationService.GetWelcomeTemplateAsync();
+				var personalizedMessage = template != null
+					? $"{template.Message}, {user.Name}!"
+					: $"Welcome to the system, {user.Name}!";
+				/* await _userView.SyncUserSnapshotWithUsersAsync();*/
+				return Ok(new
                 {
                     access_token = accessToken,
                     username = user.Name,
                     role = user.Role ?? "Student",
                     email = user.Email,
-                    userId = user.Id
-                });
+                    userId = user.Id,
+					notification = personalizedMessage
+				});
             }
             catch (Exception ex)
             {

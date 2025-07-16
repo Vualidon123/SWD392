@@ -62,13 +62,14 @@ public static class DependencyInjection
         services.AddScoped<ISpecializationsRecommendationRepository, SpecializationsRecommendationRepository>();
         services.AddScoped<ISchoolRepository, SchoolRepository>();
         services.AddScoped<SPTS_Reader.Data.IRepository<Test>, Repository<Test>>();
-        //services.AddScoped<IRepository<School>, Repository<School>>();
-        
+
+		//services.AddScoped<IRepository<School>, Repository<School>>();
 
 
-    }
 
-    private static void RegisterAuthentication(this IServiceCollection services)
+	}
+
+	private static void RegisterAuthentication(this IServiceCollection services)
     {
         //services.AddScoped<Authen>();
         services.AddScoped<TestService>();
@@ -82,7 +83,6 @@ public static class DependencyInjection
         services.AddScoped<IQuestionService, QuestionService>();
         services.AddScoped<ITestService, TestService>();
         
-        services.AddScoped<UserService>();
     }
 
     private static void AddSwagger(this IServiceCollection services)
