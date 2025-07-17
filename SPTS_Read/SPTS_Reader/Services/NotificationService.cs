@@ -1,8 +1,8 @@
-﻿using SPTS_Writer.Data.Abstraction;
-using SPTS_Writer.Entities;
-using SPTS_Writer.Services.Abstraction;
+﻿using SPTS_Reader.Data.Abstraction;
+using SPTS_Reader.Entities;
+using SPTS_Reader.Services.Abstraction;
 
-namespace SPTS_Writer.Services
+namespace SPTS_Reader.Services
 {
 	public class NotificationService : INotificationService
 	{

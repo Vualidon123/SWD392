@@ -1,4 +1,4 @@
-﻿namespace SPTS_Writer.Entities
+﻿namespace SPTS_Reader.Entities
 {
     public class Notification
     {

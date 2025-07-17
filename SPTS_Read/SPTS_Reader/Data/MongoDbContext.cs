@@ -22,7 +22,10 @@ public class MongoDbContext
 
     public IMongoCollection<Question> Questions => _database.GetCollection<Question>("Questions");
 
-    public IMongoCollection<T> GetCollection<T>()
+	public IMongoCollection<Notification> Notifications => _database.GetCollection<Notification>("Notifications");
+
+
+	public IMongoCollection<T> GetCollection<T>()
     {
         if (typeof(T) == typeof(Question))
             return (IMongoCollection<T>)Questions;
@@ -36,7 +39,9 @@ public class MongoDbContext
             return (IMongoCollection<T>)Schools;
         if (typeof(T) == typeof(SpecializationsRecommendation))
             return (IMongoCollection<T>)SpecializationsRecommendations;
-      
-        throw new ArgumentException("Collection not found for the given type");
+		if (typeof(T) == typeof(Notification))
+			return (IMongoCollection<T>)Notifications;
+
+		throw new ArgumentException("Collection not found for the given type");
     }
 }

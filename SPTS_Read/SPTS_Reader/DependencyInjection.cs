@@ -1,4 +1,4 @@
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MongoDB.Driver;
@@ -82,8 +82,10 @@ public static class DependencyInjection
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IQuestionService, QuestionService>();
         services.AddScoped<ITestService, TestService>();
-        
-    }
+
+		services.AddScoped<INotificationRepository, NotificationRepository>();
+		services.AddScoped<INotificationService, NotificationService>();
+	}
 
     private static void AddSwagger(this IServiceCollection services)
     {
@@ -149,8 +151,12 @@ public static class DependencyInjection
     private static void AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
     {
         services
-            .AddAuthentication()
-            .AddJwtBearer(
+		   .AddAuthentication(options =>
+		   {
+			   options.DefaultScheme = "Access";            // ✅ Default for [Authorize]
+			   options.DefaultChallengeScheme = "Access";   // ✅ Default challenge scheme
+		   })
+			.AddJwtBearer(
                 "Access",
                 o =>
                 {

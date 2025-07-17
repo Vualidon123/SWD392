@@ -148,8 +148,12 @@ public static class DependencyInjection
     private static void AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
     {
         services
-            .AddAuthentication()
-            .AddJwtBearer(
+            .AddAuthentication(options =>
+			{
+				options.DefaultScheme = "Access";            // ✅ Default for [Authorize]
+				options.DefaultChallengeScheme = "Access";   // ✅ Default challenge scheme
+			})
+			.AddJwtBearer(
                 "Access",
                 o =>
                 {

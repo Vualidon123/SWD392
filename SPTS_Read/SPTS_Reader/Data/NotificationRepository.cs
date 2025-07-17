@@ -1,9 +1,9 @@
 ﻿using MongoDB.Driver;
-using SPTS_Writer.Data.Abstraction;
-using SPTS_Writer.Entities;
+using SPTS_Reader.Data.Abstraction;
+using SPTS_Reader.Entities;
 using System.Linq.Expressions;
 
-namespace SPTS_Writer.Data
+namespace SPTS_Reader.Data
 {
 	public class NotificationRepository : Repository<Notification>, INotificationRepository
 	{

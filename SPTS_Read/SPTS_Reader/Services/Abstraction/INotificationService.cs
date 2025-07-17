@@ -1,6 +1,6 @@
-﻿using SPTS_Writer.Entities;
+﻿using SPTS_Reader.Entities;
 
-namespace SPTS_Writer.Services.Abstraction
+namespace SPTS_Reader.Services.Abstraction
 {
 	public interface INotificationService
 	{

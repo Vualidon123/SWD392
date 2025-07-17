@@ -1,6 +1,6 @@
-﻿using SPTS_Writer.Entities;
+﻿using SPTS_Reader.Entities;
 
-namespace SPTS_Writer.Data.Abstraction
+namespace SPTS_Reader.Data.Abstraction
 {
 	public interface INotificationRepository : IRepository<Notification>
 	{

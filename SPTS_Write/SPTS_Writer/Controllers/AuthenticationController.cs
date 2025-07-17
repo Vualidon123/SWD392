@@ -34,10 +34,8 @@ namespace SPTS_Writer.Controllers
                 var user = await _authenService.Login(loginRequest);
                 var accessToken = JwtTokenHelper.GenerateAccessToken(user, _configuration);
 
-				var template = await _notificationService.GetWelcomeTemplateAsync();
-				var personalizedMessage = template != null
-					? $"{template.Message}, {user.Name}!"
-					: $"Welcome to the system, {user.Name}!";
+				var notifications = await _notificationService.GetNotificationsByUserIdAsync(user.Id); 
+					
 				return Ok(new
                 {
                     access_token = accessToken,
@@ -45,8 +43,7 @@ namespace SPTS_Writer.Controllers
                     role = user.Role ?? "Student",
                     email = user.Email,
                     userId = user.Id,
-					notification = personalizedMessage
-
+					notifications
 				});
             }
             catch (Exception ex)
