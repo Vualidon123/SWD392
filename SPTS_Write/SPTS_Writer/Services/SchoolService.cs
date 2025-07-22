@@ -1,37 +1,38 @@
 ﻿using SPTS_Writer.Data.Abstraction;
 using SPTS_Writer.Entities;
+using SPTS_Writer.Services.Abstraction;
 
 namespace SPTS_Writer.Services
 {
-    public class SchoolService
+    public class SchoolService : ISchoolService
     {
-        private readonly IRepository<School> _schoolRepository;
-        public SchoolService(IRepository<School> schoolRepository)
+        private readonly ISchoolRepository _schoolRepository;
+        public SchoolService(ISchoolRepository schoolRepository)
         {
             _schoolRepository = schoolRepository;
         }
-        public async Task<School?> GetTestByIdAsync(string id)
+        public async Task<School?> GetHistoryByIdAsync(string id)
         {
             return await _schoolRepository.GetByIdAsync(id);
         }
-        public async Task<IEnumerable<School>> GetAllTestsAsync()
+        public async Task<IEnumerable<School>> GetAllHistorysAsync()
         {
             return await _schoolRepository.GetAllAsync();
         }
 
-        public async Task AddTestAsync(School school)
+        public async Task AddHistoryAsync(School school)
         {
             school.Id = new Guid();
             await _schoolRepository.AddAsync(school);
             await _schoolRepository.SaveChangesAsync();
         }
 
-        public async Task UpdateTestAsync(School school)
+        public async Task UpdateHistoryAsync(School school)
         {
             await _schoolRepository.UpdateAsync(school.Id.ToString(), school);
             await _schoolRepository.SaveChangesAsync();
         }
-        public async Task DeleteTestAsync(string id)
+        public async Task DeleteHistoryAsync(string id)
         {
             await _schoolRepository.DeleteAsync(id);
             await _schoolRepository.SaveChangesAsync();

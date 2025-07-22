@@ -63,13 +63,14 @@ public static class DependencyInjection
         services.AddScoped<IRepository<Question>, Repository<Question>>();
         services.AddScoped<IQuestionRepository, QuestionRepository>();
         services.AddScoped<IHistoryRepository, HistoryRepository>();
+        services.AddScoped<ISchoolRepository, SchoolRepository>();
     }
 
     private static void RegisterAuthentication(this IServiceCollection services)
     {
         services.AddScoped<Authen>();
         services.AddScoped<ITestService, TestService>();
-        services.AddScoped<SchoolService>();
+        services.AddScoped<ISchoolService, SchoolService>();
         services.AddScoped<IHistoryService, HistoryService>();
         services.AddScoped<UserService>();
 

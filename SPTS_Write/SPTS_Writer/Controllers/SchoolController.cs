@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SPTS_Writer.Entities;
 using SPTS_Writer.Services;
+using SPTS_Writer.Services.Abstraction;
 
 namespace SPTS_Writer.Controllers
 {
@@ -9,24 +10,24 @@ namespace SPTS_Writer.Controllers
     [ApiController]
     public class SchoolController : ControllerBase
     {
-        private readonly SchoolService _schoolService;
+        private readonly ISchoolService _schoolService;
 
-        public SchoolController(SchoolService schoolService)
+        public SchoolController(ISchoolService schoolService)
         {
             _schoolService = schoolService;
         }
 
         [HttpGet]
-        public IActionResult GetTest()
+        public IActionResult GetHistory()
         {
-            var test = _schoolService.GetAllTestsAsync().Result;
+            var test = _schoolService.GetAllHistorysAsync().Result;
             return Ok(test);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetTestById(string id)
+        public async Task<IActionResult> GetHistoryById(string id)
         {
-            var test = await _schoolService.GetTestByIdAsync(id);
+            var test = await _schoolService.GetHistoryByIdAsync(id);
             if (test == null)
             {
                 return NotFound(new { error = "There is no test with id: " + id });
@@ -36,37 +37,37 @@ namespace SPTS_Writer.Controllers
 
         [HttpPost]
         [Authorize(Policy = AuthorizationPolicies.Staff)]
-        public async Task<IActionResult> AddTest(School test)
+        public async Task<IActionResult> AddHistory(School test)
         {
             if (test == null)
             {
-                return BadRequest(new { error = "Test cannot be null" });
+                return BadRequest(new { error = "History cannot be null" });
             }
-            await _schoolService.AddTestAsync(test);
-            return CreatedAtAction(nameof(GetTestById), new { id = test.Id }, test);
+            await _schoolService.AddHistoryAsync(test);
+            return CreatedAtAction(nameof(GetHistoryById), new { id = test.Id }, test);
         }
 
         [HttpPut]
         [Authorize(Policy = AuthorizationPolicies.Staff)]
-        public async Task<IActionResult> UpdateTest(School test)
+        public async Task<IActionResult> UpdateHistory(School test)
         {
             if (test == null)
             {
-                return BadRequest(new { error = "Test cannot be null" });
+                return BadRequest(new { error = "History cannot be null" });
             }
-            await _schoolService.UpdateTestAsync(test);
+            await _schoolService.UpdateHistoryAsync(test);
             return Ok();
         }
 
         [HttpDelete("{id}")]
         [Authorize(Policy = AuthorizationPolicies.Staff)]
-        public async Task<IActionResult> DeleteTest(string id)
+        public async Task<IActionResult> DeleteHistory(string id)
         {
             if (string.IsNullOrEmpty(id))
             {
                 return BadRequest(new { error = "Id cannot be null or empty" });
             }
-            await _schoolService.DeleteTestAsync(id);
+            await _schoolService.DeleteHistoryAsync(id);
             return NoContent();
         }
     }

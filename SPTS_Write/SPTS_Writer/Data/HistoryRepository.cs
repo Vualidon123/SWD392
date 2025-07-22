@@ -29,6 +29,5 @@ public class HistoryRepository : Repository<History>, IHistoryRepository
             & Builders<History>.Filter.Eq(history => history.TestId, testId);
         var result = await _collection.FindAsync(filter);
         return await result.FirstOrDefaultAsync();
-
     }
 }
