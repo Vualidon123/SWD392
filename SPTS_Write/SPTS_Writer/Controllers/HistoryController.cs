@@ -11,11 +11,11 @@ namespace SPTS_Writer.Controllers
     [ApiController]
     public class HistoryController : ControllerBase
     {
-        private readonly HistoryService _historyService;
+        private readonly IHistoryService _historyService;
         private readonly ITestService _testService;
-        private readonly UserService _userService;
+        private readonly IUserService _userService;
 
-        public HistoryController(HistoryService historyService, ITestService testService, UserService userService)
+        public HistoryController(IHistoryService historyService, ITestService testService, IUserService userService)
         {
             _historyService = historyService;
             _testService = testService;
@@ -58,7 +58,7 @@ namespace SPTS_Writer.Controllers
             if (temp == null)
                 return BadRequest(new { error = "Cannot get User information" });
             History history = await _historyService.RecordTakenTestAsync(test, temp, submission.answers, status);
-            return CreatedAtAction(nameof(GetHistoryById), new { id = history.Id }, history);
+            return Ok(history);
         }
 
         [HttpDelete("{id}")]

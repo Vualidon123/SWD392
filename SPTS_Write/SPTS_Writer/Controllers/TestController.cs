@@ -41,15 +41,12 @@ namespace SPTS_Writer.Controllers
             return Ok(test);
         }
 
-        [HttpPost("random")]
+        [HttpGet("random")]
         [Authorize(Policy = AuthorizationPolicies.Student)]
         public async Task<IActionResult> CreateRandomTest(TestMethod method, int questionAmount)
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)!.Value;
-            User? temp = await _userService.GetUserByIdAsync(userId);
-            if (temp == null)
-                return BadRequest(new { error = "Cannot get User information" });
-            Test test = await _testService.GenerateRandomTestAsync(method, questionAmount, temp.Id.ToString());
+            Test test = await _testService.GenerateRandomTestAsync(method, questionAmount, userId);
             return Ok(test);
         }
 

@@ -8,5 +8,11 @@ namespace SPTS_Writer.Data;
 public class SchoolRepository : Repository<School>, ISchoolRepository
 {
     public SchoolRepository(MongoDbContext context) : base(context) { }
+
+    public async Task<School?> GetSchoolByNameAsync(string name)
+    {
+        var filter = Builders<School>.Filter.Eq("Name", name);
+        return await _collection.Find(filter).FirstOrDefaultAsync();
+    }
 }
 

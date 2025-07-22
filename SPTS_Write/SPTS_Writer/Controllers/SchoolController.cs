@@ -20,42 +20,49 @@ namespace SPTS_Writer.Controllers
         [HttpGet]
         public IActionResult GetSchool()
         {
-            var test = _schoolService.GetAllSchoolsAsync().Result;
-            return Ok(test);
+            var schools = _schoolService.GetAllSchoolsAsync().Result;
+            return Ok(schools);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSchoolById(string id)
         {
-            var test = await _schoolService.GetSchoolByIdAsync(id);
-            if (test == null)
+            var school = await _schoolService.GetSchoolByIdAsync(id);
+            if (school == null)
             {
-                return NotFound(new { error = "There is no test with id: " + id });
+                return NotFound(new { error = "There is no school with id: " + id });
             }
-            return Ok(test);
+            return Ok(school);
         }
 
         [HttpPost]
         [Authorize(Policy = AuthorizationPolicies.Staff)]
-        public async Task<IActionResult> AddSchool(School test)
+        public async Task<IActionResult> AddSchool(School school)
         {
-            if (test == null)
+            if (school == null)
             {
                 return BadRequest(new { error = "School cannot be null" });
             }
-            await _schoolService.AddSchoolAsync(test);
-            return CreatedAtAction(nameof(GetSchoolById), new { id = test.Id }, test);
+            string temp = await _schoolService.AddSchoolAsync(school);
+            switch (temp)
+            {
+                case "Ok":
+                    return CreatedAtAction(nameof(GetSchoolById), new { id = school.Id }, school);
+                case "Name existed":
+                    return Conflict(temp);
+                default:
+                    return StatusCode(StatusCodes.Status500InternalServerError, temp);
+            }
         }
 
         [HttpPut]
         [Authorize(Policy = AuthorizationPolicies.Staff)]
-        public async Task<IActionResult> UpdateSchool(School test)
+        public async Task<IActionResult> UpdateSchool(School school)
         {
-            if (test == null)
-            {
-                return BadRequest(new { error = "School cannot be null" });
-            }
-            await _schoolService.UpdateSchoolAsync(test);
+            School? current = await _schoolService.GetByIdAsync(school.Id.ToString());
+            if (current == null)
+                return NotFound();
+            await _schoolService.UpdateSchoolAsync(school);
             return Ok();
         }
 
@@ -63,10 +70,9 @@ namespace SPTS_Writer.Controllers
         [Authorize(Policy = AuthorizationPolicies.Staff)]
         public async Task<IActionResult> DeleteSchool(string id)
         {
-            if (string.IsNullOrEmpty(id))
-            {
-                return BadRequest(new { error = "Id cannot be null or empty" });
-            }
+            School? school = await _schoolService.GetByIdAsync(id);
+            if (school == null)
+                return NotFound();
             await _schoolService.DeleteSchoolAsync(id);
             return NoContent();
         }
