@@ -4,11 +4,11 @@ namespace SPTS_Writer.Services.Abstraction
 {
     public interface ISchoolService
     {
-        public Task<School?> GetHistoryByIdAsync(string id);
-        public Task<IEnumerable<School>> GetAllHistorysAsync();
-        public Task AddHistoryAsync(School school);
-        public Task UpdateHistoryAsync(School school);
-        public Task DeleteHistoryAsync(string id);
+        public Task<School?> GetSchoolByIdAsync(string id);
+        public Task<IEnumerable<School>> GetAllSchoolsAsync();
+        public Task AddSchoolAsync(School school);
+        public Task UpdateSchoolAsync(School school);
+        public Task DeleteSchoolAsync(string id);
 
     }
 }
