@@ -36,6 +36,5 @@ namespace SPTS_Writer.Services
             await _schoolRepository.SaveChangesAsync();
         }
 
-
     }
 }
