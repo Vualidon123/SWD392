@@ -435,7 +435,7 @@ public class DataGenerator
             new Question() {
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail ="?",
+                Detail ="",
                 Options = new List<Option> (){
                     new Option(){
                         Detail = @"Bạn cảm thấy tràn đầy năng lượng khi ở cạnh nhiều người" ,
@@ -451,7 +451,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Trong một nhóm, bạn thường là người nói nhiều",
@@ -467,7 +467,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thích các hoạt động náo nhiệt, tiệc tùng",
@@ -483,7 +483,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thường nói ra suy nghĩ của mình ngay lập tức ",
@@ -499,7 +499,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thích giao lưu, kết bạn mới",
@@ -515,7 +515,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thấy thoải mái khi thuyết trình",
@@ -531,7 +531,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thích các hoạt động nhóm",
@@ -547,7 +547,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn dễ dàng làm quen với người lạ ",
@@ -563,7 +563,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thường hành động rồi mới suy nghĩ",
@@ -579,7 +579,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn cảm thấy được nạp lại năng lượng khi trò chuyện với người khác ",
@@ -595,7 +595,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Khi gặp khó khăn, bạn thường chia sẻ ngay",
@@ -611,7 +611,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn cảm thấy hào hứng trong môi trường sôi động ",
@@ -627,7 +627,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thích thể hiện cảm xúc ra ngoài",
@@ -643,7 +643,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn học tốt hơn khi trao đổi trực tiếp ",
@@ -659,7 +659,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn dễ hòa nhập trong các tình huống xã hội ",
@@ -675,7 +675,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn tin vào kinh nghiệm thực tế",
@@ -691,7 +691,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Khi học một khái niệm mới, bạn cần ví dụ cụ thể",
@@ -707,7 +707,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn quan tâm đến chi tiết ",
@@ -723,7 +723,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn chú trọng hiện tại và thực tế",
@@ -739,7 +739,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn tin vào ""thấy mới tin"" ",
@@ -755,7 +755,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn nhớ thông tin theo thứ tự, mốc thời gian",
@@ -771,7 +771,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Khi giải quyết vấn đề, bạn tập trung vào hiện trạng",
@@ -787,7 +787,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thích làm việc có quy trình rõ ràng",
@@ -803,7 +803,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn dễ nhớ dữ kiện cụ thể ",
@@ -819,7 +819,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thích hướng dẫn từng bước cụ thể",
@@ -835,7 +835,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn đánh giá cao sự ổn định",
@@ -851,7 +851,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thấy dễ hiểu hơn khi có ví dụ thực tế",
@@ -867,7 +867,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn chú ý vào chi tiết nhỏ trong mọi việc ",
@@ -883,7 +883,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn cảm thấy an tâm khi tuân theo chuẩn mực đã có ",
@@ -899,7 +899,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thường hỏi “nó là gì ",
@@ -915,7 +915,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Khi ra quyết định, bạn ưu tiên lý trí ",
@@ -931,7 +931,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn tin rằng sự thật là quan trọng hơn cảm xúc",
@@ -947,7 +947,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn phê bình người khác một cách thẳng thắn ",
@@ -963,7 +963,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn ưu tiên công việc hiệu quả hơn cảm giác người khác ",
@@ -979,7 +979,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn dễ tranh luận để bảo vệ quan điểm ",
@@ -995,7 +995,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn có khuynh hướng phân tích lý lẽ",
@@ -1011,7 +1011,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn đánh giá cao sự công bằng ",
@@ -1027,7 +1027,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Trong nhóm, bạn là người ra quyết định",
@@ -1043,7 +1043,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thích sự thẳng thắn",
@@ -1059,7 +1059,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Khi làm việc, bạn tập trung vào mục tiêu",
@@ -1075,7 +1075,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn dễ chấp nhận các quyết định dựa trên logic ",
@@ -1091,7 +1091,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Khi gặp mâu thuẫn, bạn tìm lý do khách quan",
@@ -1107,7 +1107,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thích phân tích ",
@@ -1123,7 +1123,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn cảm thấy ổn khi người khác không đồng tình ",
@@ -1139,7 +1139,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn làm theo đúng quy định, nguyên tắc",
@@ -1155,7 +1155,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thích lập kế hoạch trước ",
@@ -1171,7 +1171,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn cảm thấy thoải mái khi công việc theo lịch trình ",
@@ -1187,7 +1187,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn hay hoàn thành mọi việc sớm ",
@@ -1203,7 +1203,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn không thích thay đổi kế hoạch đột ngột",
@@ -1219,7 +1219,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thích có danh sách “to -do”",
@@ -1235,7 +1235,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn cảm thấy hài lòng khi hoàn thành nhiệm vụ",
@@ -1251,7 +1251,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thường lên kế hoạch kỹ cho việc học ",
@@ -1267,7 +1267,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn có xu hướng đánh giá nhanh tình huống",
@@ -1283,7 +1283,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thấy mệt khi phải thay đổi liên tục",
@@ -1299,7 +1299,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thích làm việc từng bước cụ thể ",
@@ -1315,7 +1315,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thấy vui khi mọi thứ rõ ràng",
@@ -1331,7 +1331,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn lên kế hoạch trước cho cả kỳ nghỉ ",
@@ -1347,7 +1347,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn thường kết thúc công việc trước thời hạn ",
@@ -1363,7 +1363,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn chọn cách ổn định lâu dài",
@@ -1379,7 +1379,7 @@ public class DataGenerator
             new Question(){
                 Id = temp++,
                 Type = TestMethod.MBTI,
-                Detail = "?",
+                Detail = "",
                 Options = new List<Option>(){
                     new Option(){
                         Detail = @"Bạn muốn kiểm soát mọi việc ",
