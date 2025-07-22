@@ -26,6 +26,7 @@ namespace SPTS_Writer.Services
 
         public async Task AddHistoryAsync(History test)
         {
+            test.Id = new Guid();
             await _historyRepository.AddAsync(test);
             await _historyRepository.SaveChangesAsync();
         }

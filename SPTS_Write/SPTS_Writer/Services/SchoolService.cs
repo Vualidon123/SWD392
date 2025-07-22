@@ -19,15 +19,16 @@ namespace SPTS_Writer.Services
             return await _schoolRepository.GetAllAsync();
         }
 
-        public async Task AddTestAsync(School test)
+        public async Task AddTestAsync(School school)
         {
-            await _schoolRepository.AddAsync(test);
+            school.Id = new Guid();
+            await _schoolRepository.AddAsync(school);
             await _schoolRepository.SaveChangesAsync();
         }
 
-        public async Task UpdateTestAsync(School test)
+        public async Task UpdateTestAsync(School school)
         {
-            await _schoolRepository.UpdateAsync(test.Id.ToString(), test);
+            await _schoolRepository.UpdateAsync(school.Id.ToString(), school);
             await _schoolRepository.SaveChangesAsync();
         }
         public async Task DeleteTestAsync(string id)
