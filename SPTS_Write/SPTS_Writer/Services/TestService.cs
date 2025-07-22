@@ -6,18 +6,25 @@ namespace SPTS_Writer.Services
 {
     public class TestService : ITestService
     {
-        private readonly IRepository<Test> _testRepository;
-        public TestService(IRepository<Test> testRepository)
+        private readonly ITestRepository _testRepository;
+        private readonly IQuestionRepository _questionRepository;
+
+        public TestService(ITestRepository testRepository, IQuestionRepository questionRepository)
         {
             _testRepository = testRepository;
+            _questionRepository = questionRepository;
         }
+
         public async Task<Test?> GetTestByIdAsync(string id)
         {
             return await _testRepository.GetByIdAsync(id);
         }
+
         public async Task<IEnumerable<Test>> GetAllTestsAsync()
         {
-            return await _testRepository.GetAllAsync();
+            var tests = await _testRepository.GetAllAsync();
+            tests = tests.Where(test => test.IsRandomized == false);
+            return tests;
         }
 
         public async Task AddTestAsync(Test test)
@@ -43,5 +50,23 @@ namespace SPTS_Writer.Services
             return await _testRepository.CountAsync();
         }
 
+        public async Task<Test> GenerateRandomTestAsync(TestMethod method, int amount, string userId)
+        {
+            List<Question> allQuestions = await _questionRepository.GetRandomQuestionsAsync(method, amount);
+            var test = new Test()
+            {
+                Id = Guid.NewGuid(), // Assuming Base has Id
+                Method = method,
+                Author = $"{userId}",
+                TestDate = DateTime.Now,
+                NumberOfQuestions = allQuestions.Count(),
+                Questions = allQuestions,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                IsRandomized = true,
+            };
+            await _testRepository.AddAsync(test);
+            return test;
+        }
     }
 }

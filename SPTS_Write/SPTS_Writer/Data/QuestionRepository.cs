@@ -21,11 +21,11 @@ public class QuestionRepository : Repository<Question>, IQuestionRepository
         return newQuestion;
     }
 
-    public async Task<long> CountAsync()
+    public async Task<List<Question>> GetRandomQuestionsAsync(TestMethod method, int amount)
     {
-        return await _questions.CountDocumentsAsync(_ => true);
+        return await _questions.Aggregate()
+            .Match(b => b.Type == method)
+            .Sample(amount)
+            .ToListAsync();
     }
-
-
 }
-

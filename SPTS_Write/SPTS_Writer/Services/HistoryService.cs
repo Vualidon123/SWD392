@@ -8,10 +8,12 @@ namespace SPTS_Writer.Services
     public class HistoryService : IHistoryService
     {
         private readonly IHistoryRepository _historyRepository;
+        private readonly ITestRepository _testRepository;
 
-        public HistoryService(MongoDbContext context)
+        public HistoryService(IHistoryRepository historyRepository, ITestRepository testRepository)
         {
-            _historyRepository = new HistoryRepository(context);
+            _historyRepository = historyRepository;
+            _testRepository = testRepository;
         }
 
         public async Task<History?> GetHistoryByIdAsync(string id)

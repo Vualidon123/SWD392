@@ -7,6 +7,7 @@ public class Test : Base
     public DateTime TestDate { get; set; }
     public int NumberOfQuestions { get; set; }
     public List<Question> Questions { get; set; } // why putting this private at fist?
+    public bool IsRandomized { get; set; } = false;
 }
 
 public enum TestMethod

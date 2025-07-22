@@ -7,6 +7,7 @@ public interface IQuestionService
     public Task<IEnumerable<Question>> GetAllQuestionsAsync();
     public Task AddQuestionAsync(Question test);
     public Task UpdateQuestionAsync(Question test);
+    public Task<List<Question>> GetRandomQuestion(TestMethod method, int amount);
 
     Task<long> CountAsync();
 

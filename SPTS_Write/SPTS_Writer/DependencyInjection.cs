@@ -26,7 +26,7 @@ public static class DependencyInjection
         services.RegisterRepositories();
         services.RegisterAuthentication();
         services.AddJwtAuthentication(configuration);
-       //Data Sync Service
+        //Data Sync Service
         services.AddScoped<TestChangePublish>();
         services.AddScoped<UsersChangePublish>();
 
@@ -57,34 +57,36 @@ public static class DependencyInjection
         services.AddScoped<UserRepository>();
         services.AddScoped<IRepository<Answer>, Repository<Answer>>();
         services.AddScoped<IRepository<Test>, Repository<Test>>();
+        services.AddScoped<ITestRepository, TestRepository>();
         services.AddScoped<IRepository<School>, Repository<School>>();
         services.AddScoped<IRepository<History>, Repository<History>>();
         services.AddScoped<IRepository<Question>, Repository<Question>>();
+        services.AddScoped<IQuestionRepository, QuestionRepository>();
+        services.AddScoped<IHistoryRepository, HistoryRepository>();
     }
 
     private static void RegisterAuthentication(this IServiceCollection services)
     {
         services.AddScoped<Authen>();
-        services.AddScoped<ITestService,TestService>();
+        services.AddScoped<ITestService, TestService>();
         services.AddScoped<SchoolService>();
-        services.AddScoped<HistoryService>();
-        services.AddScoped<QuestionService>();
+        services.AddScoped<IHistoryService, HistoryService>();
         services.AddScoped<UserService>();
-        
+
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IQuestionService, QuestionService>();
-       
-
-        services.AddScoped<IQuestionService,QuestionService>();
-        services.AddScoped<IUserService,UserService>();
-
-		services.AddScoped<INotificationRepository, NotificationRepository>();
-		services.AddScoped<INotificationService, NotificationService>();
 
 
-	}
+        services.AddScoped<IQuestionService, QuestionService>();
+        services.AddScoped<IUserService, UserService>();
 
-	private static void AddSwagger(this IServiceCollection services)
+        services.AddScoped<INotificationRepository, NotificationRepository>();
+        services.AddScoped<INotificationService, NotificationService>();
+
+
+    }
+
+    private static void AddSwagger(this IServiceCollection services)
     {
         services.AddSwaggerGen(o =>
         {
@@ -149,11 +151,11 @@ public static class DependencyInjection
     {
         services
             .AddAuthentication(options =>
-			{
-				options.DefaultScheme = "Access";            // ✅ Default for [Authorize]
-				options.DefaultChallengeScheme = "Access";   // ✅ Default challenge scheme
-			})
-			.AddJwtBearer(
+            {
+                options.DefaultScheme = "Access";            // ✅ Default for [Authorize]
+                options.DefaultChallengeScheme = "Access";   // ✅ Default challenge scheme
+            })
+            .AddJwtBearer(
                 "Access",
                 o =>
                 {

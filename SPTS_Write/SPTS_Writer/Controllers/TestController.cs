@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SPTS_Writer.Entities;
 using SPTS_Writer.Eventbus.Publishers;
@@ -13,11 +15,13 @@ namespace SPTS_Writer.Controllers
     public class TestController : ControllerBase
     {
         private readonly ITestService _testService;
-       
-        public TestController(ITestService testService )
+        private readonly IUserService _userService;
+
+        public TestController(ITestService testService, IUserService userService)
         {
             _testService = testService;
-           
+            _userService = userService;
+
         }
         [HttpGet]
         public IActionResult GetTest()
@@ -37,6 +41,18 @@ namespace SPTS_Writer.Controllers
             return Ok(test);
         }
 
+        [HttpPost("random")]
+        [Authorize(Policy = AuthorizationPolicies.Student)]
+        public async Task<IActionResult> CreateRandomTest(TestMethod method, int questionAmount)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)!.Value;
+            User? temp = await _userService.GetUserByIdAsync(userId);
+            if (temp == null)
+                return BadRequest(new { error = "Cannot get User information" });
+            Test test = await _testService.GenerateRandomTestAsync(method, questionAmount, temp.Id.ToString());
+            return Ok(test);
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddTest(Test test)
         {
@@ -45,9 +61,9 @@ namespace SPTS_Writer.Controllers
                 return BadRequest(new { error = "Test cannot be null" });
             }
             await _testService.AddTestAsync(test);
-            
+
             /*await _testView.CreateAllTestsViewAsync(); // Create the view for MBTI tests*/
-/*            await _testView.SyncTestSnapshotWithTestsAsync();*/ // Check and update the view if necessary
+            /*            await _testView.SyncTestSnapshotWithTestsAsync();*/ // Check and update the view if necessary
 
             return CreatedAtAction(nameof(GetTestById), new { id = test.Id }, test);
         }

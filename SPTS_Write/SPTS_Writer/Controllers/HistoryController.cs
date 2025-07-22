@@ -46,6 +46,8 @@ namespace SPTS_Writer.Controllers
         {
             if (submission.answers.Count == 0)
                 return BadRequest(new { error = "answers cannot be empty" });
+            if (String.IsNullOrEmpty(submission.TestID))
+                return BadRequest(new { error = "testId cannot be empty" });
             Test? test = await _testService.GetTestByIdAsync(submission.TestID);
             if (test == null)
                 return BadRequest(new { error = "Cannot find test with this ID" });
@@ -69,6 +71,7 @@ namespace SPTS_Writer.Controllers
             await _historyService.DeleteHistoryAsync(id);
             return NoContent();
         }
+
 
     }
 

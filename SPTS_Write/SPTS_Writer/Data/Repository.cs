@@ -12,40 +12,40 @@ namespace SPTS_Writer.Data
 
         public Repository(MongoDbContext context) => _collection = context.GetCollection<T>();
 
-        public async Task<T?> GetByIdAsync(string id)
+        public virtual async Task<T?> GetByIdAsync(string id)
         {
             var filter = Builders<T>.Filter.Eq("_id", id);
             return await _collection.Find(filter).FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public virtual async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _collection.Find(Builders<T>.Filter.Empty).ToListAsync();
         }
 
-        public async Task<T?> FindAsync(Expression<Func<T, bool>> predicate)
+        public virtual async Task<T?> FindAsync(Expression<Func<T, bool>> predicate)
         {
             return await _collection.Find(predicate).FirstOrDefaultAsync();
         }
 
-        public async Task AddAsync(T entity)
+        public virtual async Task AddAsync(T entity)
         {
             await _collection.InsertOneAsync(entity);
         }
 
-        public async Task UpdateAsync(string id, T entity)
+        public virtual async Task UpdateAsync(string id, T entity)
         {
             var filter = Builders<T>.Filter.Eq("_id", id);
             await _collection.ReplaceOneAsync(filter, entity);
         }
 
-        public async Task DeleteAsync(string id)
+        public virtual async Task DeleteAsync(string id)
         {
             var filter = Builders<T>.Filter.Eq("_id", id);
             await _collection.DeleteOneAsync(filter);
         }
 
-        public Task SaveChangesAsync()
+        public virtual Task SaveChangesAsync()
         {
             // MongoDB does not require explicit save changes
             return Task.CompletedTask;

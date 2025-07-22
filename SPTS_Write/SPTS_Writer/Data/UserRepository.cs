@@ -7,7 +7,8 @@ namespace SPTS_Writer.Data;
 public class UserRepository : Repository<User>, IUserRepository
 {
     private readonly IMongoCollection<User> Users;
-    public UserRepository(MongoDbContext context) : base(context) {
+    public UserRepository(MongoDbContext context) : base(context)
+    {
         Users = context.Users;
 
     }
@@ -55,8 +56,5 @@ public class UserRepository : Repository<User>, IUserRepository
         var result = await Users.UpdateOneAsync(u => u.Id == id, update);
         return result.ModifiedCount > 0;
     }
-
-    public async Task<long> CountAsync() => await Users.CountDocumentsAsync(_ => true);
-
 
 }

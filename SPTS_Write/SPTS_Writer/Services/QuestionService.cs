@@ -47,4 +47,9 @@ public class QuestionService : IQuestionService
     {
         return await _questionRepository.CountAsync();
     }
+
+    public async Task<List<Question>> GetRandomQuestion(TestMethod method, int amount)
+    {
+        return await _questionRepository.GetRandomQuestionsAsync(method, amount);
+    }
 }
