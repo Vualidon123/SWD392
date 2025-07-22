@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SPTS_Writer.Entities;
 using SPTS_Writer.Services;
 
@@ -14,12 +15,14 @@ namespace SPTS_Writer.Controllers
         {
             _schoolService = schoolService;
         }
+
         [HttpGet]
         public IActionResult GetTest()
         {
             var test = _schoolService.GetAllTestsAsync().Result;
             return Ok(test);
         }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetTestById(string id)
         {
@@ -32,6 +35,7 @@ namespace SPTS_Writer.Controllers
         }
 
         [HttpPost]
+        [Authorize(Policy = AuthorizationPolicies.Staff)]
         public async Task<IActionResult> AddTest(School test)
         {
             if (test == null)
@@ -41,7 +45,21 @@ namespace SPTS_Writer.Controllers
             await _schoolService.AddTestAsync(test);
             return CreatedAtAction(nameof(GetTestById), new { id = test.Id }, test);
         }
+
+        [HttpPut]
+        [Authorize(Policy = AuthorizationPolicies.Staff)]
+        public async Task<IActionResult> UpdateTest(School test)
+        {
+            if (test == null)
+            {
+                return BadRequest(new { error = "Test cannot be null" });
+            }
+            await _schoolService.UpdateTestAsync(test);
+            return Ok();
+        }
+
         [HttpDelete("{id}")]
+        [Authorize(Policy = AuthorizationPolicies.Staff)]
         public async Task<IActionResult> DeleteTest(string id)
         {
             if (string.IsNullOrEmpty(id))
@@ -53,4 +71,3 @@ namespace SPTS_Writer.Controllers
         }
     }
 }
-
