@@ -11,28 +11,28 @@ namespace SPTS_Writer.Services
         {
             _schoolRepository = schoolRepository;
         }
-        public async Task<School?> GetHistoryByIdAsync(string id)
+        public async Task<School?> GetSchoolByIdAsync(string id)
         {
             return await _schoolRepository.GetByIdAsync(id);
         }
-        public async Task<IEnumerable<School>> GetAllHistorysAsync()
+        public async Task<IEnumerable<School>> GetAllSchoolsAsync()
         {
             return await _schoolRepository.GetAllAsync();
         }
 
-        public async Task AddHistoryAsync(School school)
+        public async Task AddSchoolAsync(School school)
         {
             school.Id = new Guid();
             await _schoolRepository.AddAsync(school);
             await _schoolRepository.SaveChangesAsync();
         }
 
-        public async Task UpdateHistoryAsync(School school)
+        public async Task UpdateSchoolAsync(School school)
         {
             await _schoolRepository.UpdateAsync(school.Id.ToString(), school);
             await _schoolRepository.SaveChangesAsync();
         }
-        public async Task DeleteHistoryAsync(string id)
+        public async Task DeleteSchoolAsync(string id)
         {
             await _schoolRepository.DeleteAsync(id);
             await _schoolRepository.SaveChangesAsync();
