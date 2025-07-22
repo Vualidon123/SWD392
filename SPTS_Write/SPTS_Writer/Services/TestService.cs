@@ -22,6 +22,7 @@ namespace SPTS_Writer.Services
 
         public async Task AddTestAsync(Test test)
         {
+            test.Id = new Guid();
             await _testRepository.AddAsync(test);
             await _testRepository.SaveChangesAsync();
         }
